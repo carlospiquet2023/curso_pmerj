@@ -2,7 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
-  poweredBy: false,
+  poweredByHeader: false,
   output: "standalone",
 };
 
