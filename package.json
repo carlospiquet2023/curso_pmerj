@@ -6,7 +6,7 @@
   "license": "SEE LICENSE IN LICENSE",
   "repository": {
     "type": "git",
-    "url": "https://github.com/webrjpro/concurso_pmerj.git"
+    "url": "https://github.com/carlospiquet2023/curso_pmerj.git"
   },
   "scripts": {
     "dev": "next dev",
