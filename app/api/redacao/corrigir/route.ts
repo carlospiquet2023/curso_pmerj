@@ -15,6 +15,7 @@ type Correction = {
   technicalScore: number;
   strengths: string[];
   weaknesses: string[];
+  studyFocus: string[];
   actionPlan: string[];
   lineFeedback: string;
   finalMessage: string;
@@ -52,6 +53,11 @@ function fallbackCorrection(content: string, lineCount: number): Correction {
       hasConnectors ? "Conectivos aparecem, mas podem ser usados com mais estrategia." : "Faltam conectivos claros para guiar a argumentacao.",
       words.length < 180 ? "O desenvolvimento ainda esta curto para sustentar nota alta." : "O desenvolvimento precisa de argumentos mais densos."
     ],
+    studyFocus: [
+      "Estrutura da dissertacao: introducao com tese, desenvolvimento e conclusao.",
+      hasConnectors ? "Uso estrategico de conectivos entre ideias." : "Conectivos argumentativos e progressao textual.",
+      "Norma padrao: pontuacao, concordancia, regencia e clareza."
+    ],
     actionPlan: [
       "Escreva uma tese direta no primeiro paragrafo.",
       "Use dois argumentos fortes, um por paragrafo.",
@@ -79,6 +85,7 @@ function parseCorrection(raw: string, content: string, lineCount: number): Corre
       technicalScore,
       strengths: Array.isArray(parsed.strengths) ? parsed.strengths.map(String) : [],
       weaknesses: Array.isArray(parsed.weaknesses) ? parsed.weaknesses.map(String) : [],
+      studyFocus: Array.isArray(parsed.studyFocus) ? parsed.studyFocus.map(String) : [],
       actionPlan: Array.isArray(parsed.actionPlan) ? parsed.actionPlan.map(String) : [],
       lineFeedback: String(parsed.lineFeedback ?? `Texto com ${lineCount} linha(s).`),
       finalMessage: String(parsed.finalMessage ?? "Continue revisando com foco na nota maxima.")
@@ -142,7 +149,7 @@ export async function POST(request: Request) {
           {
             role: "system",
             content:
-              "Voce e uma banca rigorosa de redacao para concurso publico militar. Corrija sem pena, com nota realista, mas com orientacao construtiva. Responda apenas JSON valido."
+              "Voce e um professor de Portugues especialista em redacao para concurso publico militar e tambem atua como banca rigorosa. Corrija sem pena, com nota realista, aponte exatamente onde o aluno deve estudar mais e mantenha orientacao construtiva. Responda apenas JSON valido."
           },
           {
             role: "user",
@@ -161,7 +168,7 @@ export async function POST(request: Request) {
               texto: content,
               linhasInformadas: lineCount,
               formatoObrigatorio:
-                "JSON com score, formalScore, textualScore, technicalScore, strengths[], weaknesses[], actionPlan[], lineFeedback, finalMessage."
+                "JSON com score, formalScore, textualScore, technicalScore, strengths[], weaknesses[], studyFocus[], actionPlan[], lineFeedback, finalMessage."
             })
           }
         ]

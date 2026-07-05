@@ -1,5 +1,7 @@
 import { PrismaClient } from "@prisma/client";
 import { essayPromptSeeds } from "../lib/essay-prompts";
+import { lessonContent } from "../lib/lesson-content";
+import { seedQuestions } from "./questions-seed";
 
 const prisma = new PrismaClient();
 
@@ -304,6 +306,9 @@ async function main() {
 
   await prisma.essayPrompt.createMany({ data: essayPromptSeeds });
 
+  const subjectMap: Record<string, string> = {};
+  const topicMap: Record<string, string> = {};
+
   for (const subjectSeed of subjects) {
     const subject = await prisma.subject.create({
       data: {
@@ -317,6 +322,8 @@ async function main() {
         priorityWeight: 100
       }
     });
+
+    subjectMap[subjectSeed.slug] = subject.id;
 
     await prisma.studentSubjectProgress.create({
       data: {
@@ -341,6 +348,8 @@ async function main() {
         }
       });
 
+      topicMap[title] = topic.id;
+
       await prisma.studentTopicProgress.create({
         data: {
           userId: student.id,
@@ -353,14 +362,17 @@ async function main() {
         }
       });
 
+      const lessonText = lessonContent[title]?.aula || `Explicacao introdutoria de ${title}, em linguagem simples para aluno iniciante.`;
+      const summaryText = lessonContent[title]?.resumo || `Resumo-base para revisar ${title} com foco em prova objetiva FGV.`;
+
       const lesson = await prisma.lesson.create({
         data: {
           subjectId: subject.id,
           topicId: topic.id,
-          title: `Aula inicial: ${title}`,
+          title: `Aula: ${title}`,
           level: 1,
           durationMinutes: 30,
-          content: `Explicacao introdutoria de ${title}, em linguagem simples para aluno iniciante.`,
+          content: lessonText,
           order: 1
         }
       });
@@ -370,8 +382,8 @@ async function main() {
           subjectId: subject.id,
           topicId: topic.id,
           lessonId: lesson.id,
-          title: `Resumo de uma pagina: ${title}`,
-          content: `Resumo-base para revisar ${title} com foco em prova objetiva FGV.`,
+          title: `Resumo: ${title}`,
+          content: summaryText,
           onePage: true
         }
       });
@@ -402,6 +414,9 @@ async function main() {
       }
     }
   }
+
+  // Seed questions
+  await seedQuestions(prisma, student.id, subjectMap, topicMap, editalDoc.id);
 
   // Removidas as injeções de progresso falso, tentativas e simulados falsos.
 }

@@ -44,6 +44,7 @@ type CorrectionResult = {
   technicalScore: number;
   strengths: string[];
   weaknesses: string[];
+  studyFocus: string[];
   actionPlan: string[];
   lineFeedback: string;
   finalMessage: string;
@@ -194,7 +195,7 @@ export function EssayPractice({ rules, prompts, submissions }: EssayPracticeProp
             <>
               <div className="score-head">
                 <Trophy size={28} />
-                <span>nota real</span>
+                <span>professor de portugues</span>
                 <strong>{result.score}</strong>
                 <small>
                   {result.provider === "groq" ? "IA Groq" : "corretor local"} | {result.model}
@@ -227,15 +228,16 @@ export function EssayPractice({ rules, prompts, submissions }: EssayPracticeProp
 
               <CorrectionList title="Pontos fortes" items={result.strengths} />
               <CorrectionList title="Pontos fracos" items={result.weaknesses} />
+              <CorrectionList title="Onde estudar mais" items={result.studyFocus ?? []} />
               <CorrectionList title="Plano para subir nota" items={result.actionPlan} />
             </>
           ) : (
             <div className="empty-correction">
               <Target size={34} />
-              <h2>Correcao rigorosa</h2>
+              <h2>Professor de Portugues</h2>
               <p>
-                A nota considera norma formal, estrutura textual e conteudo argumentativo. O objetivo e mostrar onde
-                ganhar ponto ate chegar ao desempenho maximo.
+                A correcao considera norma formal, estrutura textual e conteudo argumentativo para mostrar onde
+                estudar mais e como ganhar ponto ate chegar ao desempenho maximo.
               </p>
             </div>
           )}

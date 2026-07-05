@@ -1,21 +1,41 @@
 services:
+  db:
+    image: postgres:15-alpine
+    container_name: pmerj-postgres
+    environment:
+      POSTGRES_USER: pmerj_user
+      POSTGRES_PASSWORD: super_senha_segura
+      POSTGRES_DB: pmerj_db
+    ports:
+      - "5444:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U pmerj_user -d pmerj_db"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
   app:
     build:
       context: .
       dockerfile: Dockerfile
     container_name: pmerj-aprovacao-inteligente
+    depends_on:
+      db:
+        condition: service_healthy
     environment:
-      DATABASE_URL: "file:/app/data/dev.db"
+      DATABASE_URL: "postgresql://pmerj_user:super_senha_segura@db:5432/pmerj_db?schema=public"
+      JWT_SECRET: "${JWT_SECRET:-}"
       ADMIN_TOKEN: "${ADMIN_TOKEN:-}"
       GROQ_API_KEY: "${GROQ_API_KEY:-}"
-      GROQ_MODEL: "${GROQ_MODEL:-openai/gpt-oss-120b}"
+      GROQ_MODEL: "${GROQ_MODEL:-llama-3.3-70b-versatile}"
       NEXT_TELEMETRY_DISABLED: "1"
       NODE_ENV: "production"
     ports:
       - "3000:3000"
-    volumes:
-      - pmerj_data:/app/data
     restart: unless-stopped
 
 volumes:
-  pmerj_data:
+  postgres_data:

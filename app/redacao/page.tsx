@@ -12,10 +12,10 @@ export default async function RedacaoPage() {
       <section className="section-header">
         <div>
           <span className="eyebrow">Redacao PMERJ</span>
-          <h1>Treino discursivo-argumentativo</h1>
+          <h1>Professor de Portugues para redacao</h1>
           <p>
-            Sorteie temas frequentes de concurso publico, escreva dentro da quantidade oficial de linhas e receba
-            correcao objetiva para perseguir a nota maxima.
+            Sorteie temas frequentes de concurso publico, escreva dentro da quantidade oficial de linhas e receba uma
+            analise objetiva da IA assumindo o papel de professor de Portugues.
           </p>
         </div>
       </section>
