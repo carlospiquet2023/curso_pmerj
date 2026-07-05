@@ -241,29 +241,29 @@ async function main() {
 
   const student = await prisma.user.create({
     data: {
-      name: "Aluno Demonstracao",
-      email: "aluno@pmerj.local",
+      name: "Carlos Piquet",
+      email: "carlos.piquet2016@gmail.com",
       role: "STUDENT",
       profile: {
         create: {
           dailyMinutes: 120,
           beginnerMode: true,
           currentLevel: 1,
-          streakDays: 4,
-          totalStudyMinutes: 1080,
+          streakDays: 0,
+          totalStudyMinutes: 0,
           targetScore: 80
         }
       },
       generalProgress: {
         create: {
-          editalPercent: 27,
-          overallAccuracy: 61,
-          questionsDone: 84,
-          simulationsDone: 2,
-          studyMinutes: 1080,
-          pendingReviews: 7,
-          persistentWeakness: "Matematica e Direito Penal",
-          strongPoints: "Portugues e Direitos Humanos"
+          editalPercent: 0,
+          overallAccuracy: 0,
+          questionsDone: 0,
+          simulationsDone: 0,
+          studyMinutes: 0,
+          pendingReviews: 0,
+          persistentWeakness: "Ainda não identificado",
+          strongPoints: "Ainda não identificado"
         }
       }
     }
@@ -322,11 +322,11 @@ async function main() {
       data: {
         userId: student.id,
         subjectId: subject.id,
-        status: subjectSeed.status,
-        progress: subjectSeed.progress,
-        mastery: Math.max(10, subjectSeed.progress - 4),
-        accuracy: subjectSeed.accuracy,
-        questionsDone: 12 + subjectSeed.order * 4
+        status: "NAO_INICIADO",
+        progress: 0,
+        mastery: 0,
+        accuracy: 0,
+        questionsDone: 0
       }
     });
 
@@ -345,11 +345,11 @@ async function main() {
         data: {
           userId: student.id,
           topicId: topic.id,
-          status: index === 0 ? "ESTUDANDO" : index === 1 ? "REVISANDO" : "NAO_INICIADO",
-          mastery: Math.max(0, subjectSeed.progress - index * 5),
-          accuracy: Math.max(35, subjectSeed.accuracy - index * 4),
-          questionsDone: index < 2 ? 8 : 0,
-          nextReviewAt: index === 1 ? new Date(Date.now() + 24 * 60 * 60 * 1000) : null
+          status: "NAO_INICIADO",
+          mastery: 0,
+          accuracy: 0,
+          questionsDone: 0,
+          nextReviewAt: null
         }
       });
 
@@ -392,348 +392,18 @@ async function main() {
           data: {
             userId: student.id,
             topicId: childTopic.id,
-            status: childIndex === 0 && index < 2 ? "ESTUDANDO" : "NAO_INICIADO",
-            mastery: Math.max(0, subjectSeed.progress - childIndex * 7 - index * 3),
-            accuracy: Math.max(35, subjectSeed.accuracy - childIndex * 5 - index * 3),
-            questionsDone: childIndex === 0 && index < 2 ? 4 : 0,
-            nextReviewAt:
-              childIndex === 0 && index === 1 ? new Date(Date.now() + 24 * 60 * 60 * 1000) : null
+            status: "NAO_INICIADO",
+            mastery: 0,
+            accuracy: 0,
+            questionsDone: 0,
+            nextReviewAt: null
           }
         });
       }
     }
   }
 
-  const dh = await prisma.subject.findUniqueOrThrow({ where: { slug: "direitos-humanos" } });
-  const dhTopic = await prisma.edictalTopic.findFirstOrThrow({
-    where: { subjectId: dh.id, title: "Declaracao Universal dos Direitos Humanos" }
-  });
-
-  const question = await prisma.question.create({
-    data: {
-      subjectId: dh.id,
-      topicId: dhTopic.id,
-      sourceDocumentId: provaDoc.id,
-      examNumber: 21,
-      statement:
-        "A DUDH proibe tortura e tratamento cruel, desumano ou degradante. Qual ideia deve ser revisada quando o aluno aceita excecoes indevidas?",
-      difficulty: "MEDIA",
-      explanation: "A DUDH trabalha direitos basicos sem permitir tortura como meio de investigacao.",
-      correctExplanation: "A alternativa correta deve negar qualquer excecao que autorize tortura.",
-      wrongExplanation:
-        "As erradas normalmente inserem excecoes absolutas ou confundem protecao com permissao estatal.",
-      trap: "Aceitar uma excecao emocionalmente convincente quando a norma nao permite tortura.",
-      reviewConcept: "Vedacao absoluta da tortura na DUDH.",
-      options: {
-        create: [
-          { label: "A", text: "A tortura pode ser usada em situacoes excepcionais.", explanation: "Errada: cria excecao indevida." },
-          { label: "B", text: "A tortura e vedada, inclusive como metodo de investigacao.", isCorrect: true, explanation: "Certa: preserva a vedacao absoluta." },
-          { label: "C", text: "A tortura depende de autorizacao judicial.", explanation: "Errada: autorizacao judicial nao legitima tortura." },
-          { label: "D", text: "A tortura e decisao administrativa.", explanation: "Errada: nao ha margem administrativa para tortura." },
-          { label: "E", text: "A tortura e permitida contra crime hediondo.", explanation: "Errada: a gravidade do crime nao autoriza tortura." }
-        ]
-      },
-      answerKey: {
-        create: {
-          correctLabel: "B",
-          source: "Seed pedagogico baseado no edital"
-        }
-      }
-    }
-  });
-
-  const correctOption = await prisma.questionOption.findFirstOrThrow({
-    where: { questionId: question.id, label: "B" }
-  });
-
-  await prisma.studentAttempt.create({
-    data: {
-      userId: student.id,
-      questionId: question.id,
-      selectedOptionId: correctOption.id,
-      selectedLabel: "B",
-      isCorrect: true,
-      confidence: 4,
-      timeSpentSeconds: 75
-    }
-  });
-
-  const practiceSeeds = [
-    {
-      subjectSlug: "lingua-portuguesa",
-      topicTitle: "Sintaxe e oracoes",
-      examNumber: 4,
-      statement: "Na frase 'Alugamos ontem o apartamento', qual termo funciona como objeto direto?",
-      difficulty: "MEDIA" as const,
-      correctLabel: "C",
-      explanation: "O verbo alugar e transitivo direto nesse contexto; quem aluga, aluga algo.",
-      correctExplanation: "'O apartamento' completa o sentido do verbo sem preposicao.",
-      wrongExplanation: "As demais opcoes confundem sujeito, adjunto adverbial ou complemento preposicionado.",
-      trap: "A banca usa frases curtas para testar funcao sintatica sem avisar a transitividade do verbo.",
-      reviewConcept: "Objeto direto e complemento verbal sem preposicao obrigatoria.",
-      options: [
-        ["A", "Na frase, o objeto direto e 'ontem'.", false, "Errada: 'ontem' indica tempo."],
-        ["B", "Na frase, o objeto direto e o sujeito oculto 'nos'.", false, "Errada: sujeito nao e objeto."],
-        ["C", "Na frase, o objeto direto e 'o apartamento'.", true, "Certa: completa diretamente o verbo."],
-        ["D", "Na frase, o objeto direto e uma expressao inexistente.", false, "Errada: ha complemento expresso."],
-        ["E", "Na frase, nao ha objeto direto.", false, "Errada: o verbo pede complemento."]
-      ]
-    },
-    {
-      subjectSlug: "matematica-basica",
-      topicTitle: "Razao, proporcao, regra de tres e porcentagem",
-      examNumber: 17,
-      statement: "Um produto foi comprado com 15% de desconto e o valor pago foi R$ 221,00. Qual foi o desconto?",
-      difficulty: "MEDIA" as const,
-      correctLabel: "A",
-      explanation: "Se R$ 221,00 corresponde a 85% do preco original, o preco original e 260; o desconto e 39.",
-      correctExplanation: "15% de 260 e R$ 39,00.",
-      wrongExplanation: "As erradas costumam calcular 15% sobre o valor ja descontado, nao sobre o preco original.",
-      trap: "Usar 221 como base do desconto, quando ele e o valor final.",
-      reviewConcept: "Porcentagem com valor final apos desconto.",
-      options: [
-        ["A", "R$ 39,00", true, "Certa: 221 / 0,85 = 260; 15% de 260 = 39."],
-        ["B", "R$ 38,50", false, "Errada: arredondamento sem base correta."],
-        ["C", "R$ 35,60", false, "Errada: nao corresponde a 15% do preco original."],
-        ["D", "R$ 33,15", false, "Errada: calcula 15% sobre 221."],
-        ["E", "R$ 32,10", false, "Errada: valor sem relacao correta com a taxa."]
-      ]
-    },
-    {
-      subjectSlug: "direito-administrativo-pmerj",
-      topicTitle: "Principios do Direito Administrativo",
-      examNumber: 31,
-      statement: "Publicidade institucional com carater educativo e sem promocao pessoal realiza qual principio administrativo?",
-      difficulty: "FACIL" as const,
-      correctLabel: "B",
-      explanation: "A impessoalidade impede que agentes usem atos ou obras publicas para autopromocao.",
-      correctExplanation: "O foco deve ser a finalidade publica, nao o agente politico.",
-      wrongExplanation: "As erradas citam principios relevantes, mas que nao atacam diretamente promocao pessoal.",
-      trap: "Confundir publicidade administrativa com o principio da publicidade.",
-      reviewConcept: "Principio da impessoalidade em publicidade institucional.",
-      options: [
-        ["A", "Proporcionalidade", false, "Errada: nao e o centro da situacao."],
-        ["B", "Impessoalidade", true, "Certa: veda promocao pessoal."],
-        ["C", "Continuidade", false, "Errada: trata da permanencia do servico publico."],
-        ["D", "Juridicidade", false, "Errada: e mais ampla, mas nao especifica."],
-        ["E", "Legalidade", false, "Errada: nao e a melhor resposta para o caso."]
-      ]
-    },
-    {
-      subjectSlug: "direito-penal-processual-penal",
-      topicTitle: "Penas, acao penal e parte especial",
-      examNumber: 41,
-      statement: "Cumprimento de pena em colonia agricola indica, em regra, qual regime?",
-      difficulty: "FACIL" as const,
-      correctLabel: "A",
-      explanation: "A colonia agricola, industrial ou estabelecimento similar e associada ao regime semiaberto.",
-      correctExplanation: "No regime semiaberto, o trabalho externo e admissivel conforme regras legais.",
-      wrongExplanation: "As erradas confundem colonia agricola com regime fechado ou aberto.",
-      trap: "Associar qualquer estabelecimento prisional ao regime fechado.",
-      reviewConcept: "Regimes de cumprimento de pena.",
-      options: [
-        ["A", "Semiaberto, com trabalho externo admissivel.", true, "Certa: corresponde ao regime semiaberto."],
-        ["B", "Semiaberto, com trabalho externo proibido.", false, "Errada: o trabalho externo pode ser admitido."],
-        ["C", "Fechado, com trabalho externo admissivel.", false, "Errada: colonia agricola nao e regime fechado."],
-        ["D", "Aberto, com trabalho externo admissivel.", false, "Errada: regime aberto tem outra logica."],
-        ["E", "Aberto, com trabalho externo proibido.", false, "Errada: mistura conceitos."]
-      ]
-    },
-    {
-      subjectSlug: "direito-penal-processual-penal",
-      topicTitle: "Provas, prisao e medidas cautelares",
-      examNumber: 48,
-      statement: "Policiais presenciam o agente praticando o crime e o prendem no momento da execucao. Qual flagrante ocorreu?",
-      difficulty: "MEDIA" as const,
-      correctLabel: "E",
-      explanation: "Quando o agente e surpreendido cometendo a infracao, trata-se de flagrante proprio.",
-      correctExplanation: "O flagrante proprio ocorre durante a pratica ou logo apos a pratica do crime.",
-      wrongExplanation: "As erradas confundem flagrante esperado, preparado, presumido e improprio.",
-      trap: "Confundir flagrante esperado com flagrante proprio quando a prisao ocorre durante o crime.",
-      reviewConcept: "Especies de flagrante no CPP.",
-      options: [
-        ["A", "Presumido", false, "Errada: envolve ser encontrado depois com objetos ou sinais."],
-        ["B", "Preparado", false, "Errada: envolve inducao e pode gerar crime impossivel."],
-        ["C", "Improprio", false, "Errada: envolve perseguicao logo apos."],
-        ["D", "Esperado", false, "Errada: pode haver vigilancia, mas a classificacao do caso e proprio."],
-        ["E", "Proprio", true, "Certa: o agente foi visto praticando o crime."]
-      ]
-    }
-  ];
-
-  for (const seed of practiceSeeds) {
-    const subject = await prisma.subject.findUniqueOrThrow({ where: { slug: seed.subjectSlug } });
-    const topic = await prisma.edictalTopic.findFirstOrThrow({
-      where: { subjectId: subject.id, title: seed.topicTitle }
-    });
-
-    await prisma.question.create({
-      data: {
-        subjectId: subject.id,
-        topicId: topic.id,
-        sourceDocumentId: provaDoc.id,
-        examNumber: seed.examNumber,
-        statement: seed.statement,
-        difficulty: seed.difficulty,
-        explanation: seed.explanation,
-        correctExplanation: seed.correctExplanation,
-        wrongExplanation: seed.wrongExplanation,
-        trap: seed.trap,
-        reviewConcept: seed.reviewConcept,
-        options: {
-          create: seed.options.map(([label, text, isCorrect, explanation]) => ({
-            label: String(label),
-            text: String(text),
-            isCorrect: Boolean(isCorrect),
-            explanation: String(explanation)
-          }))
-        },
-        answerKey: {
-          create: {
-            correctLabel: seed.correctLabel,
-            source: "Gabarito definitivo tipo 1"
-          }
-        }
-      }
-    });
-  }
-
-  const mathErrorQuestion = await prisma.question.findFirstOrThrow({
-    where: { examNumber: 17 },
-    include: { options: true, subject: true, topic: true }
-  });
-  const wrongMathOption = mathErrorQuestion.options.find((option) => !option.isCorrect) ?? mathErrorQuestion.options[0];
-  const mathAttempt = await prisma.studentAttempt.create({
-    data: {
-      userId: student.id,
-      questionId: mathErrorQuestion.id,
-      selectedOptionId: wrongMathOption.id,
-      selectedLabel: wrongMathOption.label,
-      isCorrect: false,
-      confidence: 2,
-      timeSpentSeconds: 120
-    }
-  });
-  const mathError = await prisma.errorNotebookEntry.create({
-    data: {
-      userId: student.id,
-      questionId: mathErrorQuestion.id,
-      subjectId: mathErrorQuestion.subjectId,
-      topicId: mathErrorQuestion.topicId,
-      attemptId: mathAttempt.id,
-      reason: "CALCULO",
-      contentGap: true,
-      attentionGap: false,
-      trapFall: true,
-      simplifiedExplanation: "O erro foi usar o valor ja com desconto como base. Em desconto, a base correta e o preco original.",
-      nextReviewAt: new Date(Date.now() + 24 * 60 * 60 * 1000)
-    }
-  });
-  const mathFlashcard = await prisma.flashcard.create({
-    data: {
-      userId: student.id,
-      subjectId: mathErrorQuestion.subjectId,
-      topicId: mathErrorQuestion.topicId,
-      questionId: mathErrorQuestion.id,
-      errorEntryId: mathError.id,
-      front: "Em uma questao de desconto, qual valor deve ser usado como base?",
-      back: "A base e o preco original. Se o valor pago e 85%, divida o valor pago por 0,85 para achar o original.",
-      difficulty: "MEDIA",
-      nextReviewAt: new Date(Date.now() + 24 * 60 * 60 * 1000),
-      source: "erro-seed"
-    }
-  });
-  await prisma.reviewSchedule.create({
-    data: {
-      userId: student.id,
-      subjectId: mathErrorQuestion.subjectId,
-      topicId: mathErrorQuestion.topicId,
-      flashcardId: mathFlashcard.id,
-      type: "ERRO",
-      scheduledFor: new Date(Date.now() + 24 * 60 * 60 * 1000)
-    }
-  });
-
-  const allQuestions = await prisma.question.findMany({
-    orderBy: [{ subject: { order: "asc" } }, { examNumber: "asc" }]
-  });
-
-  const simulation = await prisma.simulation.create({
-    data: {
-      title: "Simulado diagnostico FGV - base inicial",
-      type: "COMPLETO",
-      timeLimitMinutes: 240,
-      totalQuestions: allQuestions.length,
-      questions: {
-        create: allQuestions.map((item, index) => ({
-          questionId: item.id,
-          order: index + 1
-        }))
-      }
-    }
-  });
-
-  await prisma.simulationResult.create({
-    data: {
-      userId: student.id,
-      simulationId: simulation.id,
-      completedAt: new Date(),
-      score: 62,
-      correctCount: 3,
-      wrongCount: Math.max(0, allQuestions.length - 3),
-      timeSpentSeconds: 58 * 60,
-      diagnosis: "Base inicial aprovada, mas Matematica e Penal ainda precisam de reforco.",
-      nextSevenDaysPlan:
-        "Dia 1: revisar erros. Dia 2: porcentagem. Dia 3: DUDH. Dia 4: atos administrativos. Dia 5: regimes de pena. Dia 6: questoes mistas. Dia 7: novo simulado curto."
-    }
-  });
-
-  const firstSubject = await prisma.subject.findUniqueOrThrow({ where: { slug: "lingua-portuguesa" } });
-  const firstTopic = await prisma.edictalTopic.findFirstOrThrow({ where: { subjectId: firstSubject.id } });
-
-  await prisma.flashcard.create({
-    data: {
-      userId: student.id,
-      subjectId: firstSubject.id,
-      topicId: firstTopic.id,
-      front: "Quando ocorre crase?",
-      back: "Quando ha encontro da preposicao 'a' com artigo 'a' ou pronome iniciado por 'a', respeitando regencia e termo feminino.",
-      difficulty: "MEDIA",
-      nextReviewAt: new Date(Date.now() + 24 * 60 * 60 * 1000),
-      source: "seed"
-    }
-  });
-
-  await prisma.studyPlan.create({
-    data: {
-      userId: student.id,
-      title: "Ciclo inicial de 7 dias",
-      startDate: new Date(),
-      endDate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
-      tasks: {
-        create: [
-          {
-            subjectId: firstSubject.id,
-            topicId: firstTopic.id,
-            type: "REVISAO",
-            title: "Revisar crase e interpretacao",
-            rationale: "Portugues e criterio de desempate e precisa ficar forte.",
-            scheduledFor: new Date(),
-            durationMinutes: 40
-          },
-          {
-            subjectId: dh.id,
-            topicId: dhTopic.id,
-            type: "QUESTOES",
-            title: "Resolver questoes de DUDH",
-            rationale: "Direitos Humanos apareceu com literalidade e situacoes praticas.",
-            scheduledFor: new Date(),
-            durationMinutes: 35
-          }
-        ]
-      }
-    }
-  });
+  // Removidas as injeções de progresso falso, tentativas e simulados falsos.
 }
 
 main()

@@ -1,6 +1,6 @@
 import { prisma } from "@/lib/prisma";
 
-const demoEmail = "aluno@pmerj.local";
+const demoEmail = "carlos.piquet2016@gmail.com";
 
 function minutesToHours(minutes: number) {
   const hours = Math.floor(minutes / 60);
