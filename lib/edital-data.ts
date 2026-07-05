@@ -12,8 +12,7 @@ import {
   RefreshCcw,
   Route,
   ShieldCheck,
-  Trophy,
-  Users
+  Trophy
 } from "lucide-react";
 
 export type TopicStatus = "nao-iniciado" | "estudando" | "revisando" | "dominado";
@@ -42,8 +41,7 @@ export const navItems = [
   { href: "/revisoes", label: "Revisões", icon: RefreshCcw },
   { href: "/professores", label: "Professores", icon: Presentation },
   { href: "/plano", label: "Plano", icon: Route },
-  { href: "/simulados", label: "Simulados", icon: ClipboardList },
-  { href: "/admin", label: "Admin", icon: Users }
+  { href: "/simulados", label: "Simulados", icon: ClipboardList }
 ];
 
 export const subjects: Subject[] = [

@@ -2,10 +2,20 @@ import { BookOpen, Database, FileQuestion, Settings, Users } from "lucide-react"
 import { AdminConsole } from "@/components/admin-console";
 import { MetricCard } from "@/components/metric-card";
 import { getAdminDashboard } from "@/lib/admin";
+import { getCurrentUser } from "@/lib/auth";
+import { redirect } from "next/navigation";
 
 export const dynamic = "force-dynamic";
 
 export default async function AdminPage() {
+  const user = await getCurrentUser();
+  if (!user) {
+    redirect("/login");
+  }
+  if (user.role !== "ADMIN") {
+    redirect("/aluno");
+  }
+
   const dashboard = await getAdminDashboard();
 
   return (

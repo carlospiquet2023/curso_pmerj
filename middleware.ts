@@ -12,7 +12,8 @@ const protectedRoutes = [
   "/revisoes",
   "/professores",
   "/plano",
-  "/simulados"
+  "/simulados",
+  "/admin"
 ];
 
 const publicRoutes = ["/login", "/cadastro", "/"];

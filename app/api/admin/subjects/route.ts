@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { requireAdminApi } from "@/lib/admin-guard";
 import { prisma } from "@/lib/prisma";
 import { errorResponse, getClientIp, rateLimiter, sanitizeText, LIMITS } from "@/lib/security";
 
@@ -12,6 +13,9 @@ function slugify(value: string) {
 }
 
 export async function POST(request: Request) {
+  const adminError = await requireAdminApi();
+  if (adminError) return adminError;
+
   const ip = getClientIp(request);
   if (!rateLimiter(ip, "admin_subjects", LIMITS.MAX_REQUESTS_PER_MINUTE_DEFAULT)) {
     return errorResponse("Too many requests", 429);
