@@ -1,3 +1,4 @@
+import React from "react";
 import {
   BookOpen,
   Brain,
@@ -32,7 +33,7 @@ export type Subject = {
 };
 
 export const navItems = [
-  { href: "/", label: "Início", icon: ({ size = 20 }: { size?: number | string }) => <img src="https://i.imgur.com/bUmZwYh.png" alt="Início" style={{ width: size, height: size, objectFit: 'contain' }} /> },
+  { href: "/", label: "Início", icon: ({ size = 20 }: { size?: number | string }) => React.createElement("img", { src: "https://i.imgur.com/bUmZwYh.png", alt: "Início", style: { width: size, height: size, objectFit: 'contain' } }) },
   { href: "/aluno", label: "Aluno", icon: LayoutDashboard },
   { href: "/desempenho", label: "Desempenho", icon: BarChart3 },
   { href: "/disciplinas", label: "Edital", icon: BookOpen },
