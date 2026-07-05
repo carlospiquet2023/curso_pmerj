@@ -101,28 +101,112 @@ select {
   font-size: 0.78rem;
 }
 
-.nav-list {
-  display: flex;
-  gap: 8px;
+.menu-button {
+  background: transparent;
+  border: none;
+  color: var(--ink);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  padding: 8px;
+  margin-left: -8px;
+  border-radius: 6px;
+  transition: background 0.2s;
 }
 
-.nav-link {
+.menu-button:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.drawer-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(12, 23, 18, 0.4);
+  backdrop-filter: blur(2px);
+  z-index: 100;
+  animation: fadeIn 0.2s ease-out;
+}
+
+.drawer-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 280px;
+  background: var(--surface);
+  box-shadow: 4px 0 24px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  animation: slideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.drawer-header {
   display: flex;
   align-items: center;
-  gap: 8px;
-  min-height: 42px;
-  padding: 0 16px;
+  gap: 12px;
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--line);
+}
+
+.drawer-header strong {
+  flex: 1;
+  font-size: 1.1rem;
+}
+
+.close-button {
+  background: transparent;
+  border: none;
   color: var(--muted);
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+}
+
+.close-button:hover {
+  background: rgba(0, 0, 0, 0.05);
+  color: var(--ink);
+}
+
+.drawer-nav {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  gap: 4px;
+  overflow-y: auto;
+}
+
+.drawer-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  color: var(--ink);
   font-weight: 600;
-  font-size: 0.95rem;
-  border-radius: 6px;
+  border-radius: 8px;
   transition: all 0.2s;
 }
 
-.nav-link:hover,
-.nav-link.active {
+.drawer-link:hover {
+  background: rgba(0, 0, 0, 0.03);
+}
+
+.drawer-link.active {
   color: var(--green);
-  background: rgba(32, 80, 63, 0.05);
+  background: rgba(32, 80, 63, 0.06);
+}
+
+@keyframes slideIn {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@media (max-width: 600px) {
+  .brand-text { display: none; }
 }
 
 .shell-main {
