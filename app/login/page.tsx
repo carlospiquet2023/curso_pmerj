@@ -13,7 +13,7 @@ export default function LoginPage() {
       <div className="auth-container">
         <div className="auth-header">
           <span className="brand-mark">
-            <img src="https://i.imgur.com/bUmZwYh.png" alt="Logo" style={{ width: 28, height: 28, objectFit: 'contain' }} />
+            <img src="https://i.imgur.com/bUmZwYh.png" alt="Logo" style={{ width: 48, height: 48, objectFit: 'contain' }} />
           </span>
           <h1>Acessar Plataforma</h1>
           <p>Entre com seu e-mail e senha para continuar estudando.</p>

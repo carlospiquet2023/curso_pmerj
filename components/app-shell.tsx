@@ -63,7 +63,7 @@ export function AppShell({ children }: { children: ReactNode }) {
           
           <Link href="/" className="brand">
             <span className="brand-mark">
-              <img src="https://i.imgur.com/bUmZwYh.png" alt="Logo" style={{ width: 22, height: 22, objectFit: 'contain' }} />
+              <img src="https://i.imgur.com/bUmZwYh.png" alt="Logo" style={{ width: 40, height: 40, objectFit: 'contain' }} />
             </span>
             <span className="brand-text">
               <strong>PMERJ</strong>
@@ -106,7 +106,7 @@ export function AppShell({ children }: { children: ReactNode }) {
           <div className="drawer-content" onClick={(e) => e.stopPropagation()}>
             <div className="drawer-header">
               <span className="brand-mark" style={{ width: 32, height: 32 }}>
-                <img src="https://i.imgur.com/bUmZwYh.png" alt="Logo" style={{ width: 18, height: 18, objectFit: 'contain' }} />
+                <img src="https://i.imgur.com/bUmZwYh.png" alt="Logo" style={{ width: 28, height: 28, objectFit: 'contain' }} />
               </span>
               <strong>Menu</strong>
               <button className="close-button" onClick={() => setIsMenuOpen(false)}>
