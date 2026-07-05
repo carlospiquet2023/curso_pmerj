@@ -12,7 +12,8 @@ import {
   RefreshCcw,
   Route,
   ShieldCheck,
-  Trophy
+  Trophy,
+  Video
 } from "lucide-react";
 
 export type TopicStatus = "nao-iniciado" | "estudando" | "revisando" | "dominado";
@@ -31,7 +32,7 @@ export type Subject = {
 };
 
 export const navItems = [
-  { href: "/", label: "Início", icon: ShieldCheck },
+  { href: "/", label: "Início", icon: ({ size = 20 }: { size?: number | string }) => <img src="https://i.imgur.com/bUmZwYh.png" alt="Início" style={{ width: size, height: size, objectFit: 'contain' }} /> },
   { href: "/aluno", label: "Aluno", icon: LayoutDashboard },
   { href: "/desempenho", label: "Desempenho", icon: BarChart3 },
   { href: "/disciplinas", label: "Edital", icon: BookOpen },
@@ -41,7 +42,8 @@ export const navItems = [
   { href: "/revisoes", label: "Revisões", icon: RefreshCcw },
   { href: "/professores", label: "Professores", icon: Presentation },
   { href: "/plano", label: "Plano", icon: Route },
-  { href: "/simulados", label: "Simulados", icon: ClipboardList }
+  { href: "/simulados", label: "Simulados", icon: ClipboardList },
+  { href: "/videos", label: "Vídeos", icon: Video }
 ];
 
 export const subjects: Subject[] = [

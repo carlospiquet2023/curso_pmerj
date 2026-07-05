@@ -20,6 +20,7 @@ export function AppShell({ children }: { children: ReactNode }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [userEmail, setUserEmail] = useState("");
+  const [userName, setUserName] = useState("");
 
   // Check auth state on mount by reading cookie or making a tiny fetch
   // A simple way since it's client side: check if cookie 'session' exists (if not HttpOnly, wait, it is HttpOnly).
@@ -30,9 +31,14 @@ export function AppShell({ children }: { children: ReactNode }) {
       if (data.user) {
         setIsAuthenticated(true);
         setUserEmail(data.user.email);
+        setUserName(data.user.name || "");
+      } else {
+        setIsAuthenticated(false);
+        setUserEmail("");
+        setUserName("");
       }
     }).catch(() => {});
-  }, []);
+  }, [pathname]);
 
   if (pathname.startsWith("/admin")) {
     return <main>{children}</main>;
@@ -57,7 +63,7 @@ export function AppShell({ children }: { children: ReactNode }) {
           
           <Link href="/" className="brand">
             <span className="brand-mark">
-              <ShieldCheck size={22} />
+              <img src="https://i.imgur.com/bUmZwYh.png" alt="Logo" style={{ width: 22, height: 22, objectFit: 'contain' }} />
             </span>
             <span className="brand-text">
               <strong>PMERJ</strong>
@@ -72,7 +78,7 @@ export function AppShell({ children }: { children: ReactNode }) {
               <>
                 <Link className="secondary-action" href="/aluno" style={{ minHeight: '38px', borderRadius: '6px' }}>
                   <User size={16} style={{ marginRight: '8px' }} />
-                  Meu Painel
+                  {userName ? userName.split(' ')[0] : 'Meu Painel'}
                 </Link>
                 <form action={logoutAction}>
                   <button type="submit" className="menu-button" title="Sair">
@@ -100,7 +106,7 @@ export function AppShell({ children }: { children: ReactNode }) {
           <div className="drawer-content" onClick={(e) => e.stopPropagation()}>
             <div className="drawer-header">
               <span className="brand-mark" style={{ width: 32, height: 32 }}>
-                <ShieldCheck size={18} />
+                <img src="https://i.imgur.com/bUmZwYh.png" alt="Logo" style={{ width: 18, height: 18, objectFit: 'contain' }} />
               </span>
               <strong>Menu</strong>
               <button className="close-button" onClick={() => setIsMenuOpen(false)}>

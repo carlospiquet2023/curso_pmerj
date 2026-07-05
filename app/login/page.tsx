@@ -13,7 +13,7 @@ export default function LoginPage() {
       <div className="auth-container">
         <div className="auth-header">
           <span className="brand-mark">
-            <ShieldCheck size={28} />
+            <img src="https://i.imgur.com/bUmZwYh.png" alt="Logo" style={{ width: 28, height: 28, objectFit: 'contain' }} />
           </span>
           <h1>Acessar Plataforma</h1>
           <p>Entre com seu e-mail e senha para continuar estudando.</p>

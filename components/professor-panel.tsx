@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useTransition } from "react";
-import { Brain, Loader2 } from "lucide-react";
+import { Brain, Loader2, X } from "lucide-react";
 
 type Professor = {
   id: string;
@@ -114,19 +114,26 @@ export function ProfessorPanel({ professors }: { professors: Professor[] }) {
         </section>
 
         {explanation ? (
-          <article className="teacher-explanation">
-            <h2>Explicação guiada</h2>
-            <p><strong>Explicação simples:</strong> {explanation.simple}</p>
-            <p><strong>Exemplo prático:</strong> {explanation.practicalExample}</p>
-            <p><strong>Analogia:</strong> {explanation.analogy}</p>
-            <p><strong>Como a banca cobra:</strong> {explanation.howBankCharges}</p>
-            <p><strong>Resumo de memorização:</strong> {explanation.memorySummary}</p>
-            <div className="tag-row">
-              {explanation.traps.map((trap) => (
-                <span className="tag tag-danger" key={trap}>{trap}</span>
-              ))}
+          <div className="modal-overlay" onClick={() => setExplanation(null)}>
+            <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+              <button className="modal-close" onClick={() => setExplanation(null)} title="Fechar">
+                <X size={20} />
+              </button>
+              <article className="teacher-explanation" style={{ margin: 0, padding: 0, border: 'none', background: 'transparent' }}>
+                <h2 style={{ paddingRight: '24px' }}>Explicação guiada</h2>
+                <p><strong>Explicação simples:</strong> {explanation.simple}</p>
+                <p><strong>Exemplo prático:</strong> {explanation.practicalExample}</p>
+                <p><strong>Analogia:</strong> {explanation.analogy}</p>
+                <p><strong>Como a banca cobra:</strong> {explanation.howBankCharges}</p>
+                <p><strong>Resumo de memorização:</strong> {explanation.memorySummary}</p>
+                <div className="tag-row">
+                  {explanation.traps.map((trap) => (
+                    <span className="tag tag-danger" key={trap}>{trap}</span>
+                  ))}
+                </div>
+              </article>
             </div>
-          </article>
+          </div>
         ) : null}
       </section>
     </div>

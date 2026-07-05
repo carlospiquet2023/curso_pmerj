@@ -13,7 +13,7 @@ export default function RegisterPage() {
       <div className="auth-container">
         <div className="auth-header">
           <span className="brand-mark">
-            <ShieldCheck size={28} />
+            <img src="https://i.imgur.com/bUmZwYh.png" alt="Logo" style={{ width: 28, height: 28, objectFit: 'contain' }} />
           </span>
           <h1>Criar Conta</h1>
           <p>Cadastre-se para iniciar a sua jornada rumo à aprovação.</p>
