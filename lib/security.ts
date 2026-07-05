@@ -92,7 +92,7 @@ export function errorResponse(message: string, status: number = 400) {
   return NextResponse.json({ error: message }, { status });
 }
 
-// Funcao para validar formato de chave Groq (ex: gsk_XXXXX)
+// Função para validar formato de chave Groq (ex: gsk_XXXXX)
 export function validateGroqKeyFormat(key?: string): boolean {
     if(!key) return false;
     return /^gsk_[A-Za-z0-9]{40,}$/.test(key);

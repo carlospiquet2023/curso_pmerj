@@ -18,7 +18,7 @@ export async function POST(request: Request) {
   };
 
   if (!body.questionId || !body.selectedOptionId) {
-    return errorResponse("Questao e alternativa sao obrigatorias.", 400);
+    return errorResponse("Questão e alternativa são obrigatórias.", 400);
   }
 
   if (!validateCuid(body.questionId) || !validateCuid(body.selectedOptionId)) {
@@ -28,7 +28,7 @@ export async function POST(request: Request) {
   const user = await prisma.user.findUnique({ where: { id: (await getCurrentUser())?.id || "" } });
 
   if (!user) {
-    return errorResponse("Aluno demonstracao nao encontrado.", 404);
+    return errorResponse("Aluno de demonstração não encontrado.", 404);
   }
 
   const question = await prisma.question.findUnique({
@@ -42,13 +42,13 @@ export async function POST(request: Request) {
   });
 
   if (!question || !question.answerKey) {
-    return NextResponse.json({ error: "Questao nao encontrada." }, { status: 404 });
+    return NextResponse.json({ error: "Questão não encontrada." }, { status: 404 });
   }
 
   const selected = question.options.find((option) => option.id === body.selectedOptionId);
 
   if (!selected) {
-    return NextResponse.json({ error: "Alternativa nao encontrada." }, { status: 404 });
+    return NextResponse.json({ error: "Alternativa não encontrada." }, { status: 404 });
   }
 
   const correctOption = question.options.find((option) => option.isCorrect);

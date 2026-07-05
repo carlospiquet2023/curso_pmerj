@@ -81,7 +81,7 @@ export function ProfessorPanel({ professors }: { professors: Professor[] }) {
 
         <section className="grid-2">
           <article className="panel">
-            <h3>Estrategia de estudo</h3>
+            <h3>Estratégia de estudo</h3>
             <p>{professor.strategy}</p>
             <ul className="clean-list">
               {professor.commonMistakes.map((item) => (
@@ -90,7 +90,7 @@ export function ProfessorPanel({ professors }: { professors: Professor[] }) {
             </ul>
           </article>
           <article className="panel">
-            <h3>Plano de evolucao</h3>
+            <h3>Plano de evolução</h3>
             <ul className="clean-list">
               {professor.evolutionPlan.map((item) => (
                 <li key={item}>{item}</li>
@@ -115,12 +115,12 @@ export function ProfessorPanel({ professors }: { professors: Professor[] }) {
 
         {explanation ? (
           <article className="teacher-explanation">
-            <h2>Explicacao guiada</h2>
-            <p><strong>Explicacao simples:</strong> {explanation.simple}</p>
-            <p><strong>Exemplo pratico:</strong> {explanation.practicalExample}</p>
+            <h2>Explicação guiada</h2>
+            <p><strong>Explicação simples:</strong> {explanation.simple}</p>
+            <p><strong>Exemplo prático:</strong> {explanation.practicalExample}</p>
             <p><strong>Analogia:</strong> {explanation.analogy}</p>
             <p><strong>Como a banca cobra:</strong> {explanation.howBankCharges}</p>
-            <p><strong>Resumo de memorizacao:</strong> {explanation.memorySummary}</p>
+            <p><strong>Resumo de memorização:</strong> {explanation.memorySummary}</p>
             <div className="tag-row">
               {explanation.traps.map((trap) => (
                 <span className="tag tag-danger" key={trap}>{trap}</span>

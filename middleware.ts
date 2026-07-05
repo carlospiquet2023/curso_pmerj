@@ -4,6 +4,7 @@ import type { NextRequest } from "next/server";
 const protectedRoutes = [
   "/aluno",
   "/desempenho",
+  "/disciplinas",
   "/edital",
   "/questoes",
   "/redacao",

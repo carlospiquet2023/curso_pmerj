@@ -23,7 +23,7 @@ export type Subject = {
   shortName: string;
   questions: number;
   points: number;
-  priority: "Alta" | "Media" | "Base";
+  priority: "Alta" | "Média" | "Base";
   progress: number;
   accuracy: number;
   status: TopicStatus;
@@ -32,14 +32,14 @@ export type Subject = {
 };
 
 export const navItems = [
-  { href: "/", label: "Inicio", icon: ShieldCheck },
+  { href: "/", label: "Início", icon: ShieldCheck },
   { href: "/aluno", label: "Aluno", icon: LayoutDashboard },
   { href: "/desempenho", label: "Desempenho", icon: BarChart3 },
   { href: "/disciplinas", label: "Edital", icon: BookOpen },
-  { href: "/questoes", label: "Questoes", icon: FileQuestion },
-  { href: "/redacao", label: "Redacao", icon: FileText },
+  { href: "/questoes", label: "Questões", icon: FileQuestion },
+  { href: "/redacao", label: "Redação", icon: FileText },
   { href: "/erros", label: "Erros", icon: NotebookPen },
-  { href: "/revisoes", label: "Revisoes", icon: RefreshCcw },
+  { href: "/revisoes", label: "Revisões", icon: RefreshCcw },
   { href: "/professores", label: "Professores", icon: Presentation },
   { href: "/plano", label: "Plano", icon: Route },
   { href: "/simulados", label: "Simulados", icon: ClipboardList },
@@ -48,43 +48,43 @@ export const navItems = [
 
 export const subjects: Subject[] = [
   {
-    name: "Lingua Portuguesa",
-    shortName: "Portugues",
+    name: "Língua Portuguesa",
+    shortName: "Português",
     questions: 10,
     points: 20,
     priority: "Alta",
     progress: 38,
     accuracy: 72,
     status: "estudando",
-    focus: "Interpretacao, sintaxe, crase, concordancia e vocabulario.",
+    focus: "Interpretação, sintaxe, crase, concordância e vocabulário.",
     topics: [
-      "Leitura e interpretacao de textos",
-      "Ortografia, sinonimos e antonimos",
+      "Leitura e interpretação de textos",
+      "Ortografia, sinônimos e antônimos",
       "Classes de palavras",
-      "Sintaxe e oracoes",
-      "Concordancia, regencia, pronomes e crase"
+      "Sintaxe e orações",
+      "Concordância, regência, pronomes e crase"
     ]
   },
   {
-    name: "Matematica Basica",
-    shortName: "Matematica",
+    name: "Matemática Básica",
+    shortName: "Matemática",
     questions: 10,
     points: 20,
     priority: "Alta",
     progress: 31,
     accuracy: 58,
     status: "estudando",
-    focus: "Situacoes-problema, porcentagem, equacoes, razao e geometria.",
+    focus: "Situações-problema, porcentagem, equações, razão e geometria.",
     topics: [
-      "Numeros inteiros, racionais e reais",
-      "Razao, proporcao, regra de tres e porcentagem",
-      "Equacao e sistema do 1o grau",
-      "Medidas, tabelas, graficos e geometria",
-      "Probabilidade e raciocinio logico"
+      "Números inteiros, racionais e reais",
+      "Razão, proporção, regra de três e porcentagem",
+      "Equação e sistema do 1º grau",
+      "Medidas, tabelas, gráficos e geometria",
+      "Probabilidade e raciocínio lógico"
     ]
   },
   {
-    name: "Nocoes de Direitos Humanos",
+    name: "Noções de Direitos Humanos",
     shortName: "Direitos Humanos",
     questions: 10,
     points: 20,
@@ -92,17 +92,17 @@ export const subjects: Subject[] = [
     progress: 26,
     accuracy: 64,
     status: "revisando",
-    focus: "DUDH, art. 5o, tratados, migracao, tortura e uso da forca.",
+    focus: "DUDH, art. 5º, tratados, migração, tortura e uso da força.",
     topics: [
-      "Declaracao Universal dos Direitos Humanos",
-      "Constituicao Federal: direitos e deveres individuais",
+      "Declaração Universal dos Direitos Humanos",
+      "Constituição Federal: direitos e deveres individuais",
       "Tratados internacionais e controle de convencionalidade",
-      "Lei de Migracao e combate a tortura",
+      "Lei de Migração e combate à tortura",
       "Uso de instrumentos de menor potencial ofensivo"
     ]
   },
   {
-    name: "Direito Administrativo e Legislacao Aplicada a PMERJ",
+    name: "Direito Administrativo e Legislação Aplicada à PMERJ",
     shortName: "Administrativo",
     questions: 10,
     points: 20,
@@ -110,13 +110,13 @@ export const subjects: Subject[] = [
     progress: 22,
     accuracy: 52,
     status: "estudando",
-    focus: "Principios, poderes, atos, agentes publicos e Estatuto PMERJ.",
+    focus: "Princípios, poderes, atos, agentes públicos e Estatuto PMERJ.",
     topics: [
-      "Principios do Direito Administrativo",
-      "Organizacao administrativa e orgaos publicos",
+      "Princípios do Direito Administrativo",
+      "Organização administrativa e órgãos públicos",
       "Poderes administrativos",
       "Atos e processo administrativo",
-      "Legislacao aplicada a PMERJ"
+      "Legislação aplicada à PMERJ"
     ]
   },
   {
@@ -128,13 +128,13 @@ export const subjects: Subject[] = [
     progress: 18,
     accuracy: 49,
     status: "nao-iniciado",
-    focus: "Parte geral, crimes em especie, inquerito, acao penal e provas.",
+    focus: "Parte geral, crimes em espécie, inquérito, ação penal e provas.",
     topics: [
-      "Aplicacao da lei penal, crime e imputabilidade",
-      "Penas, acao penal e parte especial",
-      "Legislacao penal especial",
-      "Inquerito policial e acao penal",
-      "Provas, prisao e medidas cautelares"
+      "Aplicação da lei penal, crime e imputabilidade",
+      "Penas, ação penal e parte especial",
+      "Legislação penal especial",
+      "Inquérito policial e ação penal",
+      "Provas, prisão e medidas cautelares"
     ]
   }
 ];
@@ -143,47 +143,47 @@ export const dashboardMetrics = [
   { label: "Edital estudado", value: "27%", detail: "Base inicial em andamento", tone: "green" },
   { label: "Taxa de acerto", value: "61%", detail: "Meta: superar 75%", tone: "blue" },
   { label: "Tempo estudado", value: "18h", detail: "Semana atual", tone: "gold" },
-  { label: "Revisoes pendentes", value: "7", detail: "Prioridade para hoje", tone: "red" }
+  { label: "Revisões pendentes", value: "7", detail: "Prioridade para hoje", tone: "red" }
 ];
 
 export const studyMission = [
-  "Revisar crase e objeto direto em Portugues",
-  "Resolver 15 questoes de porcentagem e proporcao",
-  "Fazer active recall de DUDH e art. 5o",
-  "Registrar erros com motivo provavel"
+  "Revisar crase e objeto direto em Português",
+  "Resolver 15 questões de porcentagem e proporção",
+  "Fazer active recall de DUDH e art. 5º",
+  "Registrar erros com motivo provável"
 ];
 
 export const foundationModules = [
   {
     title: "Mapa do edital",
-    description: "Disciplinas, topicos, status, prioridade e dominio.",
+    description: "Disciplinas, tópicos, status, prioridade e domínio.",
     href: "/disciplinas",
     icon: GraduationCap
   },
   {
-    title: "Banco de questoes",
-    description: "Questoes por materia, assunto, dificuldade e explicacao.",
+    title: "Banco de questões",
+    description: "Questões por matéria, assunto, dificuldade e explicação.",
     href: "/questoes",
     icon: FileQuestion
   },
   {
-    title: "Revisao inteligente",
+    title: "Revisão inteligente",
     description: "Flashcards e ciclos de 24h, 7 dias, 15 dias e 30 dias.",
     href: "/revisoes",
     icon: Brain
   },
   {
     title: "Simulados FGV",
-    description: "Treinos completos com diagnostico de pontos fracos.",
+    description: "Treinos completos com diagnóstico de pontos fracos.",
     href: "/simulados",
     icon: Trophy
   }
 ];
 
 export const questionBlueprint = [
-  { subject: "Lingua Portuguesa", count: 10, sample: "Interpretacao, vocabulario, sintaxe, crase." },
-  { subject: "Matematica Basica", count: 10, sample: "Media, logica, porcentagem, geometria, probabilidade." },
-  { subject: "Direitos Humanos", count: 10, sample: "DUDH, art. 5o, tratados, tortura, uso da forca." },
-  { subject: "Administrativo e PMERJ", count: 10, sample: "Principios, poderes, atos, agentes e Estatuto PMERJ." },
-  { subject: "Penal e Processo Penal", count: 10, sample: "Penas, excludentes, crimes, inquerito, flagrante e prova." }
+  { subject: "Língua Portuguesa", count: 10, sample: "Interpretação, vocabulário, sintaxe, crase." },
+  { subject: "Matemática Básica", count: 10, sample: "Média, lógica, porcentagem, geometria, probabilidade." },
+  { subject: "Direitos Humanos", count: 10, sample: "DUDH, art. 5º, tratados, tortura, uso da força." },
+  { subject: "Administrativo e PMERJ", count: 10, sample: "Princípios, poderes, atos, agentes e Estatuto PMERJ." },
+  { subject: "Penal e Processo Penal", count: 10, sample: "Penas, excludentes, crimes, inquérito, flagrante e prova." }
 ];

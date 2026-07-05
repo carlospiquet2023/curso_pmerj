@@ -1,52 +1,52 @@
 export const essayPromptSeeds = [
   {
-    title: "Cameras corporais em uniformes policiais",
-    theme: "Vantagens e desvantagens do uso de cameras nas fardas policiais",
-    category: "Seguranca publica",
+    title: "Câmeras corporais em uniformes policiais",
+    theme: "Vantagens e desvantagens do uso de câmeras nas fardas policiais",
+    category: "Segurança pública",
     source: "Tema da prova discursiva PMERJ",
     statement:
-      "Redija um texto dissertativo-argumentativo sobre as possiveis vantagens e desvantagens do uso de cameras nas fardas policiais, posicionando-se sobre sua adocao.",
+      "Redija um texto dissertativo-argumentativo sobre as possíveis vantagens e desvantagens do uso de câmeras nas fardas policiais, posicionando-se sobre sua adoção.",
     supportText:
-      "As diretrizes nacionais buscam padronizar o uso de cameras corporais por policiais militares, tema que envolve transparencia, prova, seguranca do agente e debate publico."
+      "As diretrizes nacionais buscam padronizar o uso de câmeras corporais por policiais militares, tema que envolve transparência, prova, segurança do agente e debate público."
   },
   {
-    title: "Seguranca publica e direitos humanos",
+    title: "Segurança pública e direitos humanos",
     theme: "O desafio de conciliar combate ao crime e respeito aos direitos fundamentais",
-    category: "Seguranca publica",
-    source: "Tema frequente em concursos publicos",
+    category: "Segurança pública",
+    source: "Tema frequente em concursos públicos",
     statement:
-      "Redija um texto dissertativo-argumentativo sobre como o Estado pode fortalecer a seguranca publica sem enfraquecer garantias fundamentais."
+      "Redija um texto dissertativo-argumentativo sobre como o Estado pode fortalecer a segurança pública sem enfraquecer garantias fundamentais."
   },
   {
-    title: "Tecnologia e educacao",
-    theme: "O uso de inteligencia artificial na aprendizagem",
-    category: "Educacao e tecnologia",
-    source: "Tema frequente em concursos publicos",
+    title: "Tecnologia e educação",
+    theme: "O uso de inteligência artificial na aprendizagem",
+    category: "Educação e tecnologia",
+    source: "Tema frequente em concursos públicos",
     statement:
-      "Redija um texto dissertativo-argumentativo sobre os impactos positivos e os riscos do uso de inteligencia artificial na educacao."
+      "Redija um texto dissertativo-argumentativo sobre os impactos positivos e os riscos do uso de inteligência artificial na educação."
   },
   {
-    title: "Violencia contra a mulher",
-    theme: "Caminhos para combater a violencia contra a mulher no Brasil",
+    title: "Violência contra a mulher",
+    theme: "Caminhos para combater a violência contra a mulher no Brasil",
     category: "Cidadania",
-    source: "Tema frequente em concursos publicos",
+    source: "Tema frequente em concursos públicos",
     statement:
-      "Redija um texto dissertativo-argumentativo sobre medidas sociais, educacionais e institucionais para enfrentar a violencia contra a mulher."
+      "Redija um texto dissertativo-argumentativo sobre medidas sociais, educacionais e institucionais para enfrentar a violência contra a mulher."
   },
   {
-    title: "Desinformacao",
-    theme: "Os efeitos da desinformacao na sociedade democratica",
+    title: "Desinformação",
+    theme: "Os efeitos da desinformação na sociedade democrática",
     category: "Atualidades",
-    source: "Tema frequente em concursos publicos",
+    source: "Tema frequente em concursos públicos",
     statement:
-      "Redija um texto dissertativo-argumentativo sobre os impactos da desinformacao e formas de reduzir seus danos sociais."
+      "Redija um texto dissertativo-argumentativo sobre os impactos da desinformação e formas de reduzir seus danos sociais."
   },
   {
-    title: "Saude mental",
-    theme: "A importancia da saude mental na vida profissional",
+    title: "Saúde mental",
+    theme: "A importância da saúde mental na vida profissional",
     category: "Sociedade",
-    source: "Tema frequente em concursos publicos",
+    source: "Tema frequente em concursos públicos",
     statement:
-      "Redija um texto dissertativo-argumentativo sobre a importancia da saude mental para o desempenho profissional e a convivencia social."
+      "Redija um texto dissertativo-argumentativo sobre a importância da saúde mental para o desempenho profissional e a convivência social."
   }
 ];

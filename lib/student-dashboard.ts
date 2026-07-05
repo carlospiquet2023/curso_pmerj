@@ -61,7 +61,7 @@ export async function getStudentDashboard() {
   });
 
   if (!user || !user.profile || !user.generalProgress) {
-    throw new Error("Aluno demonstracao nao encontrado. Rode npm run db:seed.");
+    throw new Error("Aluno de demonstração não encontrado. Rode npm run db:seed.");
   }
 
   const attemptsCount = await prisma.studentAttempt.count({ where: { userId: user.id } });
@@ -93,13 +93,13 @@ export async function getStudentDashboard() {
     duration: task.durationMinutes,
     type: task.type.replaceAll("_", " "),
     subject: task.subject?.shortName ?? "Geral",
-    topic: task.topic?.title ?? "Sem topico"
+    topic: task.topic?.title ?? "Sem tópico"
   })) ?? [];
 
   const nextReviews = [
     ...user.reviews.map((review) => ({
       id: review.id,
-      title: review.topic?.title ?? review.flashcard?.front ?? "Revisao programada",
+      title: review.topic?.title ?? review.flashcard?.front ?? "Revisão programada",
       subject: review.subject?.shortName ?? "Geral",
       date: formatDate(review.scheduledFor),
       kind: review.type
@@ -141,7 +141,7 @@ export async function getStudentDashboard() {
         tone: "gold"
       },
       {
-        label: "Revisoes pendentes",
+        label: "Revisões pendentes",
         value: String(user.generalProgress.pendingReviews),
         detail: "Entram primeiro no plano",
         tone: "red"

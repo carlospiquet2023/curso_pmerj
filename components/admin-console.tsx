@@ -21,7 +21,7 @@ export function AdminConsole({ subjects }: { subjects: Subject[] }) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data)
       });
-      setMessage(response.ok ? "Registro salvo. Atualize a pagina para ver na lista." : "Falha ao salvar registro.");
+      setMessage(response.ok ? "Registro salvo. Atualize a página para ver na lista." : "Falha ao salvar registro.");
     });
   }
 
@@ -31,16 +31,16 @@ export function AdminConsole({ subjects }: { subjects: Subject[] }) {
   return (
     <section className="grid-3">
       <article className="panel admin-form">
-        <span className="eyebrow">Cadastrar materia</span>
+        <span className="eyebrow">Cadastrar matéria</span>
         <h2>Nova disciplina</h2>
         <button
           className="primary-action"
           disabled={isPending}
           onClick={() =>
             submitJson("/api/admin/subjects", {
-              name: "Redacao",
-              shortName: "Redacao",
-              description: "Producao textual dissertativo-argumentativa."
+              name: "Redação",
+              shortName: "Redação",
+              description: "Produção textual dissertativo-argumentativa."
             })
           }
           type="button"
@@ -51,12 +51,12 @@ export function AdminConsole({ subjects }: { subjects: Subject[] }) {
       </article>
 
       <article className="panel admin-form">
-        <span className="eyebrow">Cadastrar topico</span>
-        <h2>Novo topico</h2>
+        <span className="eyebrow">Cadastrar tópico</span>
+        <h2>Novo tópico</h2>
         <button
           className="primary-action"
           disabled={isPending || !firstSubject}
-          onClick={() => submitJson("/api/admin/topics", { subjectId: firstSubject.id, title: "Topico administrativo de exemplo" })}
+          onClick={() => submitJson("/api/admin/topics", { subjectId: firstSubject.id, title: "Tópico administrativo de exemplo" })}
           type="button"
         >
           {isPending ? <Loader2 size={18} /> : <Plus size={18} />}
@@ -65,8 +65,8 @@ export function AdminConsole({ subjects }: { subjects: Subject[] }) {
       </article>
 
       <article className="panel admin-form">
-        <span className="eyebrow">Importar questao</span>
-        <h2>Questao objetiva</h2>
+        <span className="eyebrow">Importar questão</span>
+        <h2>Questão objetiva</h2>
         <button
           className="primary-action"
           disabled={isPending || !firstSubject || !firstTopic}
@@ -74,7 +74,7 @@ export function AdminConsole({ subjects }: { subjects: Subject[] }) {
             submitJson("/api/admin/questions", {
               subjectId: firstSubject.id,
               topicId: firstTopic.id,
-              statement: "Questao administrativa de exemplo para validar importacao.",
+              statement: "Questão administrativa de exemplo para validar importação.",
               correctLabel: "A",
               options: {
                 A: "Alternativa correta",

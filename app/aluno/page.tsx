@@ -7,7 +7,7 @@ export const dynamic = "force-dynamic";
 
 export default async function StudentDashboardPage() {
   const dashboard = await getStudentDashboard();
-  const nextMission = dashboard.missions[0]; // Pegar a primeira missao como foco principal
+  const nextMission = dashboard.missions[0]; // Pegar a primeira missão como foco principal
 
   return (
     <div className="container page-stack">

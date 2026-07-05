@@ -18,24 +18,24 @@ export default async function PerformancePage() {
       <section className="section-header">
         <div>
           <span className="eyebrow">Dashboard de desempenho</span>
-          <h1>Evolucao, pontos fracos e previsao de crescimento</h1>
+          <h1>Evolução, pontos fracos e previsão de crescimento</h1>
           <p>
-            Visao avancada para acompanhar acertos, erros, tempo, simulados, revisoes atrasadas e materias
-            que estao impedindo a nota de subir.
+            Visão avançada para acompanhar acertos, erros, tempo, simulados, revisões atrasadas e matérias
+            que estão impedindo a nota de subir.
           </p>
         </div>
       </section>
 
       <section className="grid-4">
-        <MetricCard label="Edital" value={`${dashboard.totals.editalPercent}%`} detail={`Projecao: ${dashboard.totals.projection}%`} icon={BarChart3} />
+        <MetricCard label="Edital" value={`${dashboard.totals.editalPercent}%`} detail={`Projeção: ${dashboard.totals.projection}%`} icon={BarChart3} />
         <MetricCard label="Acerto geral" value={`${dashboard.totals.accuracy}%`} detail="Meta: 75%" icon={Trophy} tone="blue" />
         <MetricCard label="Tempo" value={minutesToHours(dashboard.totals.studyMinutes)} detail="Estudo acumulado" icon={Clock} tone="gold" />
-        <MetricCard label="Revisoes atrasadas" value={String(dashboard.totals.reviewsLate)} detail="Corrigir hoje" icon={RefreshCcw} tone="red" />
+        <MetricCard label="Revisões atrasadas" value={String(dashboard.totals.reviewsLate)} detail="Corrigir hoje" icon={RefreshCcw} tone="red" />
       </section>
 
       <section className="grid-2">
         <article className="panel">
-          <span className="eyebrow">Evolucao semanal</span>
+          <span className="eyebrow">Evolução semanal</span>
           <h2>Edital estudado</h2>
           <div className="bar-chart">
             {dashboard.weeklyEvolution.map((item) => (
@@ -49,7 +49,7 @@ export default async function PerformancePage() {
         </article>
 
         <article className="panel">
-          <span className="eyebrow">Evolucao mensal</span>
+          <span className="eyebrow">Evolução mensal</span>
           <h2>Taxa de acerto</h2>
           <div className="bar-chart">
             {dashboard.monthlyEvolution.map((item) => (
@@ -65,15 +65,15 @@ export default async function PerformancePage() {
 
       <section className="grid-2">
         <article className="panel">
-          <span className="eyebrow">Por materia</span>
-          <h2>Acertos, erros e questoes</h2>
+          <span className="eyebrow">Por matéria</span>
+          <h2>Acertos, erros e questões</h2>
           <div className="review-list">
             {dashboard.subjectRows.map((item) => (
               <div className="review-item" key={item.name}>
                 <FileQuestion size={18} />
                 <span>
                   <strong>{item.name}: {item.accuracy}%</strong>
-                  <small>{item.correct} acertos, {item.wrong} erros, {item.questionsDone} questoes feitas</small>
+                  <small>{item.correct} acertos, {item.wrong} erros, {item.questionsDone} questões feitas</small>
                 </span>
               </div>
             ))}
@@ -82,7 +82,7 @@ export default async function PerformancePage() {
 
         <article className="panel">
           <span className="eyebrow">Alertas inteligentes</span>
-          <h2>O que precisa de acao</h2>
+          <h2>O que precisa de ação</h2>
           <div className="review-list">
             {dashboard.alerts.map((alert) => (
               <div className="review-item" key={alert}>
@@ -104,7 +104,7 @@ export default async function PerformancePage() {
         </article>
         <article className="panel">
           <span className="eyebrow">Fracos</span>
-          <h2>Reforcar no plano</h2>
+          <h2>Reforçar no plano</h2>
           <div className="tag-row">
             {dashboard.weak.map((item) => <span className="tag tag-danger" key={item.name}>{item.name}</span>)}
           </div>

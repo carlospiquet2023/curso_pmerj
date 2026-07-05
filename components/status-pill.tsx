@@ -1,7 +1,7 @@
 import type { TopicStatus } from "@/lib/edital-data";
 
 const labels: Record<TopicStatus, string> = {
-  "nao-iniciado": "Nao iniciado",
+  "nao-iniciado": "Não iniciado",
   estudando: "Estudando",
   revisando: "Revisando",
   dominado: "Dominado"

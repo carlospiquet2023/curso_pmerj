@@ -24,26 +24,26 @@ export default function HomePage() {
       <section className="hero">
         <div className="hero-content">
           <span className="eyebrow">Plataforma oficial de estudos PMERJ</span>
-          <h1>Sua aprovacao na PMERJ comeca aqui.</h1>
+          <h1>Sua aprovação na PMERJ começa aqui.</h1>
           <p>
-            Estude com questoes no padrao FGV, simulados cronometrados, plano de
-            estudos com inteligencia artificial e revisoes espacadas. Tudo
-            organizado pelo edital — para voce dominar cada disciplina e
+            Estude com questões no padrão FGV, simulados cronometrados, plano de
+            estudos com inteligência artificial e revisões espaçadas. Tudo
+            organizado pelo edital para você dominar cada disciplina e
             conquistar sua vaga.
           </p>
           <div className="hero-actions">
             <Link className="primary-action" href="/cadastro">
-              Comecar agora — e gratis <ArrowRight size={18} />
+              Começar agora <ArrowRight size={18} />
             </Link>
             <Link className="secondary-action" href="/disciplinas">
               Explorar o edital completo
             </Link>
           </div>
         </div>
-        <div className="hero-stats" aria-label="Numeros do concurso">
+        <div className="hero-stats" aria-label="Números do concurso">
           <div className="hero-stat">
             <strong>50</strong>
-            <span>questoes objetivas na prova</span>
+            <span>questões objetivas na prova</span>
           </div>
           <div className="hero-stat">
             <strong>5</strong>
@@ -51,7 +51,7 @@ export default function HomePage() {
           </div>
           <div className="hero-stat">
             <strong>60%</strong>
-            <span>nota minima para aprovacao</span>
+            <span>nota mínima para aprovação</span>
           </div>
         </div>
       </section>
@@ -59,11 +59,11 @@ export default function HomePage() {
       {/* ── FEATURES ── */}
       <section className="section-header">
         <div>
-          <span className="eyebrow">Tudo que voce precisa em um so lugar</span>
-          <h2>Ferramentas criadas para quem leva o concurso a serio</h2>
+          <span className="eyebrow">Tudo que você precisa em um só lugar</span>
+          <h2>Ferramentas criadas para quem leva o concurso a sério</h2>
           <p>
             Cada recurso da plataforma foi desenhado com base no edital da
-            PMERJ, nos padroes da banca FGV e em tecnicas comprovadas de
+            PMERJ, nos padrões da banca FGV e em técnicas comprovadas de
             aprendizagem acelerada.
           </p>
         </div>
@@ -73,33 +73,33 @@ export default function HomePage() {
         {[
           {
             icon: FileQuestion,
-            title: "Banco de Questoes FGV",
-            desc: "Milhares de questoes comentadas no estilo da banca, organizadas por disciplina, assunto e nivel de dificuldade.",
+            title: "Banco de Questões FGV",
+            desc: "Milhares de questões comentadas no estilo da banca, organizadas por disciplina, assunto e nível de dificuldade.",
           },
           {
             icon: ClipboardList,
             title: "Simulados Cronometrados",
-            desc: "Provas completas com 50 questoes, timer regressivo e diagnostico detalhado de pontos fortes e fracos.",
+            desc: "Provas completas com 50 questões, cronômetro regressivo e diagnóstico detalhado de pontos fortes e fracos.",
           },
           {
             icon: Brain,
             title: "Plano de Estudos com IA",
-            desc: "Roteiro personalizado que se adapta ao seu desempenho, priorizando as materias onde voce mais precisa evoluir.",
+            desc: "Roteiro personalizado que se adapta ao seu desempenho, priorizando as matérias em que você mais precisa evoluir.",
           },
           {
             icon: NotebookPen,
             title: "Caderno de Erros",
-            desc: "Registre cada erro com o motivo provavel e revise-os periodicamente para nunca errar a mesma questao.",
+            desc: "Registre cada erro com o motivo provável e revise-os periodicamente para nunca errar a mesma questão.",
           },
           {
             icon: RefreshCcw,
-            title: "Revisoes Espacadas",
+            title: "Revisões Espaçadas",
             desc: "Flashcards inteligentes com ciclos de 24h, 7, 15 e 30 dias baseados na curva de esquecimento.",
           },
           {
             icon: FileText,
-            title: "Redacao Comentada",
-            desc: "Pratique redacoes com temas reais e receba correcao detalhada com nota por competencia.",
+            title: "Redação Comentada",
+            desc: "Pratique redações com temas reais e receba correção detalhada com nota por competência.",
           },
         ].map((feature) => (
           <div className="module-card" key={feature.title}>
@@ -115,10 +115,10 @@ export default function HomePage() {
       {/* ── MODULES DO EDITAL ── */}
       <section className="section-header">
         <div>
-          <span className="eyebrow">Acesso rapido</span>
-          <h2>Explore os modulos da plataforma</h2>
+          <span className="eyebrow">Acesso rápido</span>
+          <h2>Explore os módulos da plataforma</h2>
           <p>
-            Navegue diretamente para qualquer area de estudo. Todas as
+            Navegue diretamente para qualquer área de estudo. Todas as
             funcionalidades integradas ao mapa completo do edital.
           </p>
         </div>
@@ -146,7 +146,7 @@ export default function HomePage() {
         <div className="section-header">
           <div>
             <span className="eyebrow">Por que escolher esta plataforma</span>
-            <h2>Numeros que fazem a diferenca na sua preparacao</h2>
+            <h2>Números que fazem a diferença na sua preparação</h2>
           </div>
         </div>
         <div className="grid-4" style={{ marginTop: 24 }}>
@@ -154,7 +154,7 @@ export default function HomePage() {
             {
               icon: FileQuestion,
               value: "2.000+",
-              label: "Questoes no padrao FGV",
+              label: "Questões no padrão FGV",
             },
             {
               icon: BookOpen,
@@ -169,7 +169,7 @@ export default function HomePage() {
             {
               icon: TrendingUp,
               value: "3x",
-              label: "Mais retencao com revisao espacada",
+              label: "Mais retenção com revisão espaçada",
             },
           ].map((stat) => (
             <div className="module-card" key={stat.label}>
@@ -189,7 +189,7 @@ export default function HomePage() {
       <section className="panel">
         <div className="section-header">
           <div>
-            <span className="eyebrow">Metodo comprovado</span>
+            <span className="eyebrow">Método comprovado</span>
             <h2>5 etapas para dominar o edital</h2>
           </div>
         </div>
@@ -197,23 +197,23 @@ export default function HomePage() {
           {[
             {
               step: "Diagnosticar",
-              desc: "Faca um simulado inicial para identificar seus pontos fortes e fracos em cada disciplina.",
+              desc: "Faça um simulado inicial para identificar seus pontos fortes e fracos em cada disciplina.",
             },
             {
               step: "Estudar",
-              desc: "Siga o plano de estudos personalizado com conteudo organizado por topico do edital.",
+              desc: "Siga o plano de estudos personalizado com conteúdo organizado por tópico do edital.",
             },
             {
               step: "Treinar",
-              desc: "Resolva questoes comentadas no padrao FGV para fixar o conhecimento na pratica.",
+              desc: "Resolva questões comentadas no padrão FGV para fixar o conhecimento na prática.",
             },
             {
               step: "Revisar",
-              desc: "Use flashcards e revisoes espacadas para garantir retencao a longo prazo.",
+              desc: "Use flashcards e revisões espaçadas para garantir retenção a longo prazo.",
             },
             {
               step: "Simular",
-              desc: "Faca simulados completos com tempo real e analise detalhada do seu desempenho.",
+              desc: "Faça simulados completos com tempo real e análise detalhada do seu desempenho.",
             },
           ].map((item, index) => (
             <article className="timeline-item" key={item.step}>
@@ -240,14 +240,14 @@ export default function HomePage() {
         <div className="grid-3" style={{ marginTop: 18 }}>
           {[
             {
-              name: "Lingua Portuguesa",
+              name: "Língua Portuguesa",
               questions: 10,
-              focus: "Interpretacao, sintaxe, crase, concordancia",
+              focus: "Interpretação, sintaxe, crase, concordância",
             },
             {
-              name: "Matematica Basica",
+              name: "Matemática Básica",
               questions: 10,
-              focus: "Porcentagem, equacoes, razao, geometria",
+              focus: "Porcentagem, equações, razão, geometria",
             },
             {
               name: "Direitos Humanos",
@@ -257,15 +257,15 @@ export default function HomePage() {
             {
               name: "Direito Administrativo",
               questions: 10,
-              focus: "Principios, poderes, atos, Estatuto PMERJ",
+              focus: "Princípios, poderes, atos, Estatuto PMERJ",
             },
             {
               name: "Direito Penal",
               questions: 10,
-              focus: "Crimes, penas, inquerito, flagrante",
+              focus: "Crimes, penas, inquérito, flagrante",
             },
             {
-              name: "Redacao",
+              name: "Redação",
               questions: 1,
               focus: "Texto dissertativo-argumentativo",
             },
@@ -276,7 +276,7 @@ export default function HomePage() {
                 <h3>{subject.name}</h3>
                 <p>
                   {subject.questions}{" "}
-                  {subject.questions === 1 ? "prova" : "questoes"} —{" "}
+                  {subject.questions === 1 ? "prova" : "questões"} —{" "}
                   {subject.focus}
                 </p>
               </div>
@@ -289,21 +289,21 @@ export default function HomePage() {
       <section className="panel" style={{ textAlign: "center" }}>
         <div style={{ maxWidth: 600, margin: "0 auto" }}>
           <Zap size={32} style={{ color: "var(--gold)", marginBottom: 12 }} />
-          <h2>Pronto para comecar sua jornada?</h2>
+          <h2>Pronto para começar sua jornada?</h2>
           <p style={{ color: "var(--muted)", marginTop: 8, lineHeight: 1.7 }}>
-            Crie sua conta gratuita e tenha acesso imediato ao mapa do edital,
-            banco de questoes e plano de estudos personalizado. Sua aprovacao na
-            PMERJ esta a um clique de distancia.
+            Crie sua conta e tenha acesso imediato ao mapa do edital,
+            banco de questões e plano de estudos personalizado. Sua aprovação na
+            PMERJ está a um clique de distância.
           </p>
           <div
             className="hero-actions"
             style={{ justifyContent: "center", marginTop: 24 }}
           >
             <Link className="primary-action" href="/cadastro">
-              Criar minha conta gratis <ArrowRight size={18} />
+              Criar minha conta <ArrowRight size={18} />
             </Link>
             <Link className="secondary-action" href="/login">
-              Ja tenho conta
+              Já tenho conta
             </Link>
           </div>
         </div>

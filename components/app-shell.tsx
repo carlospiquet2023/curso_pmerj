@@ -61,7 +61,7 @@ export function AppShell({ children }: { children: ReactNode }) {
             </span>
             <span className="brand-text">
               <strong>PMERJ</strong>
-              <small>Aprovacao Inteligente</small>
+              <small>Aprovação Inteligente</small>
             </span>
           </Link>
         </div>

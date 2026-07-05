@@ -13,7 +13,7 @@ function formatDate(date: Date) {
 export async function getErrorNotebook() {
   const user = await prisma.user.findUnique({ where: { id: (await getCurrentUser())?.id || "" } });
   if (!user) {
-    throw new Error("Aluno demonstracao nao encontrado. Rode npm run db:seed.");
+    throw new Error("Aluno de demonstração não encontrado. Rode npm run db:seed.");
   }
 
   const entries = await prisma.errorNotebookEntry.findMany({

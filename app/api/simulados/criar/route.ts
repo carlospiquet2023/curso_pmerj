@@ -32,7 +32,7 @@ export async function POST(request: Request) {
 
   const user = await prisma.user.findUnique({ where: { id: (await getCurrentUser())?.id || "" } });
   if (!user) {
-    return errorResponse("Aluno demonstracao nao encontrado.", 404);
+    return errorResponse("Aluno de demonstração não encontrado.", 404);
   }
 
   const weakSubjectIds = await prisma.studentSubjectProgress.findMany({
@@ -91,6 +91,6 @@ export async function POST(request: Request) {
     type: simulation.type,
     totalQuestions: simulation.totalQuestions,
     timeLimitMinutes: simulation.timeLimitMinutes,
-    message: "Simulado criado com questoes disponiveis no banco."
+    message: "Simulado criado com questões disponíveis no banco."
   });
 }

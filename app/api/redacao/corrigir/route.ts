@@ -49,23 +49,23 @@ function fallbackCorrection(content: string, lineCount: number): Correction {
       "A estrutura pode ser evoluida com treino orientado."
     ],
     weaknesses: [
-      linePenalty ? "A quantidade de linhas esta fora do intervalo oficial de 25 a 30." : "A linha oficial foi respeitada.",
-      hasConnectors ? "Conectivos aparecem, mas podem ser usados com mais estrategia." : "Faltam conectivos claros para guiar a argumentacao.",
-      words.length < 180 ? "O desenvolvimento ainda esta curto para sustentar nota alta." : "O desenvolvimento precisa de argumentos mais densos."
+      linePenalty ? "A quantidade de linhas está fora do intervalo oficial de 25 a 30." : "A linha oficial foi respeitada.",
+      hasConnectors ? "Conectivos aparecem, mas podem ser usados com mais estratégia." : "Faltam conectivos claros para guiar a argumentação.",
+      words.length < 180 ? "O desenvolvimento ainda está curto para sustentar nota alta." : "O desenvolvimento precisa de argumentos mais densos."
     ],
     studyFocus: [
-      "Estrutura da dissertacao: introducao com tese, desenvolvimento e conclusao.",
-      hasConnectors ? "Uso estrategico de conectivos entre ideias." : "Conectivos argumentativos e progressao textual.",
-      "Norma padrao: pontuacao, concordancia, regencia e clareza."
+      "Estrutura da dissertação: introdução com tese, desenvolvimento e conclusão.",
+      hasConnectors ? "Uso estratégico de conectivos entre ideias." : "Conectivos argumentativos e progressão textual.",
+      "Norma-padrão: pontuação, concordância, regência e clareza."
     ],
     actionPlan: [
-      "Escreva uma tese direta no primeiro paragrafo.",
-      "Use dois argumentos fortes, um por paragrafo.",
-      "Feche com conclusao coerente e retomada da tese.",
-      "Revise concordancia, pontuacao e repeticoes antes de enviar."
+      "Escreva uma tese direta no primeiro parágrafo.",
+      "Use dois argumentos fortes, um por parágrafo.",
+      "Feche com conclusão coerente e retomada da tese.",
+      "Revise concordância, pontuação e repetições antes de enviar."
     ],
     lineFeedback: `Texto com ${lineCount} linha(s). O oficial PMERJ exige de ${essayRules.minLines} a ${essayRules.maxLines}.`,
-    finalMessage: "Nota rigorosa gerada por corretor local porque a IA externa nao estava configurada. Ajuste os pontos fracos e reescreva buscando nota maxima."
+    finalMessage: "Nota rigorosa gerada por corretor local porque a IA externa não estava configurada. Ajuste os pontos fracos e reescreva buscando nota máxima."
   };
 }
 
@@ -88,7 +88,7 @@ function parseCorrection(raw: string, content: string, lineCount: number): Corre
       studyFocus: Array.isArray(parsed.studyFocus) ? parsed.studyFocus.map(String) : [],
       actionPlan: Array.isArray(parsed.actionPlan) ? parsed.actionPlan.map(String) : [],
       lineFeedback: String(parsed.lineFeedback ?? `Texto com ${lineCount} linha(s).`),
-      finalMessage: String(parsed.finalMessage ?? "Continue revisando com foco na nota maxima.")
+      finalMessage: String(parsed.finalMessage ?? "Continue revisando com foco na nota máxima.")
     };
   } catch {
     return fallbackCorrection(content, lineCount);
@@ -99,7 +99,7 @@ export async function POST(request: Request) {
   const ip = getClientIp(request);
   // Limite estrito para a API da Groq
   if (!rateLimiter(ip, "essay_correction", LIMITS.MAX_REQUESTS_PER_MINUTE_AI)) {
-    return errorResponse("Limite de correcoes atingido. Tente novamente mais tarde.", 429);
+    return errorResponse("Limite de correções atingido. Tente novamente mais tarde.", 429);
   }
 
   let body: { promptId?: string; content?: string };
@@ -111,7 +111,7 @@ export async function POST(request: Request) {
   }
 
   if (!body.promptId || !body.content?.trim()) {
-    return errorResponse("Tema e redacao sao obrigatorios.", 400);
+    return errorResponse("Tema e redação são obrigatórios.", 400);
   }
 
   if (!validateCuid(body.promptId)) {
@@ -120,7 +120,7 @@ export async function POST(request: Request) {
 
   const content = sanitizeText(body.content, LIMITS.MAX_TEXT_LENGTH);
   if(content.length < 50) {
-      return errorResponse("Texto muito curto para correcao.", 400);
+      return errorResponse("Texto muito curto para correção.", 400);
   }
 
   const [user, prompt] = await Promise.all([
@@ -129,7 +129,7 @@ export async function POST(request: Request) {
   ]);
 
   if (!user || !prompt) {
-    return errorResponse("Usuario ou tema nao encontrado.", 404);
+    return errorResponse("Usuário ou tema não encontrado.", 404);
   }
 
   const lineCount = countLines(content);
@@ -149,7 +149,7 @@ export async function POST(request: Request) {
           {
             role: "system",
             content:
-              "Voce e um professor de Portugues especialista em redacao para concurso publico militar e tambem atua como banca rigorosa. Corrija sem pena, com nota realista, aponte exatamente onde o aluno deve estudar mais e mantenha orientacao construtiva. Responda apenas JSON valido."
+              "Você é um professor de Português especialista em redação para concurso público militar e também atua como banca rigorosa. Corrija sem pena, com nota realista, aponte exatamente onde o aluno deve estudar mais e mantenha orientação construtiva. Responda apenas JSON válido."
           },
           {
             role: "user",

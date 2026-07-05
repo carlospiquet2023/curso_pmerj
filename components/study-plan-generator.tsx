@@ -32,7 +32,7 @@ export function StudyPlanGenerator({ defaultMinutes }: { defaultMinutes: number 
 
   return (
     <article className="panel">
-      <span className="eyebrow">Gerador automatico</span>
+      <span className="eyebrow">Gerador automático</span>
       <h2>Criar novo ciclo</h2>
       <div className="filter-grid">
         <label>
@@ -53,7 +53,7 @@ export function StudyPlanGenerator({ defaultMinutes }: { defaultMinutes: number 
       {generated ? (
         <div className="diagnosis-box" style={{ marginTop: 16 }}>
           <strong>{generated.title}</strong>
-          <p>{generated.tasks} tarefa(s), {generated.dailyMinutes} min/dia, {generated.days} dias. Atualize a pagina para ver o ciclo ativo.</p>
+          <p>{generated.tasks} tarefa(s), {generated.dailyMinutes} min/dia, {generated.days} dias. Atualize a página para ver o ciclo ativo.</p>
         </div>
       ) : null}
     </article>

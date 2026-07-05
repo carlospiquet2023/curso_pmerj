@@ -15,17 +15,17 @@ export default async function SimulationsPage() {
           <span className="eyebrow">Simulados inteligentes</span>
           <h1>Treino no formato da prova objetiva</h1>
           <p>
-            Base visual para simulados completos e por recorte. A Fase 6 conectara questoes, cronometro,
-            resultado por materia e plano de reforco.
+            Base visual para simulados completos e por recorte. A plataforma conecta questões, cronômetro,
+            resultado por matéria e plano de reforço.
           </p>
         </div>
       </section>
 
       <section className="grid-4">
-        <MetricCard label="Questoes no banco" value={String(dashboard.totals.questionCount)} detail="Disponiveis para montar simulados" icon={Target} />
-        <MetricCard label="Simulados feitos" value={String(dashboard.totals.simulationsDone)} detail="Historico do aluno" icon={Trophy} tone="blue" />
-        <MetricCard label="Questoes erradas" value={String(dashboard.totals.errorCount)} detail="Podem virar simulado" icon={AlertTriangle} tone="red" />
-        <MetricCard label="Materias fracas" value={String(dashboard.totals.weakSubjects)} detail="Base para reforco" icon={Clock} tone="gold" />
+        <MetricCard label="Questões no banco" value={String(dashboard.totals.questionCount)} detail="Disponíveis para montar simulados" icon={Target} />
+        <MetricCard label="Simulados feitos" value={String(dashboard.totals.simulationsDone)} detail="Histórico do aluno" icon={Trophy} tone="blue" />
+        <MetricCard label="Questões erradas" value={String(dashboard.totals.errorCount)} detail="Podem virar simulado" icon={AlertTriangle} tone="red" />
+        <MetricCard label="Matérias fracas" value={String(dashboard.totals.weakSubjects)} detail="Base para reforço" icon={Clock} tone="gold" />
       </section>
 
       <SimulationLauncher defaultSubjectSlug={dashboard.subjectPerformance[0]?.slug} />
@@ -38,14 +38,14 @@ export default async function SimulationsPage() {
             {dashboard.latestResult ? (
               <>
                 <p>
-                  Ultimo simulado: {dashboard.latestResult.title}. Nota {dashboard.latestResult.score}, com
+                  Último simulado: {dashboard.latestResult.title}. Nota {dashboard.latestResult.score}, com
                   {` ${dashboard.latestResult.correctCount}`} acerto(s), {dashboard.latestResult.wrongCount} erro(s)
                   e tempo de {dashboard.latestResult.timeSpent}.
                 </p>
                 <p>{dashboard.latestResult.diagnosis}</p>
               </>
             ) : (
-              <p>Nenhum simulado concluido ainda.</p>
+              <p>Nenhum simulado concluído ainda.</p>
             )}
           </div>
           <div className="diagnosis-box">
@@ -57,7 +57,7 @@ export default async function SimulationsPage() {
 
       <section className="grid-2">
         <article className="panel">
-          <span className="eyebrow">Acertos por materia</span>
+          <span className="eyebrow">Acertos por matéria</span>
           <h2>Desempenho</h2>
           <div className="review-list">
             {dashboard.subjectPerformance.map((item) => (
@@ -65,7 +65,7 @@ export default async function SimulationsPage() {
                 <Trophy size={18} />
                 <span>
                   <strong>{item.shortName}: {item.accuracy}%</strong>
-                  <small>{item.correct} acerto(s), {item.wrong} erro(s), {item.availableQuestions} questoes disponiveis</small>
+                  <small>{item.correct} acerto(s), {item.wrong} erro(s), {item.availableQuestions} questões disponíveis</small>
                 </span>
               </div>
             ))}
@@ -73,8 +73,8 @@ export default async function SimulationsPage() {
         </article>
 
         <article className="panel">
-          <span className="eyebrow">Diagnostico automatico</span>
-          <h2>Fortes, fracos e revisao</h2>
+          <span className="eyebrow">Diagnóstico automático</span>
+          <h2>Fortes, fracos e revisão</h2>
           <div className="insight-grid">
             <div>
               <strong>Assuntos fortes</strong>

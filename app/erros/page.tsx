@@ -11,10 +11,10 @@ export default async function ErrorsPage() {
       <section className="section-header">
         <div>
           <span className="eyebrow">Caderno de erros inteligente</span>
-          <h1>Erros viram revisao, flashcard e reforco</h1>
+          <h1>Erros viram revisão, flashcard e reforço</h1>
           <p>
-            Cada erro registra materia, assunto, motivo provavel, explicacao simplificada, revisao
-            obrigatoria e flashcard automatico.
+            Cada erro registra matéria, assunto, motivo provável, explicação simplificada, revisão
+            obrigatória e flashcard automático.
           </p>
         </div>
       </section>

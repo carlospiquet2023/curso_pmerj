@@ -31,7 +31,7 @@ export async function getStudyPlanDashboard() {
   });
 
   if (!user || !user.profile) {
-    throw new Error("Aluno demonstracao nao encontrado. Rode npm run db:seed.");
+    throw new Error("Aluno de demonstração não encontrado. Rode npm run db:seed.");
   }
 
   const pendingReviews = await prisma.reviewSchedule.count({ where: { userId: user.id, completedAt: null } });
@@ -60,7 +60,7 @@ export async function getStudyPlanDashboard() {
             scheduledFor: formatDate(task.scheduledFor),
             durationMinutes: task.durationMinutes,
             subject: task.subject?.shortName ?? "Geral",
-            topic: task.topic?.title ?? "Sem topico",
+            topic: task.topic?.title ?? "Sem tópico",
             completed: Boolean(task.completedAt)
           }))
         }

@@ -4,11 +4,11 @@ import { useState, useTransition } from "react";
 import { Loader2, PlayCircle } from "lucide-react";
 
 const simulationTypes = [
-  { type: "COMPLETO", title: "Simulado completo", description: "Distribuicao ampla no estilo da prova." },
-  { type: "MATERIA", title: "Por materia", description: "Treino focado em uma disciplina." },
-  { type: "ASSUNTO", title: "Por assunto", description: "Recorte por topico do edital." },
+  { type: "COMPLETO", title: "Simulado completo", description: "Distribuição ampla no estilo da prova." },
+  { type: "MATERIA", title: "Por matéria", description: "Treino focado em uma disciplina." },
+  { type: "ASSUNTO", title: "Por assunto", description: "Recorte por tópico do edital." },
   { type: "ASSUNTOS_FRACOS", title: "Assuntos fracos", description: "Baseado nas menores taxas de acerto." },
-  { type: "QUESTOES_ERRADAS", title: "Questoes erradas", description: "Reforco em itens do caderno de erros." },
+  { type: "QUESTOES_ERRADAS", title: "Questões erradas", description: "Reforço em itens do caderno de erros." },
   { type: "CRONOMETRADO", title: "Cronometrado", description: "Treino com limite de tempo." }
 ];
 
@@ -66,7 +66,7 @@ export function SimulationLauncher({ defaultSubjectSlug }: { defaultSubjectSlug?
           <h2>{created.title}</h2>
           <p>{created.message}</p>
           <div className="tag-row">
-            <span className="tag">{created.totalQuestions} questoes</span>
+            <span className="tag">{created.totalQuestions} questões</span>
             <span className="tag">{created.timeLimitMinutes} min</span>
             <span className="tag">{created.type}</span>
           </div>

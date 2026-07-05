@@ -67,15 +67,15 @@ export function FlashcardReview({ cards }: { cards: Card[] }) {
             </button>
             <div className="tag-row">
               <span className="tag">Intervalo atual: {result?.intervalDays ?? card.intervalDays} dia(s)</span>
-              <span className="tag">Proxima: {result ? new Date(result.nextReviewAt).toLocaleDateString("pt-BR") : card.nextReviewAt}</span>
+              <span className="tag">Próxima: {result ? new Date(result.nextReviewAt).toLocaleDateString("pt-BR") : card.nextReviewAt}</span>
               <span className="tag">Acertos {result?.correctCount ?? card.correctCount}</span>
               <span className="tag tag-danger">Erros {result?.wrongCount ?? card.wrongCount}</span>
             </div>
             <div className="review-buttons">
               <button disabled={isPending} onClick={() => review(card.id, "ERREI")} type="button">Errei</button>
-              <button disabled={isPending} onClick={() => review(card.id, "DIFICIL")} type="button">Dificil</button>
-              <button disabled={isPending} onClick={() => review(card.id, "MEDIO")} type="button">Medio</button>
-              <button disabled={isPending} onClick={() => review(card.id, "FACIL")} type="button">Facil</button>
+              <button disabled={isPending} onClick={() => review(card.id, "DIFICIL")} type="button">Difícil</button>
+              <button disabled={isPending} onClick={() => review(card.id, "MEDIO")} type="button">Médio</button>
+              <button disabled={isPending} onClick={() => review(card.id, "FACIL")} type="button">Fácil</button>
             </div>
           </article>
         );

@@ -35,7 +35,7 @@ export async function POST(request: Request) {
       topicId: body.topicId,
       statement: statement,
       difficulty: "MEDIA",
-      explanation: explanation || "Explicacao cadastrada pelo administrador.",
+      explanation: explanation || "Explicação cadastrada pelo administrador.",
       correctExplanation: "Alternativa correta conforme gabarito informado.",
       wrongExplanation: "Alternativas erradas devem ser revisadas pelo administrador.",
       trap: "Pegadinha a revisar no cadastro detalhado.",

@@ -11,11 +11,11 @@ export default async function RedacaoPage() {
     <div className="page-stack">
       <section className="section-header">
         <div>
-          <span className="eyebrow">Redacao PMERJ</span>
-          <h1>Professor de Portugues para redacao</h1>
+          <span className="eyebrow">Redação PMERJ</span>
+          <h1>Professor de Português para redação</h1>
           <p>
-            Sorteie temas frequentes de concurso publico, escreva dentro da quantidade oficial de linhas e receba uma
-            analise objetiva da IA assumindo o papel de professor de Portugues.
+            Sorteie temas frequentes de concurso público, escreva dentro da quantidade oficial de linhas e receba uma
+            análise objetiva da IA assumindo o papel de professor de Português.
           </p>
         </div>
       </section>
@@ -27,7 +27,7 @@ export default async function RedacaoPage() {
             <h2>Regra da prova</h2>
             <p>
               Modelo dissertativo-argumentativo, com {data.rules.minLines} a {data.rules.maxLines} linhas. A nota
-              soma dominio formal, organizacao textual e desenvolvimento tecnico-argumentativo.
+              soma domínio formal, organização textual e desenvolvimento técnico-argumentativo.
             </p>
           </div>
         </div>

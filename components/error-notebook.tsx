@@ -53,7 +53,7 @@ export function ErrorNotebook({ entries }: { entries: ErrorEntry[] }) {
         </div>
         <div className="filter-grid">
           <label>
-            Materia
+            Matéria
             <select value={subject} onChange={(event) => setSubject(event.target.value)}>
               {subjects.map((item) => (
                 <option key={item}>{item}</option>
@@ -97,7 +97,7 @@ export function ErrorNotebook({ entries }: { entries: ErrorEntry[] }) {
         <article className="kpi-card">
           <CalendarClock size={20} />
           <strong>{entries.filter((entry) => entry.mandatoryReview).length}</strong>
-          <span>revisoes obrigatorias</span>
+          <span>revisões obrigatórias</span>
         </article>
       </section>
 
@@ -120,12 +120,12 @@ export function ErrorNotebook({ entries }: { entries: ErrorEntry[] }) {
             </div>
             <p>{entry.simplifiedExplanation}</p>
             <div className="tag-row">
-              {entry.contentGap ? <span className="tag tag-danger">Falta de conteudo</span> : null}
-              {entry.attentionGap ? <span className="tag tag-danger">Falta de atencao</span> : null}
+              {entry.contentGap ? <span className="tag tag-danger">Falta de conteúdo</span> : null}
+              {entry.attentionGap ? <span className="tag tag-danger">Falta de atenção</span> : null}
               {entry.trapFall ? <span className="tag tag-danger">Pegadinha</span> : null}
             </div>
             <div className="diagnosis-box">
-              <span className="eyebrow">Flashcard automatico</span>
+              <span className="eyebrow">Flashcard automático</span>
               <p>{entry.flashcardFront ?? `Explique: ${entry.reviewConcept}`}</p>
             </div>
           </article>

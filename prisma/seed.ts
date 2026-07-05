@@ -8,204 +8,204 @@ const prisma = new PrismaClient();
 const subjects = [
   {
     slug: "lingua-portuguesa",
-    name: "Lingua Portuguesa",
-    shortName: "Portugues",
-    description: "Interpretacao, gramatica normativa, sintaxe, crase, regencia e vocabulario.",
+    name: "Língua Portuguesa",
+    shortName: "Português",
+    description: "Interpretação, gramática normativa, sintaxe, crase, regência e vocabulário.",
     order: 1,
     progress: 38,
     accuracy: 72,
     status: "ESTUDANDO" as const,
     topics: [
-      "Leitura e interpretacao de textos",
-      "Ortografia, sinonimos e antonimos",
+      "Leitura e interpretação de textos",
+      "Ortografia, sinônimos e antônimos",
       "Classes de palavras",
-      "Sintaxe e oracoes",
-      "Concordancia, regencia, pronomes e crase"
+      "Sintaxe e orações",
+      "Concordância, regência, pronomes e crase"
     ]
   },
   {
     slug: "matematica-basica",
-    name: "Matematica Basica",
-    shortName: "Matematica",
-    description: "Numeros, razao, proporcao, porcentagem, equacoes, geometria, probabilidade e logica.",
+    name: "Matemática Básica",
+    shortName: "Matemática",
+    description: "Números, razão, proporção, porcentagem, equações, geometria, probabilidade e lógica.",
     order: 2,
     progress: 31,
     accuracy: 58,
     status: "ESTUDANDO" as const,
     topics: [
-      "Numeros inteiros, racionais e reais",
-      "Razao, proporcao, regra de tres e porcentagem",
-      "Equacao e sistema do 1o grau",
-      "Medidas, tabelas, graficos e geometria",
-      "Probabilidade e raciocinio logico"
+      "Números inteiros, racionais e reais",
+      "Razão, proporção, regra de três e porcentagem",
+      "Equação e sistema do 1º grau",
+      "Medidas, tabelas, gráficos e geometria",
+      "Probabilidade e raciocínio lógico"
     ]
   },
   {
     slug: "direitos-humanos",
-    name: "Nocoes de Direitos Humanos",
+    name: "Noções de Direitos Humanos",
     shortName: "Direitos Humanos",
-    description: "DUDH, direitos fundamentais, tratados internacionais, migracao, tortura e uso da forca.",
+    description: "DUDH, direitos fundamentais, tratados internacionais, migração, tortura e uso da força.",
     order: 3,
     progress: 26,
     accuracy: 64,
     status: "REVISANDO" as const,
     topics: [
-      "Declaracao Universal dos Direitos Humanos",
-      "Constituicao Federal: direitos e deveres individuais",
+      "Declaração Universal dos Direitos Humanos",
+      "Constituição Federal: direitos e deveres individuais",
       "Tratados internacionais e controle de convencionalidade",
-      "Lei de Migracao e combate a tortura",
+      "Lei de Migração e combate à tortura",
       "Uso de instrumentos de menor potencial ofensivo"
     ]
   },
   {
     slug: "direito-administrativo-pmerj",
-    name: "Direito Administrativo e Legislacao Aplicada a PMERJ",
+    name: "Direito Administrativo e Legislação Aplicada à PMERJ",
     shortName: "Administrativo",
-    description: "Principios, organizacao, poderes, atos, processo, agentes e legislacao aplicada a PMERJ.",
+    description: "Princípios, organização, poderes, atos, processo, agentes e legislação aplicada à PMERJ.",
     order: 4,
     progress: 22,
     accuracy: 52,
     status: "ESTUDANDO" as const,
     topics: [
-      "Principios do Direito Administrativo",
-      "Organizacao administrativa e orgaos publicos",
+      "Princípios do Direito Administrativo",
+      "Organização administrativa e órgãos públicos",
       "Poderes administrativos",
       "Atos e processo administrativo",
-      "Legislacao aplicada a PMERJ"
+      "Legislação aplicada à PMERJ"
     ]
   },
   {
     slug: "direito-penal-processual-penal",
     name: "Direito Penal e Processual Penal",
     shortName: "Penal e Processo",
-    description: "Parte geral, crimes em especie, legislacao especial, inquerito, acao penal e provas.",
+    description: "Parte geral, crimes em espécie, legislação especial, inquérito, ação penal e provas.",
     order: 5,
     progress: 18,
     accuracy: 49,
     status: "NAO_INICIADO" as const,
     topics: [
-      "Aplicacao da lei penal, crime e imputabilidade",
-      "Penas, acao penal e parte especial",
-      "Legislacao penal especial",
-      "Inquerito policial e acao penal",
-      "Provas, prisao e medidas cautelares"
+      "Aplicação da lei penal, crime e imputabilidade",
+      "Penas, ação penal e parte especial",
+      "Legislação penal especial",
+      "Inquérito policial e ação penal",
+      "Provas, prisão e medidas cautelares"
     ]
   }
 ];
 
 const subtopicsByTitle: Record<string, string[]> = {
-  "Leitura e interpretacao de textos": [
-    "Textos informativos, literarios e jornalisticos",
-    "Sentido proprio e figurado das palavras",
+  "Leitura e interpretação de textos": [
+    "Textos informativos, literários e jornalísticos",
+    "Sentido próprio e figurado das palavras",
     "Figuras de linguagem"
   ],
-  "Ortografia, sinonimos e antonimos": ["Emprego das letras", "Sinonimos", "Antonimos"],
+  "Ortografia, sinônimos e antônimos": ["Emprego das letras", "Sinônimos", "Antônimos"],
   "Classes de palavras": [
     "Substantivo, adjetivo, numeral e pronome",
-    "Verbo e adverbio",
-    "Preposicao e conjuncao: emprego e sentido"
+    "Verbo e advérbio",
+    "Preposição e conjunção: emprego e sentido"
   ],
-  "Sintaxe e oracoes": ["Reconhecimento dos termos da oracao", "Reconhecimento das oracoes no periodo"],
-  "Concordancia, regencia, pronomes e crase": [
-    "Concordancia verbal e nominal",
-    "Regencia verbal e nominal",
-    "Colocacao de pronomes e ocorrencia de crase"
+  "Sintaxe e orações": ["Reconhecimento dos termos da oração", "Reconhecimento das orações no período"],
+  "Concordância, regência, pronomes e crase": [
+    "Concordância verbal e nominal",
+    "Regência verbal e nominal",
+    "Colocação de pronomes e ocorrência de crase"
   ],
-  "Numeros inteiros, racionais e reais": [
-    "Operacoes e propriedades com inteiros",
-    "Representacao fracionaria e decimal",
-    "Numeros reais e suas operacoes"
+  "Números inteiros, racionais e reais": [
+    "Operações e propriedades com inteiros",
+    "Representação fracionária e decimal",
+    "Números reais e suas operações"
   ],
-  "Razao, proporcao, regra de tres e porcentagem": [
-    "Minimo multiplo comum",
-    "Razao e proporcao",
-    "Porcentagem, juros e regra de tres simples"
+  "Razão, proporção, regra de três e porcentagem": [
+    "Mínimo múltiplo comum",
+    "Razão e proporção",
+    "Porcentagem, juros e regra de três simples"
   ],
-  "Equacao e sistema do 1o grau": [
-    "Equacao do primeiro grau",
-    "Sistema de equacoes do primeiro grau",
-    "Resolucao de situacoes-problema"
+  "Equação e sistema do 1º grau": [
+    "Equação do primeiro grau",
+    "Sistema de equações do primeiro grau",
+    "Resolução de situações-problema"
   ],
-  "Medidas, tabelas, graficos e geometria": [
-    "Medidas de tempo, comprimento, superficie e capacidade",
-    "Relacao entre grandezas: tabelas e graficos",
-    "Forma, perimetro, area, volume e teorema de Pitagoras"
+  "Medidas, tabelas, gráficos e geometria": [
+    "Medidas de tempo, comprimento, superfície e capacidade",
+    "Relação entre grandezas: tabelas e gráficos",
+    "Forma, perímetro, área, volume e teorema de Pitágoras"
   ],
-  "Probabilidade e raciocinio logico": ["Probabilidade", "Conjuntos, operacoes e diagramas", "Raciocinio logico"],
-  "Declaracao Universal dos Direitos Humanos": [
-    "Direitos e liberdades basicas",
-    "Vedacao a escravidao e tortura",
-    "Presuncao de inocencia e remedio efetivo"
+  "Probabilidade e raciocínio lógico": ["Probabilidade", "Conjuntos, operações e diagramas", "Raciocínio lógico"],
+  "Declaração Universal dos Direitos Humanos": [
+    "Direitos e liberdades básicas",
+    "Vedação à escravidão e tortura",
+    "Presunção de inocência e remédio efetivo"
   ],
-  "Constituicao Federal: direitos e deveres individuais": [
-    "Artigo 5o da Constituicao Federal",
-    "Inviolabilidade de domicilio",
-    "Prisao ilegal e relaxamento pela autoridade judiciaria"
+  "Constituição Federal: direitos e deveres individuais": [
+    "Artigo 5º da Constituição Federal",
+    "Inviolabilidade de domicílio",
+    "Prisão ilegal e relaxamento pela autoridade judiciária"
   ],
   "Tratados internacionais e controle de convencionalidade": [
     "Tratados de direitos humanos no direito brasileiro",
     "Controle de convencionalidade",
-    "Pacto Internacional de Direitos Civis e Politicos e Convencao Americana"
+    "Pacto Internacional de Direitos Civis e Políticos e Convenção Americana"
   ],
-  "Lei de Migracao e combate a tortura": [
+  "Lei de Migração e combate à tortura": [
     "Lei Federal 13.445/2017",
-    "Sistema Nacional de Prevencao e Combate a Tortura",
+    "Sistema Nacional de Prevenção e Combate à Tortura",
     "Lei Federal 9.455/1997"
   ],
   "Uso de instrumentos de menor potencial ofensivo": [
     "Lei Federal 13.060/2014",
-    "Uso proporcional da forca",
-    "Uso de arma de fogo e risco de morte ou lesao"
+    "Uso proporcional da força",
+    "Uso de arma de fogo e risco de morte ou lesão"
   ],
-  "Principios do Direito Administrativo": [
-    "Legalidade, impessoalidade, moralidade, publicidade e eficiencia",
+  "Princípios do Direito Administrativo": [
+    "Legalidade, impessoalidade, moralidade, publicidade e eficiência",
     "Razoabilidade e proporcionalidade",
-    "Supremacia do interesse publico, continuidade e autotutela"
+    "Supremacia do interesse público, continuidade e autotutela"
   ],
-  "Organizacao administrativa e orgaos publicos": [
-    "Desconcentracao e descentralizacao",
-    "Administracao direta e indireta",
-    "Orgaos publicos: conceito, criacao, extincao e classificacoes"
+  "Organização administrativa e órgãos públicos": [
+    "Desconcentração e descentralização",
+    "Administração direta e indireta",
+    "Órgãos públicos: conceito, criação, extinção e classificações"
   ],
   "Poderes administrativos": [
     "Poder normativo ou regulamentar",
-    "Poder de policia",
-    "Poder hierarquico e poder disciplinar"
+    "Poder de polícia",
+    "Poder hierárquico e poder disciplinar"
   ],
   "Atos e processo administrativo": [
     "Elementos do ato administrativo",
-    "Discricionariedade, vinculacao e atributos",
+    "Discricionariedade, vinculação e atributos",
     "Processo administrativo e PAD"
   ],
-  "Legislacao aplicada a PMERJ": [
-    "Constituicao Federal: arts. 42, 144 e 125",
-    "Constituicao Estadual: arts. 91 a 93",
+  "Legislação aplicada à PMERJ": [
+    "Constituição Federal: arts. 42, 144 e 125",
+    "Constituição Estadual: arts. 91 a 93",
     "Decreto-Lei 667/1969 e Lei Estadual 443/1981"
   ],
-  "Aplicacao da lei penal, crime e imputabilidade": [
-    "Aplicacao da lei penal",
+  "Aplicação da lei penal, crime e imputabilidade": [
+    "Aplicação da lei penal",
     "Crime e excludentes",
     "Imputabilidade penal"
   ],
-  "Penas, acao penal e parte especial": [
+  "Penas, ação penal e parte especial": [
     "Penas privativas de liberdade, restritivas de direitos e multa",
-    "Suspensao condicional da pena e livramento condicional",
-    "Crimes contra pessoa, patrimonio, dignidade sexual, paz publica, fe publica e administracao publica"
+    "Suspensão condicional da pena e livramento condicional",
+    "Crimes contra pessoa, patrimônio, dignidade sexual, paz pública, fé pública e administração pública"
   ],
-  "Legislacao penal especial": [
+  "Legislação penal especial": [
     "Abuso de autoridade, crimes hediondos e tortura",
     "Drogas, Maria da Penha, ECA e Estatuto do Idoso",
-    "Juizados Especiais, desarmamento, consumidor e pessoa com deficiencia"
+    "Juizados Especiais, desarmamento, consumidor e pessoa com deficiência"
   ],
-  "Inquerito policial e acao penal": [
-    "Disposicoes preliminares do CPP",
-    "Inquerito policial",
-    "Acao penal e sujeitos do processo"
+  "Inquérito policial e ação penal": [
+    "Disposições preliminares do CPP",
+    "Inquérito policial",
+    "Ação penal e sujeitos do processo"
   ],
-  "Provas, prisao e medidas cautelares": [
-    "Disposicoes gerais da prova",
-    "Corpo de delito, cadeia de custodia, pericias, busca e apreensao",
-    "Prisao, medidas cautelares e liberdade provisoria"
+  "Provas, prisão e medidas cautelares": [
+    "Disposições gerais da prova",
+    "Corpo de delito, cadeia de custódia, perícias, busca e apreensão",
+    "Prisão, medidas cautelares e liberdade provisória"
   ]
 };
 

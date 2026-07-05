@@ -12,18 +12,18 @@ export default async function ReviewsPage() {
     <div className="page-stack">
       <section className="section-header">
         <div>
-          <span className="eyebrow">Revisoes e flashcards</span>
+          <span className="eyebrow">Revisões e flashcards</span>
           <h1>Base para memorizar antes do esquecimento</h1>
           <p>
-            Esta tela prepara a estrutura para active recall, flashcards inteligentes e revisao espacada.
-            Historico de acertos e erros entra nas fases 7 e 8.
+            Esta tela prepara a estrutura para active recall, flashcards inteligentes e revisão espaçada.
+            O histórico de acertos e erros entra nas próximas etapas de estudo.
           </p>
         </div>
       </section>
 
       <section className="grid-4">
-        <MetricCard label="Flashcards" value={String(center.metrics.flashcards)} detail="Cartoes ativos" icon={Brain} />
-        <MetricCard label="Pendentes" value={String(center.metrics.pendingReviews)} detail="Revisoes em aberto" icon={CalendarClock} tone="red" />
+        <MetricCard label="Flashcards" value={String(center.metrics.flashcards)} detail="Cartões ativos" icon={Brain} />
+        <MetricCard label="Pendentes" value={String(center.metrics.pendingReviews)} detail="Revisões em aberto" icon={CalendarClock} tone="red" />
         <MetricCard label="Para hoje" value={String(center.metrics.dueToday)} detail="Vencidos ou do dia" icon={RefreshCcw} tone="gold" />
         <MetricCard label="Mais esquecidos" value={String(center.metrics.weakCards)} detail="Erros superam acertos" icon={TrendingUp} tone="blue" />
       </section>
@@ -46,17 +46,17 @@ export default async function ReviewsPage() {
       <section className="split-panel">
         <article className="panel">
           <Brain className="panel-icon" size={30} />
-          <h2>Flashcard automatico</h2>
+          <h2>Flashcard automático</h2>
           <p>
-            Cada erro importante podera virar pergunta de frente e verso, ligada a materia, assunto,
-            dificuldade e proxima revisao.
+            Cada erro importante poderá virar pergunta de frente e verso, ligada à matéria, assunto,
+            dificuldade e próxima revisão.
           </p>
         </article>
         <article className="panel">
-          <h2>Fila de revisao</h2>
+          <h2>Fila de revisão</h2>
           <ul className="clean-list" style={{ marginTop: 18 }}>
             <li>Conceitos errados recentemente aparecem primeiro.</li>
-            <li>Topicos com baixa confianca recebem intervalo menor.</li>
+            <li>Tópicos com baixa confiança recebem intervalo menor.</li>
             <li>Acertos consistentes aumentam o intervalo.</li>
           </ul>
         </article>

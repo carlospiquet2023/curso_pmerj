@@ -7,7 +7,7 @@ export const lessonContent: Record<string, { aula: string; resumo: string }> = {
   // LÍNGUA PORTUGUESA
   // ═══════════════════════════════════════════════
 
-  "Leitura e interpretacao de textos": {
+  "Leitura e interpretação de textos": {
     aula: `# Leitura e Interpretação de Textos
 
 ## Por que esse tópico é decisivo?
@@ -53,7 +53,7 @@ Das 10 questões de Português na prova FGV, pelo menos 4 a 5 cobram interpreta�
 • Cuidado: alternativa verdadeira ≠ alternativa que responde à pergunta`
   },
 
-  "Ortografia, sinonimos e antonimos": {
+  "Ortografia, sinônimos e antônimos": {
     aula: `# Ortografia, Sinônimos e Antônimos
 
 ## Regras ortográficas mais cobradas
@@ -138,7 +138,7 @@ As conjunções revelam a relação lógica entre as ideias:
 • Preposições determinam a regência verbal`
   },
 
-  "Sintaxe e oracoes": {
+  "Sintaxe e orações": {
     aula: `# Sintaxe: Termos da Oração e Períodos
 
 ## Termos Essenciais
@@ -181,7 +181,7 @@ As conjunções revelam a relação lógica entre as ideias:
 • Adjetiva restritiva (sem vírgula, restringe) vs. explicativa (com vírgula, explica)`
   },
 
-  "Concordancia, regencia, pronomes e crase": {
+  "Concordância, regência, pronomes e crase": {
     aula: `# Concordância, Regência, Pronomes e Crase
 
 ## Concordância Verbal
@@ -239,7 +239,7 @@ Troque a palavra feminina por uma masculina. Se aparecer "ao", tem crase: "Fui �
   // MATEMÁTICA BÁSICA
   // ═══════════════════════════════════════════════
 
-  "Numeros inteiros, racionais e reais": {
+  "Números inteiros, racionais e reais": {
     aula: `# Números Inteiros, Racionais e Reais
 
 ## Conjuntos Numéricos
@@ -282,7 +282,7 @@ A banca adora cobrar operações com números negativos e frações dentro de si
 • Dízima periódica é número racional (pode virar fração)`
   },
 
-  "Razao, proporcao, regra de tres e porcentagem": {
+  "Razão, proporção, regra de três e porcentagem": {
     aula: `# Razão, Proporção, Regra de Três e Porcentagem
 
 ## Razão e Proporção
@@ -321,7 +321,7 @@ Usamos quando temos 3 valores conhecidos e 1 desconhecido.
 • Aumentos sucessivos: multiplica os fatores`
   },
 
-  "Equacao e sistema do 1o grau": {
+  "Equação e sistema do 1º grau": {
     aula: `# Equação e Sistema do 1º Grau
 
 ## Equação do 1º Grau
@@ -364,7 +364,7 @@ Somando: 2x = 60 → x = 30, logo y = 20`,
 • FGV cobra sempre em forma de problema contextualizado`
   },
 
-  "Medidas, tabelas, graficos e geometria": {
+  "Medidas, tabelas, gráficos e geometria": {
     aula: `# Medidas, Tabelas, Gráficos e Geometria
 
 ## Unidades de Medida
@@ -405,7 +405,7 @@ Em todo triângulo retângulo: a² = b² + c² (hipotenusa² = cateto² + cateto
 • Trios: 3-4-5 / 5-12-13`
   },
 
-  "Probabilidade e raciocinio logico": {
+  "Probabilidade e raciocínio lógico": {
     aula: `# Probabilidade e Raciocínio Lógico
 
 ## Probabilidade
@@ -457,7 +457,7 @@ A condicional só é FALSA quando o antecedente é verdadeiro e o consequente é
   // DIREITOS HUMANOS
   // ═══════════════════════════════════════════════
 
-  "Declaracao Universal dos Direitos Humanos": {
+  "Declaração Universal dos Direitos Humanos": {
     aula: `# Declaração Universal dos Direitos Humanos (DUDH)
 
 ## Contexto Histórico
@@ -502,7 +502,7 @@ Adotada pela ONU em **10 de dezembro de 1948** (Assembleia Geral, Resolução 21
 • Características: universais, indivisíveis, inalienáveis, imprescritíveis`
   },
 
-  "Constituicao Federal: direitos e deveres individuais": {
+  "Constituição Federal: direitos e deveres individuais": {
     aula: `# Constituição Federal: Art. 5º — Direitos e Deveres Individuais
 
 ## Importância para o Policial Militar
@@ -583,7 +583,7 @@ A EC 45/2004 criou o §3º do art. 5º da CF:
 • Convenção contra Tortura (1984): obrigação de prevenir e punir`
   },
 
-  "Lei de Migracao e combate a tortura": {
+  "Lei de Migração e combate à tortura": {
     aula: `# Lei de Migração e Combate à Tortura
 
 ## Lei de Migração (Lei 13.445/2017)
@@ -669,7 +669,7 @@ A banca cobra principalmente: "Em qual situação o policial pode usar arma de f
   // DIREITO ADMINISTRATIVO
   // ═══════════════════════════════════════════════
 
-  "Principios do Direito Administrativo": {
+  "Princípios do Direito Administrativo": {
     aula: `# Princípios do Direito Administrativo
 
 ## Princípios Expressos (LIMPE) — Art. 37 CF/88
@@ -706,7 +706,7 @@ A banca cobra principalmente: "Em qual situação o policial pode usar arma de f
 • Razoabilidade e Proporcionalidade: adequação, necessidade, proporcionalidade`
   },
 
-  "Organizacao administrativa e orgaos publicos": {
+  "Organização administrativa e órgãos públicos": {
     aula: `# Organização Administrativa
 
 ## Administração Direta
@@ -827,7 +827,7 @@ Princípios: legalidade, finalidade, motivação, razoabilidade, proporcionalida
 • PAD: instauração → inquérito → julgamento (ampla defesa + contraditório)`
   },
 
-  "Legislacao aplicada a PMERJ": {
+  "Legislação aplicada à PMERJ": {
     aula: `# Legislação Aplicada à PMERJ
 
 ## Constituição Federal
@@ -874,7 +874,7 @@ Princípios: legalidade, finalidade, motivação, razoabilidade, proporcionalida
   // DIREITO PENAL E PROCESSUAL PENAL
   // ═══════════════════════════════════════════════
 
-  "Aplicacao da lei penal, crime e imputabilidade": {
+  "Aplicação da lei penal, crime e imputabilidade": {
     aula: `# Aplicação da Lei Penal, Crime e Imputabilidade
 
 ## Aplicação da Lei Penal
@@ -920,7 +920,7 @@ Crime = **fato típico** + **antijurídico** + **culpável**
 • Embriaguez voluntária NÃO exclui imputabilidade`
   },
 
-  "Penas, acao penal e parte especial": {
+  "Penas, ação penal e parte especial": {
     aula: `# Penas, Ação Penal e Crimes em Espécie
 
 ## Tipos de Pena (Art. 32 CP)
@@ -964,7 +964,7 @@ Crime = **fato típico** + **antijurídico** + **culpável**
 • Crimes do PM: resistência (329), desacato (331), peculato (312), corrupção (317)`
   },
 
-  "Legislacao penal especial": {
+  "Legislação penal especial": {
     aula: `# Legislação Penal Especial
 
 ## Lei de Abuso de Autoridade (Lei 13.869/2019)
@@ -1007,7 +1007,7 @@ Crime = **fato típico** + **antijurídico** + **culpável**
 • Drogas: uso = medidas educativas; tráfico = 5-15 anos`
   },
 
-  "Inquerito policial e acao penal": {
+  "Inquérito policial e ação penal": {
     aula: `# Inquérito Policial e Ação Penal
 
 ## Inquérito Policial (Arts. 4-23 CPP)
@@ -1052,7 +1052,7 @@ Crime = **fato típico** + **antijurídico** + **culpável**
 • Ação privada: queixa-crime pelo ofendido (6 meses)`
   },
 
-  "Provas, prisao e medidas cautelares": {
+  "Provas, prisão e medidas cautelares": {
     aula: `# Provas, Prisão e Medidas Cautelares
 
 ## Provas (Arts. 155-250 CPP)

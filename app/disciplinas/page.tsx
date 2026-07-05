@@ -12,10 +12,10 @@ export default async function SubjectsPage() {
       <section className="section-header">
         <div>
           <span className="eyebrow">Mapa completo do edital</span>
-          <h1>Disciplinas, topicos e prioridade</h1>
+          <h1>Disciplinas, tópicos e prioridade</h1>
           <p>
-            O edital foi organizado em blocos de estudo. Nesta fase os dados sao estaticos; a proxima etapa
-            cria persistencia para status, dominio e revisoes por aluno.
+            O edital foi organizado em blocos de estudo. Os dados já ficam conectados ao desempenho,
+            domínio e revisões de cada aluno.
           </p>
         </div>
       </section>
@@ -31,11 +31,11 @@ export default async function SubjectsPage() {
               </div>
               <StatusPill status={subject.status} />
             </header>
-            <ProgressBar value={subject.progress} label={`Dominio em ${subject.name}`} />
+            <ProgressBar value={subject.progress} label={`Domínio em ${subject.name}`} />
             <div className="tag-row">
-              <span className="tag">Dominio {subject.mastery}%</span>
+              <span className="tag">Domínio {subject.mastery}%</span>
               <span className="tag">Acerto {subject.accuracy}%</span>
-              <span className="tag">{subject.topics.length} topicos</span>
+              <span className="tag">{subject.topics.length} tópicos</span>
             </div>
 
             <div className="topic-map-list">
@@ -50,9 +50,9 @@ export default async function SubjectsPage() {
                   </div>
                   <div className="tag-row">
                     <span className="tag">Prioridade {topic.priority}</span>
-                    <span className="tag">Dominio {topic.mastery}%</span>
-                    <span className="tag">{topic.questionsLinked} questoes vinculadas</span>
-                    {topic.reviewDue ? <span className="tag tag-danger">Revisao pendente</span> : null}
+                    <span className="tag">Domínio {topic.mastery}%</span>
+                    <span className="tag">{topic.questionsLinked} questões vinculadas</span>
+                    {topic.reviewDue ? <span className="tag tag-danger">Revisão pendente</span> : null}
                   </div>
                   <div className="subtopic-grid">
                     {topic.children.map((child) => (
@@ -62,10 +62,10 @@ export default async function SubjectsPage() {
                           <strong>{child.title}</strong>
                         </div>
                         <StatusPill status={child.status} />
-                        <ProgressBar value={child.mastery} label={`Dominio em ${child.title}`} />
+                        <ProgressBar value={child.mastery} label={`Domínio em ${child.title}`} />
                         <div className="tag-row">
                           <span className="tag">Prioridade {child.priority}</span>
-                          <span className="tag">{child.questionsLinked} questoes</span>
+                          <span className="tag">{child.questionsLinked} questões</span>
                           {child.reviewDue ? <span className="tag tag-danger">Revisar</span> : null}
                         </div>
                       </article>

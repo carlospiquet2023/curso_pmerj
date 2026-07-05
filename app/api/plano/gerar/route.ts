@@ -20,7 +20,7 @@ export async function POST(request: Request) {
 
   const user = await prisma.user.findUnique({ where: { id: (await getCurrentUser())?.id || "" }, include: { profile: true } });
   if (!user) {
-    return errorResponse("Aluno demonstracao nao encontrado.", 404);
+    return errorResponse("Aluno de demonstração não encontrado.", 404);
   }
 
   await prisma.studentProfile.update({
@@ -63,8 +63,8 @@ export async function POST(request: Request) {
       review
         ? {
             type: "REVISAO" as const,
-            title: `Revisar ${review.topic?.title ?? review.subject?.shortName ?? "conteudo pendente"}`,
-            rationale: "Revisao pendente deve vir antes de conteudo novo.",
+            title: `Revisar ${review.topic?.title ?? review.subject?.shortName ?? "conteúdo pendente"}`,
+            rationale: "Revisão pendente deve vir antes de conteúdo novo.",
             scheduledFor: date,
             durationMinutes: block,
             subjectId: review.subjectId,
@@ -74,8 +74,8 @@ export async function POST(request: Request) {
       weak
         ? {
             type: "QUESTOES" as const,
-            title: `Questoes de ${weak.subject.shortName}`,
-            rationale: "Materia fraca precisa de treino ativo para subir a taxa de acerto.",
+            title: `Questões de ${weak.subject.shortName}`,
+            rationale: "Matéria fraca precisa de treino ativo para subir a taxa de acerto.",
             scheduledFor: date,
             durationMinutes: block,
             subjectId: weak.subjectId,
@@ -85,8 +85,8 @@ export async function POST(request: Request) {
       topic
         ? {
             type: index % 6 === 5 ? ("SIMULADO" as const) : ("ESTUDO_NOVO" as const),
-            title: index % 6 === 5 ? "Simulado curto e correcao" : `Estudar ${topic.topic.title}`,
-            rationale: index % 6 === 5 ? "Simulado mede evolucao e revela travas." : "Topico ainda nao iniciado no edital.",
+            title: index % 6 === 5 ? "Simulado curto e correção" : `Estudar ${topic.topic.title}`,
+            rationale: index % 6 === 5 ? "Simulado mede evolução e revela travas." : "Tópico ainda não iniciado no edital.",
             scheduledFor: date,
             durationMinutes: dailyMinutes - block * 2,
             subjectId: topic.topic.subjectId,
@@ -99,7 +99,7 @@ export async function POST(request: Request) {
   const plan = await prisma.studyPlan.create({
     data: {
       userId: user.id,
-      title: `Plano automatico de ${days} dias`,
+      title: `Plano automático de ${days} dias`,
       startDate: new Date(),
       endDate: addDays(days),
       tasks: {

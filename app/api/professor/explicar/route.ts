@@ -10,7 +10,7 @@ export async function POST(request: Request) {
 
   const body = (await request.json()) as { subject?: string; topic?: string };
   const subject = sanitizeText(body.subject ?? "Disciplina", LIMITS.MAX_SHORT_TEXT_LENGTH);
-  const topic = sanitizeText(body.topic ?? "topico do edital", LIMITS.MAX_SHORT_TEXT_LENGTH);
+  const topic = sanitizeText(body.topic ?? "tópico do edital", LIMITS.MAX_SHORT_TEXT_LENGTH);
 
   return NextResponse.json(buildTeacherExplanation(subject, topic));
 }

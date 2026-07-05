@@ -2,7 +2,7 @@ export const questionsData = [
   // LÍNGUA PORTUGUESA (10 questões)
   {
     subjectSlug: "lingua-portuguesa",
-    topicTitle: "Leitura e interpretacao de textos",
+    topicTitle: "Leitura e interpretação de textos",
     statement: "Leia o texto abaixo:\\n\\n'O crescente uso de tecnologias no policiamento ostensivo tem gerado debates acalorados. Se por um lado as câmeras corporais oferecem maior transparência e protegem o bom policial de falsas acusações, por outro, há quem argumente que elas inibem a proatividade da tropa em situações de alto risco, criando um efeito paralisante.'\\n\\nDepreende-se do texto que as câmeras corporais no policiamento ostensivo:",
     difficulty: "MEDIA",
     explanation: "O texto apresenta dois lados do debate: vantagens (transparência, proteção do policial) e desvantagens apontadas por críticos (inibição da proatividade). A palavra 'depreende-se' significa o que se pode concluir ou inferir.",
@@ -20,7 +20,7 @@ export const questionsData = [
   },
   {
     subjectSlug: "lingua-portuguesa",
-    topicTitle: "Ortografia, sinonimos e antonimos",
+    topicTitle: "Ortografia, sinônimos e antônimos",
     statement: "Assinale a alternativa em que a palavra destacada pode ser substituída pelo termo entre parênteses SEM alteração do sentido original e mantendo a correção gramatical:\\n\\n'O comandante decidiu manter a operação, CONQUANTO houvesse risco de chuva forte.'",
     difficulty: "DIFICIL",
     explanation: "'Conquanto' é uma conjunção subordinativa concessiva, equivalente a 'embora', 'ainda que', 'mesmo que'. Ela introduz uma ideia de concessão (algo que poderia atrapalhar, mas não impede a ação principal).",
@@ -56,7 +56,7 @@ export const questionsData = [
   },
   {
     subjectSlug: "lingua-portuguesa",
-    topicTitle: "Sintaxe e oracoes",
+    topicTitle: "Sintaxe e orações",
     statement: "Analise a função sintática do termo destacado na oração: 'O batalhão foi cercado PELOS MANIFESTANTES.'",
     difficulty: "MEDIA",
     explanation: "A oração está na voz passiva ('foi cercado'). O termo 'pelos manifestantes' indica quem praticou a ação de cercar na voz passiva.",
@@ -74,7 +74,7 @@ export const questionsData = [
   },
   {
     subjectSlug: "lingua-portuguesa",
-    topicTitle: "Concordancia, regencia, pronomes e crase",
+    topicTitle: "Concordância, regência, pronomes e crase",
     statement: "Assinale a alternativa que apresenta erro de concordância (verbal ou nominal):",
     difficulty: "MEDIA",
     explanation: "A questão cobra regras especiais de concordância, muito comuns na FGV, como o verbo haver e expressões de porcentagem.",
@@ -92,7 +92,7 @@ export const questionsData = [
   },
   {
     subjectSlug: "lingua-portuguesa",
-    topicTitle: "Concordancia, regencia, pronomes e crase",
+    topicTitle: "Concordância, regência, pronomes e crase",
     statement: "Indique a alternativa em que o uso (ou ausência) do acento grave indicador de crase está INCORRETO:",
     difficulty: "MEDIA",
     explanation: "A crase é a fusão da preposição 'a' com o artigo feminino 'a'. Não ocorre antes de palavras masculinas, verbos ou pronomes de tratamento.",
@@ -110,7 +110,7 @@ export const questionsData = [
   },
   {
     subjectSlug: "lingua-portuguesa",
-    topicTitle: "Leitura e interpretacao de textos",
+    topicTitle: "Leitura e interpretação de textos",
     statement: "A charge institucional mostra um policial ajudando um idoso a atravessar a rua, com os dizeres 'Servir e Proteger'. A função da linguagem predominante neste tipo de mensagem é:",
     difficulty: "MEDIA",
     explanation: "Mensagens de campanhas institucionais, que buscam convencer, emocionar ou influenciar o comportamento/opinião do receptor, utilizam a função conativa ou apelativa.",
@@ -128,7 +128,7 @@ export const questionsData = [
   },
   {
     subjectSlug: "lingua-portuguesa",
-    topicTitle: "Sintaxe e oracoes",
+    topicTitle: "Sintaxe e orações",
     statement: "No período: 'O sargento gritou tanto QUE ficou rouco', a oração destacada introduz uma ideia de:",
     difficulty: "FACIL",
     explanation: "A estrutura 'TÃO... QUE', 'TANTO... QUE', 'TAMANHO... QUE' introduz uma oração subordinada adverbial consecutiva (consequência).",
@@ -146,7 +146,7 @@ export const questionsData = [
   },
   {
     subjectSlug: "lingua-portuguesa",
-    topicTitle: "Concordancia, regencia, pronomes e crase",
+    topicTitle: "Concordância, regência, pronomes e crase",
     statement: "Assinale a frase com a correta regência verbal, segundo a norma-padrão:",
     difficulty: "DIFICIL",
     explanation: "Verbos como assistir, visar, obedecer e preferir têm regências específicas que costumam cair em prova.",
@@ -184,7 +184,7 @@ export const questionsData = [
   // MATEMÁTICA BÁSICA (10 questões)
   {
     subjectSlug: "matematica-basica",
-    topicTitle: "Razao, proporcao, regra de tres e porcentagem",
+    topicTitle: "Razão, proporção, regra de três e porcentagem",
     statement: "O comando de um batalhão observou que uma viatura com 4 policiais consegue patrulhar um setor em 12 horas. Se o efetivo for aumentado para 6 policiais, mantendo o mesmo ritmo de trabalho, em quanto tempo o mesmo setor será patrulhado?",
     difficulty: "FACIL",
     explanation: "Temos uma Regra de Três Simples com grandezas inversamente proporcionais. Se aumentar o número de policiais, o tempo de patrulha diminui.",
@@ -202,7 +202,7 @@ export const questionsData = [
   },
   {
     subjectSlug: "matematica-basica",
-    topicTitle: "Razao, proporcao, regra de tres e porcentagem",
+    topicTitle: "Razão, proporção, regra de três e porcentagem",
     statement: "O salário de um soldado da PMERJ sofreu um reajuste de 10% em janeiro. Em julho, devido a um novo acordo, sofreu um novo reajuste de 20% sobre o salário já reajustado. O aumento percentual total acumulado no ano foi de:",
     difficulty: "MEDIA",
     explanation: "Trata-se de aumentos sucessivos. O segundo aumento incide sobre o valor JÁ acrescido do primeiro, não sobre o valor original.",
@@ -220,7 +220,7 @@ export const questionsData = [
   },
   {
     subjectSlug: "matematica-basica",
-    topicTitle: "Equacao e sistema do 1o grau",
+    topicTitle: "Equação e sistema do 1º grau",
     statement: "Em uma operação policial, foram apreendidas armas de fogo (pistolas e fuzis), num total de 45 armas. Sabe-se que o número de pistolas excede o número de fuzis em 15 unidades. Quantos fuzis foram apreendidos?",
     difficulty: "FACIL",
     explanation: "Sistema de equações do 1º grau. P = pistolas, F = fuzis. P + F = 45 e P = F + 15.",
@@ -238,7 +238,7 @@ export const questionsData = [
   },
   {
     subjectSlug: "matematica-basica",
-    topicTitle: "Medidas, tabelas, graficos e geometria",
+    topicTitle: "Medidas, tabelas, gráficos e geometria",
     statement: "Uma sala retangular usada para treinamento tem 12 metros de comprimento e área total de 96 m². Qual é o perímetro dessa sala?",
     difficulty: "MEDIA",
     explanation: "Primeiro, encontramos a largura usando a fórmula da Área = comprimento × largura. 96 = 12 × L → L = 8. Depois, calculamos o Perímetro = 2×(comprimento) + 2×(largura).",
@@ -256,7 +256,7 @@ export const questionsData = [
   },
   {
     subjectSlug: "matematica-basica",
-    topicTitle: "Probabilidade e raciocinio logico",
+    topicTitle: "Probabilidade e raciocínio lógico",
     statement: "Em um pelotão de 60 soldados, 40 têm curso de tiro tático, 35 têm curso de direção defensiva e 10 não possuem nenhum dos dois cursos. Quantos soldados possuem AMBOS os cursos?",
     difficulty: "DIFICIL",
     explanation: "Problema clássico de Teoria dos Conjuntos. Total de pessoas COM algum curso = 60 - 10 = 50 pessoas. A soma dos que têm tiro (40) e direção (35) é 75. A diferença entre a soma e o total real é a interseção.",
@@ -274,7 +274,7 @@ export const questionsData = [
   },
   {
     subjectSlug: "matematica-basica",
-    topicTitle: "Probabilidade e raciocinio logico",
+    topicTitle: "Probabilidade e raciocínio lógico",
     statement: "Considerando a proposição condicional 'Se chover forte, então a operação será cancelada', assinale a alternativa que apresenta uma dedução logicamente correta (equivalência ou contrapositiva):",
     difficulty: "MEDIA",
     explanation: "A contrapositiva de 'Se p, então q' é 'Se não q, então não p'. Ambas são logicamente equivalentes.",
@@ -292,7 +292,7 @@ export const questionsData = [
   },
   {
     subjectSlug: "matematica-basica",
-    topicTitle: "Medidas, tabelas, graficos e geometria",
+    topicTitle: "Medidas, tabelas, gráficos e geometria",
     statement: "Um camburão precisa percorrer uma distância de 7,2 km até o local da ocorrência. Essa distância, expressa em metros, corresponde a:",
     difficulty: "FACIL",
     explanation: "Conversão básica do Sistema Métrico Decimal. O prefixo 'quilo' (k) significa 1.000.",
@@ -310,7 +310,7 @@ export const questionsData = [
   },
   {
     subjectSlug: "matematica-basica",
-    topicTitle: "Numeros inteiros, racionais e reais",
+    topicTitle: "Números inteiros, racionais e reais",
     statement: "Calcule o valor da expressão numérica: -3² + (-2)³ - (-5)",
     difficulty: "MEDIA",
     explanation: "Expressões com números negativos exigem atenção à regra de sinais e parênteses. Note que -3² não tem parênteses, então o sinal negativo fica FORA da potência: -(3²) = -9. Já (-2)³ tem base negativa e expoente ímpar, então fica -8.",
@@ -328,7 +328,7 @@ export const questionsData = [
   },
   {
     subjectSlug: "matematica-basica",
-    topicTitle: "Probabilidade e raciocinio logico",
+    topicTitle: "Probabilidade e raciocínio lógico",
     statement: "Em um stand de tiro, um policial tem 80% de chance de acertar o alvo A e 60% de chance de acertar o alvo B. Os tiros são eventos independentes. Qual é a probabilidade de ele acertar o alvo A E errar o alvo B?",
     difficulty: "MEDIA",
     explanation: "Se os eventos são independentes, a probabilidade de (A e não-B) ocorrerem simultaneamente é a multiplicação de suas probabilidades.",
@@ -346,7 +346,7 @@ export const questionsData = [
   },
   {
     subjectSlug: "matematica-basica",
-    topicTitle: "Razao, proporcao, regra de tres e porcentagem",
+    topicTitle: "Razão, proporção, regra de três e porcentagem",
     statement: "Uma delegacia tem uma cota mensal de combustível. Do total, 2/5 são destinados às viaturas ostensivas, 1/4 às viaturas descaracterizadas e sobram 700 litros para operações especiais. O total de combustível da cota mensal é:",
     difficulty: "DIFICIL",
     explanation: "A soma das frações utilizadas é 2/5 + 1/4 = 8/20 + 5/20 = 13/20. Isso significa que a sobra (700 litros) corresponde à fração restante, que é 7/20 do total.",
@@ -366,7 +366,7 @@ export const questionsData = [
   // DIREITOS HUMANOS (10 questões)
   {
     subjectSlug: "direitos-humanos",
-    topicTitle: "Declaracao Universal dos Direitos Humanos",
+    topicTitle: "Declaração Universal dos Direitos Humanos",
     statement: "Sobre a Declaração Universal dos Direitos Humanos (DUDH) de 1948, é correto afirmar que:",
     difficulty: "FACIL",
     explanation: "A DUDH é uma resolução da Assembleia Geral da ONU. Ela prevê expressamente o direito ao asilo para vítimas de perseguição, EXCETO para criminosos comuns ou atos contrários aos princípios da ONU.",
@@ -384,7 +384,7 @@ export const questionsData = [
   },
   {
     subjectSlug: "direitos-humanos",
-    topicTitle: "Constituicao Federal: direitos e deveres individuais",
+    topicTitle: "Constituição Federal: direitos e deveres individuais",
     statement: "Conforme o artigo 5º da Constituição Federal, a casa é asilo inviolável do indivíduo, ninguém nela podendo penetrar sem consentimento do morador, SALVO:",
     difficulty: "FACIL",
     explanation: "Texto literal do art. 5º, XI, da CF/88. Essa é a regra mais cobrada em carreiras policiais.",
@@ -420,7 +420,7 @@ export const questionsData = [
   },
   {
     subjectSlug: "direitos-humanos",
-    topicTitle: "Lei de Migracao e combate a tortura",
+    topicTitle: "Lei de Migração e combate à tortura",
     statement: "Segundo a Lei nº 9.455/1997 (Lei de Tortura), é INCORRETO afirmar que:",
     difficulty: "MEDIA",
     explanation: "A lei de tortura traz regras severas para esse crime hediondo. O crime de tortura é inafiançável e insuscetível de graça ou anistia.",
@@ -456,7 +456,7 @@ export const questionsData = [
   },
   {
     subjectSlug: "direitos-humanos",
-    topicTitle: "Constituicao Federal: direitos e deveres individuais",
+    topicTitle: "Constituição Federal: direitos e deveres individuais",
     statement: "O artigo 5º da CF/88 enumera diversos direitos relacionados à liberdade e ao devido processo legal. A respeito da prisão, é correto afirmar que:",
     difficulty: "MEDIA",
     explanation: "O processo penal constitucional é rígido quanto à liberdade. Ninguém será preso senão em flagrante delito ou por ordem de juiz.",
@@ -474,7 +474,7 @@ export const questionsData = [
   },
   {
     subjectSlug: "direitos-humanos",
-    topicTitle: "Declaracao Universal dos Direitos Humanos",
+    topicTitle: "Declaração Universal dos Direitos Humanos",
     statement: "A respeito das características fundamentais dos Direitos Humanos, o princípio que determina que a supressão de um direito compromete a eficácia dos demais é chamado de:",
     difficulty: "MEDIA",
     explanation: "As características dos DH são figurinhas carimbadas em provas. Universalidade (para todos), Indivisibilidade (é um pacote só), Interdependência (um afeta o outro).",
@@ -492,7 +492,7 @@ export const questionsData = [
   },
   {
     subjectSlug: "direitos-humanos",
-    topicTitle: "Lei de Migracao e combate a tortura",
+    topicTitle: "Lei de Migração e combate à tortura",
     statement: "A nova Lei de Migração (Lei 13.445/2017) trouxe uma mudança de paradigma em relação ao antigo Estatuto do Estrangeiro. Assinale o princípio ou diretriz consagrado pela nova lei:",
     difficulty: "MEDIA",
     explanation: "O antigo estatuto via o estrangeiro como ameaça à Segurança Nacional. A nova lei vê sob a ótica dos Direitos Humanos.",
@@ -528,7 +528,7 @@ export const questionsData = [
   },
   {
     subjectSlug: "direitos-humanos",
-    topicTitle: "Constituicao Federal: direitos e deveres individuais",
+    topicTitle: "Constituição Federal: direitos e deveres individuais",
     statement: "No que tange aos Remédios Constitucionais previstos no Art. 5º da CF/88, para proteger o direito líquido e certo, não amparado por habeas corpus ou habeas data, quando o responsável pela ilegalidade for autoridade pública, caberá:",
     difficulty: "FACIL",
     explanation: "É a definição literal de Mandado de Segurança.",
@@ -548,7 +548,7 @@ export const questionsData = [
   // DIREITO ADMINISTRATIVO (10 questões)
   {
     subjectSlug: "direito-administrativo-pmerj",
-    topicTitle: "Principios do Direito Administrativo",
+    topicTitle: "Princípios do Direito Administrativo",
     statement: "O Prefeito de um município determinou a colocação de placas de obras pela cidade contendo seu nome, foto e o slogan da sua campanha eleitoral. A conduta do Prefeito viola frontalmente qual princípio expresso da Administração Pública?",
     difficulty: "FACIL",
     explanation: "O art. 37, §1º da CF veda a promoção pessoal de autoridades ou servidores em publicidade de atos, programas ou obras. Isso ofende diretamente o princípio da Impessoalidade.",
@@ -566,7 +566,7 @@ export const questionsData = [
   },
   {
     subjectSlug: "direito-administrativo-pmerj",
-    topicTitle: "Organizacao administrativa e orgaos publicos",
+    topicTitle: "Organização administrativa e órgãos públicos",
     statement: "O Estado decide criar uma nova entidade para prestar serviço de emissão de CNH. A lei aprovada cria essa entidade com personalidade jurídica de direito público, patrimônio e receita próprios. Trata-se da criação de uma:",
     difficulty: "MEDIA",
     explanation: "Entidades criadas por lei, com personalidade de direito público, que executam atividades típicas de Estado, são Autarquias (ex: Detran, INSS).",
@@ -620,7 +620,7 @@ export const questionsData = [
   },
   {
     subjectSlug: "direito-administrativo-pmerj",
-    topicTitle: "Legislacao aplicada a PMERJ",
+    topicTitle: "Legislação aplicada à PMERJ",
     statement: "De acordo com a Constituição Federal e o Estatuto dos Policiais Militares (Lei 443/81), a Polícia Militar do Estado do Rio de Janeiro é:",
     difficulty: "FACIL",
     explanation: "Regra clássica da destinação e subordinação das PMs no Brasil (Art. 144, § 6º da CF).",
@@ -638,7 +638,7 @@ export const questionsData = [
   },
   {
     subjectSlug: "direito-administrativo-pmerj",
-    topicTitle: "Principios do Direito Administrativo",
+    topicTitle: "Princípios do Direito Administrativo",
     statement: "O poder de autotutela da Administração Pública:",
     difficulty: "MEDIA",
     explanation: "Autotutela é o controle que a própria Administração exerce sobre seus atos. Ela mesma vigia a validade (anulando ilegais) e o mérito (revogando inconvenientes).",
@@ -692,7 +692,7 @@ export const questionsData = [
   },
   {
     subjectSlug: "direito-administrativo-pmerj",
-    topicTitle: "Legislacao aplicada a PMERJ",
+    topicTitle: "Legislação aplicada à PMERJ",
     statement: "Segundo a legislação aplicada aos militares do Estado, o policial militar que cometer crime militar será processado e julgado perante a:",
     difficulty: "MEDIA",
     explanation: "A Constituição (Art. 125, §4º) estabelece que os Estados organizarão sua Justiça Militar para julgar os militares estaduais nos crimes militares.",
@@ -710,7 +710,7 @@ export const questionsData = [
   },
   {
     subjectSlug: "direito-administrativo-pmerj",
-    topicTitle: "Organizacao administrativa e orgaos publicos",
+    topicTitle: "Organização administrativa e órgãos públicos",
     statement: "O batalhão de Polícia Militar em que você atua é classificado, no organograma do Estado, como um:",
     difficulty: "FACIL",
     explanation: "A PM e seus batalhões não têm CNPJ próprio (personalidade jurídica). São divisões internas do Estado (Secretaria de Segurança/Governadoria). Isso significa que são ÓRGÃOS, fruto de DESCONCENTRAÇÃO.",
@@ -730,7 +730,7 @@ export const questionsData = [
   // DIREITO PENAL E PROCESSO PENAL (10 questões)
   {
     subjectSlug: "direito-penal-processual-penal",
-    topicTitle: "Aplicacao da lei penal, crime e imputabilidade",
+    topicTitle: "Aplicação da lei penal, crime e imputabilidade",
     statement: "Tício, portando arma de fogo de forma legal, caminha na rua quando avista um inimigo mortal vindo em sua direção com um facão e gritando que irá matá-lo. Tício efetua um disparo que mata o agressor. A conduta de Tício está amparada pela:",
     difficulty: "FACIL",
     explanation: "O cenário apresenta uma agressão injusta (o inimigo com facão) e atual/iminente (vindo em sua direção). Tício repeliu essa agressão usando os meios necessários. Trata-se do clássico exemplo de Legítima Defesa.",
@@ -748,7 +748,7 @@ export const questionsData = [
   },
   {
     subjectSlug: "direito-penal-processual-penal",
-    topicTitle: "Penas, acao penal e parte especial",
+    topicTitle: "Penas, ação penal e parte especial",
     statement: "Um policial militar, ao revistar um cidadão em atitude suspeita, encontra um celular caro. Para não levar o cidadão à delegacia, o policial exige que o cidadão transfira R$ 1.000,00 via PIX para sua conta. O crime cometido pelo policial é:",
     difficulty: "MEDIA",
     explanation: "O verbo núcleo do crime é EXIGIR para si ou outrem, vantagem indevida, em razão da função. A diferença clássica da FGV: SOLICITAR/RECEBER = Corrupção Passiva. EXIGIR = Concussão.",
@@ -766,7 +766,7 @@ export const questionsData = [
   },
   {
     subjectSlug: "direito-penal-processual-penal",
-    topicTitle: "Legislacao penal especial",
+    topicTitle: "Legislação penal especial",
     statement: "De acordo com a Lei de Crimes Hediondos (Lei 8.072/1990), o indivíduo condenado por tráfico ilícito de entorpecentes (crime equiparado a hediondo) está sujeito a qual restrição legal?",
     difficulty: "MEDIA",
     explanation: "Os crimes hediondos e equiparados (3T: Tortura, Tráfico, Terrorismo) possuem vedações constitucionais e legais severas.",
@@ -784,7 +784,7 @@ export const questionsData = [
   },
   {
     subjectSlug: "direito-penal-processual-penal",
-    topicTitle: "Provas, prisao e medidas cautelares",
+    topicTitle: "Provas, prisão e medidas cautelares",
     statement: "Uma guarnição da PM chega a um galpão após ser acionada via 190 por gritos de socorro. Os policiais não têm mandado de busca. Ao entrarem (invocando flagrante), encontram um laboratório de refino de drogas e prendem os ocupantes. Essa prisão e a apreensão das drogas são:",
     difficulty: "MEDIA",
     explanation: "A situação configura Estado de Flagrante (crime permanente de tráfico). O art. 5º da CF permite a violação de domicílio sem mandado em caso de flagrante delito.",
@@ -802,7 +802,7 @@ export const questionsData = [
   },
   {
     subjectSlug: "direito-penal-processual-penal",
-    topicTitle: "Inquerito policial e acao penal",
+    topicTitle: "Inquérito policial e ação penal",
     statement: "O Inquérito Policial (IP) é uma fase pré-processual. Em relação às suas características, é correto afirmar que o IP é:",
     difficulty: "FACIL",
     explanation: "Características do IP: Inquisitivo (sem ampla defesa plena), Sigiloso (para os investigados; advogado tem acesso aos autos já documentados), Escrito e Dispensável (se o MP já tiver provas para denunciar, não precisa instaurar IP).",
@@ -820,7 +820,7 @@ export const questionsData = [
   },
   {
     subjectSlug: "direito-penal-processual-penal",
-    topicTitle: "Aplicacao da lei penal, crime e imputabilidade",
+    topicTitle: "Aplicação da lei penal, crime e imputabilidade",
     statement: "João, de 17 anos e 11 meses de idade, comete um homicídio brutal. Três meses depois, ele é capturado pela polícia (já tendo completado 18 anos). Segundo o Código Penal e a teoria adotada no Brasil sobre o Tempo do Crime:",
     difficulty: "MEDIA",
     explanation: "O Brasil adota a Teoria da Atividade (Art. 4º CP): considera-se praticado o crime no momento da AÇÃO ou OMISSÃO, ainda que outro seja o momento do resultado. João agiu com 17 anos.",
@@ -838,7 +838,7 @@ export const questionsData = [
   },
   {
     subjectSlug: "direito-penal-processual-penal",
-    topicTitle: "Provas, prisao e medidas cautelares",
+    topicTitle: "Provas, prisão e medidas cautelares",
     statement: "O artigo 302 do Código Processual Penal define quem se considera em flagrante delito. A situação em que o suspeito é perseguido, logo após a infração, em situação que faça presumir ser ele o autor, caracteriza o flagrante:",
     difficulty: "MEDIA",
     explanation: "Classificação doutrinária e legal do flagrante. Próprio (cometendo ou acabou de cometer), Impróprio/Quase flagrante (é perseguido logo após), Presumido/Ficção (é encontrado logo depois com objetos/armas).",
@@ -856,7 +856,7 @@ export const questionsData = [
   },
   {
     subjectSlug: "direito-penal-processual-penal",
-    topicTitle: "Penas, acao penal e parte especial",
+    topicTitle: "Penas, ação penal e parte especial",
     statement: "Nos crimes de Ação Penal Pública Condicionada (ex: ameaça, estelionato em regra), qual é a condição de procedibilidade sem a qual o Ministério Público NÃO pode oferecer a denúncia?",
     difficulty: "FACIL",
     explanation: "Ação condicionada exige que a vítima manifeste o desejo de ver o autor processado.",
@@ -874,7 +874,7 @@ export const questionsData = [
   },
   {
     subjectSlug: "direito-penal-processual-penal",
-    topicTitle: "Legislacao penal especial",
+    topicTitle: "Legislação penal especial",
     statement: "O Estatuto do Desarmamento (Lei 10.826/2003) diferencia porte e posse de arma. João, civil, mantinha escondido embaixo do travesseiro de sua cama, em sua casa, um revólver calibre .38 sem qualquer registro. João foi preso em flagrante por:",
     difficulty: "MEDIA",
     explanation: "Posse é ter a arma DENTRO de casa ou no local de trabalho do titular. Porte é circular com a arma nas ruas.",
@@ -892,7 +892,7 @@ export const questionsData = [
   },
   {
     subjectSlug: "direito-penal-processual-penal",
-    topicTitle: "Penas, acao penal e parte especial",
+    topicTitle: "Penas, ação penal e parte especial",
     statement: "O indivíduo 'A' subtrai, para si, um celular de uma loja sem ser notado e sem exercer qualquer violência contra pessoas. O indivíduo 'B' subtrai um celular na rua utilizando-se de uma faca para ameaçar a vítima. Respectivamente, 'A' e 'B' cometeram os crimes de:",
     difficulty: "FACIL",
     explanation: "Subtrair coisa alheia móvel SEM violência = Furto (Art 155). Subtrair COM violência ou grave ameaça = Roubo (Art 157).",

@@ -10,11 +10,11 @@ export default async function ProfessorsPage() {
     <div className="page-stack">
       <section className="section-header">
         <div>
-          <span className="eyebrow">Professor IA por materia</span>
-          <h1>Explicacao clara para quem esta voltando a estudar</h1>
+          <span className="eyebrow">Professor IA por matéria</span>
+          <h1>Explicação clara para quem está voltando a estudar</h1>
           <p>
-            Cada professor organiza o conteudo em linguagem simples, exemplo, analogia, erros comuns,
-            pegadinhas, cobranca da banca, resumo e treino.
+            Cada professor organiza o conteúdo em linguagem simples, exemplo, analogia, erros comuns,
+            pegadinhas, cobrança da banca, resumo e treino.
           </p>
         </div>
       </section>

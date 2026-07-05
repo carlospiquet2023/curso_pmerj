@@ -103,7 +103,7 @@ export function EssayPractice({ rules, prompts, submissions }: EssayPracticeProp
       const data = await response.json();
 
       if (!response.ok) {
-        setError(data.error ?? "Nao foi possivel corrigir a redacao.");
+        setError(data.error ?? "Não foi possível corrigir a redação.");
         return;
       }
 
@@ -114,7 +114,7 @@ export function EssayPractice({ rules, prompts, submissions }: EssayPracticeProp
   if (!selectedPrompt) {
     return (
       <section className="panel">
-        <p>Nenhum tema ativo encontrado. Cadastre temas no banco para iniciar o treino de redacao.</p>
+        <p>Nenhum tema ativo encontrado. Cadastre temas no banco para iniciar o treino de redação.</p>
       </section>
     );
   }
@@ -131,7 +131,7 @@ export function EssayPractice({ rules, prompts, submissions }: EssayPracticeProp
         </div>
         <div className="essay-stat">
           <Target size={20} />
-          <span>criterios</span>
+          <span>critérios</span>
           <strong>
             {rules.formalPoints}/{rules.textualPoints}/{rules.technicalPoints}
           </strong>
@@ -160,7 +160,7 @@ export function EssayPractice({ rules, prompts, submissions }: EssayPracticeProp
           </article>
 
           <label className="essay-field">
-            <span>Redacao do aluno</span>
+            <span>Redação do aluno</span>
             <textarea
               className="essay-textarea"
               onChange={(event) => {
@@ -168,7 +168,7 @@ export function EssayPractice({ rules, prompts, submissions }: EssayPracticeProp
                 setResult(null);
                 setError(null);
               }}
-              placeholder="Escreva aqui sua redacao, separando as linhas como faria na folha oficial."
+              placeholder="Escreva aqui sua redação, separando as linhas como faria na folha oficial."
               rows={30}
               value={content}
             />
@@ -195,7 +195,7 @@ export function EssayPractice({ rules, prompts, submissions }: EssayPracticeProp
             <>
               <div className="score-head">
                 <Trophy size={28} />
-                <span>professor de portugues</span>
+                <span>professor de português</span>
                 <strong>{result.score}</strong>
                 <small>
                   {result.provider === "groq" ? "IA Groq" : "corretor local"} | {result.model}
@@ -234,10 +234,10 @@ export function EssayPractice({ rules, prompts, submissions }: EssayPracticeProp
           ) : (
             <div className="empty-correction">
               <Target size={34} />
-              <h2>Professor de Portugues</h2>
+              <h2>Professor de Português</h2>
               <p>
-                A correcao considera norma formal, estrutura textual e conteudo argumentativo para mostrar onde
-                estudar mais e como ganhar ponto ate chegar ao desempenho maximo.
+                A correção considera norma formal, estrutura textual e conteúdo argumentativo para mostrar onde
+                estudar mais e como ganhar ponto até chegar ao desempenho máximo.
               </p>
             </div>
           )}
@@ -248,8 +248,8 @@ export function EssayPractice({ rules, prompts, submissions }: EssayPracticeProp
         <section className="panel">
           <div className="section-header">
             <div>
-              <span className="eyebrow">Historico</span>
-              <h2>Ultimas correcoes</h2>
+              <span className="eyebrow">Histórico</span>
+              <h2>Últimas correções</h2>
             </div>
           </div>
           <div className="essay-history">

@@ -4,8 +4,8 @@ import { AppShell } from "@/components/app-shell";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "PMERJ Aprovacao Inteligente",
-  description: "Plataforma profissional de preparacao para o concurso da PMERJ."
+  title: "PMERJ Aprovação Inteligente",
+  description: "Plataforma profissional de preparação para o concurso da PMERJ."
 };
 
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {

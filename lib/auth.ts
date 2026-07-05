@@ -66,7 +66,7 @@ export async function getSession() {
   return await decrypt(session);
 }
 
-// Helper para pegar o usuario atual nos Server Components
+// Helper para pegar o usuário atual nos Server Components
 export async function getCurrentUser() {
   const session = await getSession();
   if (!session?.email) {

@@ -83,9 +83,9 @@ export function QuestionPractice({ questions }: { questions: Question[] }) {
     <div className="question-practice">
       <div className="practice-summary">
         <strong>{questions.length}</strong>
-        <span>questoes carregadas</span>
+        <span>questões carregadas</span>
         <strong>{answeredCount}</strong>
-        <span>respondidas nesta sessao</span>
+        <span>respondidas nesta sessão</span>
       </div>
 
       {questions.map((question) => {
@@ -99,7 +99,7 @@ export function QuestionPractice({ questions }: { questions: Question[] }) {
                 <span className="eyebrow">
                   {question.subject.shortName} - {question.topic.title}
                 </span>
-                <h2>{question.examNumber ? `Questao ${question.examNumber}` : "Questao de treino"}</h2>
+                <h2>{question.examNumber ? `Questão ${question.examNumber}` : "Questão de treino"}</h2>
               </div>
               <span className="tag">{question.difficulty}</span>
             </header>
@@ -147,7 +147,7 @@ export function QuestionPractice({ questions }: { questions: Question[] }) {
                   {result.isCorrect ? "Resposta correta" : "Resposta errada registrada"}
                 </h3>
                 <p>
-                  Voce marcou {result.selectedLabel}. Gabarito: {result.correctLabel}.
+                  Você marcou {result.selectedLabel}. Gabarito: {result.correctLabel}.
                 </p>
                 <p>{result.explanation}</p>
                 <p>

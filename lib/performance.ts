@@ -13,7 +13,7 @@ export async function getPerformanceDashboard() {
   });
 
   if (!user || !user.generalProgress) {
-    throw new Error("Aluno demonstracao nao encontrado. Rode npm run db:seed.");
+    throw new Error("Aluno de demonstração não encontrado. Rode npm run db:seed.");
   }
 
   const attempts = await prisma.studentAttempt.findMany({
@@ -73,8 +73,8 @@ export async function getPerformanceDashboard() {
     weeklyEvolution,
     monthlyEvolution,
     alerts: [
-      reviewsLate > 0 ? `${reviewsLate} revisao(oes) atrasada(s).` : "Nenhuma revisao atrasada.",
-      subjectRows.some((item) => item.weak) ? "Ha materias abaixo da linha de seguranca." : "Materias dentro da meta inicial.",
+      reviewsLate > 0 ? `${reviewsLate} revisão(ões) atrasada(s).` : "Nenhuma revisão atrasada.",
+      subjectRows.some((item) => item.weak) ? "Há matérias abaixo da linha de segurança." : "Matérias dentro da meta inicial.",
       user.generalProgress.overallAccuracy < 75 ? "Taxa de acerto ainda abaixo da meta de 75%." : "Taxa de acerto em zona boa."
     ],
     simulations: user.simulationResults.map((result) => ({

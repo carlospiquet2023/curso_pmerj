@@ -13,7 +13,7 @@ function formatDate(date: Date) {
 export async function getReviewCenter() {
   const user = await prisma.user.findUnique({ where: { id: (await getCurrentUser())?.id || "" } });
   if (!user) {
-    throw new Error("Aluno demonstracao nao encontrado. Rode npm run db:seed.");
+    throw new Error("Aluno de demonstração não encontrado. Rode npm run db:seed.");
   }
 
   const cards = await prisma.flashcard.findMany({
@@ -28,10 +28,10 @@ export async function getReviewCenter() {
 
   return {
     cycles: [
-      { label: "24 horas", days: 1, description: "Primeira revisao depois do contato." },
-      { label: "7 dias", days: 7, description: "Consolidacao inicial." },
-      { label: "15 dias", days: 15, description: "Protecao contra esquecimento." },
-      { label: "30 dias", days: 30, description: "Manutencao de longo prazo." }
+      { label: "24 horas", days: 1, description: "Primeira revisão depois do contato." },
+      { label: "7 dias", days: 7, description: "Consolidação inicial." },
+      { label: "15 dias", days: 15, description: "Proteção contra esquecimento." },
+      { label: "30 dias", days: 30, description: "Manutenção de longo prazo." }
     ],
     metrics: {
       flashcards: cards.length,

@@ -25,7 +25,7 @@ export async function POST(request: Request) {
       : "MEDIO";
 
   if (!body.flashcardId) {
-    return errorResponse("Flashcard obrigatorio.", 400);
+    return errorResponse("Flashcard obrigatório.", 400);
   }
 
   if (!validateCuid(body.flashcardId)) {
@@ -34,7 +34,7 @@ export async function POST(request: Request) {
 
   const user = await prisma.user.findUnique({ where: { id: (await getCurrentUser())?.id || "" } });
   if (!user) {
-    return errorResponse("Aluno demonstracao nao encontrado.", 404);
+    return errorResponse("Aluno de demonstração não encontrado.", 404);
   }
 
   const card = await prisma.flashcard.findFirst({
@@ -42,7 +42,7 @@ export async function POST(request: Request) {
   });
 
   if (!card) {
-    return errorResponse("Flashcard nao encontrado.", 404);
+    return errorResponse("Flashcard não encontrado.", 404);
   }
 
   const intervalDays = calculateInterval(card.intervalDays, result);

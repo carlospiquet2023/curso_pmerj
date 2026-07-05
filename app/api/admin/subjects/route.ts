@@ -19,7 +19,7 @@ export async function POST(request: Request) {
 
   const body = (await request.json()) as { name?: string; shortName?: string; description?: string };
   if (!body.name || !body.shortName) {
-    return errorResponse("Nome e abreviacao sao obrigatorios.", 400);
+    return errorResponse("Nome e abreviação são obrigatórios.", 400);
   }
 
   const name = sanitizeText(body.name, LIMITS.MAX_SHORT_TEXT_LENGTH);

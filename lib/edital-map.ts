@@ -15,7 +15,7 @@ function statusToUi(status?: string) {
 
 function priorityLabel(weight: number) {
   if (weight >= 85) return "Alta";
-  if (weight >= 65) return "Media";
+  if (weight >= 65) return "Média";
   return "Base";
 }
 
@@ -26,7 +26,7 @@ export async function getEditalMap() {
   });
 
   if (!user) {
-    throw new Error("Aluno demonstracao nao encontrado. Rode npm run db:seed.");
+    throw new Error("Aluno de demonstração não encontrado. Rode npm run db:seed.");
   }
 
   const subjects = await prisma.subject.findMany({

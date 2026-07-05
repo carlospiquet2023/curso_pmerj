@@ -23,7 +23,7 @@ export async function getSimulationsDashboard() {
   });
 
   if (!user) {
-    throw new Error("Aluno demonstracao nao encontrado. Rode npm run db:seed.");
+    throw new Error("Aluno de demonstração não encontrado. Rode npm run db:seed.");
   }
 
   const questionCount = await prisma.question.count({ where: { active: true } });
@@ -79,7 +79,7 @@ export async function getSimulationsDashboard() {
           correctCount: latest.correctCount,
           wrongCount: latest.wrongCount,
           timeSpent: formatSeconds(latest.timeSpentSeconds),
-          diagnosis: latest.diagnosis ?? "Sem diagnostico registrado.",
+          diagnosis: latest.diagnosis ?? "Sem diagnóstico registrado.",
           nextSevenDaysPlan: latest.nextSevenDaysPlan ?? "Sem plano registrado."
         }
       : null,

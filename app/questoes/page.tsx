@@ -18,11 +18,11 @@ export default async function QuestionsPage({ searchParams }: QuestionsPageProps
     <div className="page-stack">
       <section className="section-header">
         <div>
-          <span className="eyebrow">Banco de questoes</span>
-          <h1>Treino com correcao automatica</h1>
+          <span className="eyebrow">Banco de questões</span>
+          <h1>Treino com correção automática</h1>
           <p>
             Responda, corrija e registre seu desempenho. Quando houver erro, a plataforma gera entrada no
-            caderno de erros e flashcard automatico para revisao.
+            caderno de erros e flashcard automático para revisão.
           </p>
         </div>
       </section>
@@ -31,7 +31,7 @@ export default async function QuestionsPage({ searchParams }: QuestionsPageProps
         <div className="section-header">
           <div>
             <FileQuestion className="panel-icon" size={30} />
-            <h2>Filtrar por materia</h2>
+            <h2>Filtrar por matéria</h2>
           </div>
         </div>
         <div className="tag-row" style={{ marginTop: 14 }}>

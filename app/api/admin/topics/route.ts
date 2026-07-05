@@ -10,7 +10,7 @@ export async function POST(request: Request) {
 
   const body = (await request.json()) as { subjectId?: string; title?: string; parentId?: string };
   if (!body.subjectId || !body.title) {
-    return errorResponse("Materia e titulo sao obrigatorios.", 400);
+    return errorResponse("Matéria e título são obrigatórios.", 400);
   }
 
   if (!validateCuid(body.subjectId) || (body.parentId && !validateCuid(body.parentId))) {
