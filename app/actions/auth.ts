@@ -5,7 +5,11 @@ import { createSession, deleteSession } from "@/lib/auth";
 import bcrypt from "bcryptjs";
 import { redirect } from "next/navigation";
 
-export async function loginAction(formData: FormData) {
+type AuthActionState = {
+  error?: string;
+};
+
+export async function loginAction(_prevState: AuthActionState | undefined, formData: FormData) {
   const email = formData.get("email")?.toString();
   const password = formData.get("password")?.toString();
 
@@ -37,7 +41,7 @@ export async function loginAction(formData: FormData) {
   redirect("/aluno");
 }
 
-export async function registerAction(formData: FormData) {
+export async function registerAction(_prevState: AuthActionState | undefined, formData: FormData) {
   const name = formData.get("name")?.toString();
   const email = formData.get("email")?.toString();
   const password = formData.get("password")?.toString();
