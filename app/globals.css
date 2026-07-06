@@ -94,7 +94,7 @@ select {
   place-items: center;
   width: 48px;
   height: 48px;
-  color: var(--surface-solid);
+  color: #ffffff;
 }
 
 .brand strong {
@@ -367,7 +367,7 @@ select {
 
 .topbar-action,
 .primary-action {
-  color: var(--surface-solid);
+  color: #ffffff;
   background: var(--green);
   box-shadow: 0 4px 12px rgba(22, 74, 53, 0.2);
 }
@@ -406,7 +406,7 @@ main {
   position: relative;
   min-height: 560px;
   overflow: hidden;
-  color: var(--surface-solid);
+  color: #ffffff;
   background:
     linear-gradient(90deg, rgba(12, 23, 18, 0.9), rgba(12, 23, 18, 0.58) 45%, rgba(12, 23, 18, 0.2)),
     url("/images/pmerj-hero.png") center / cover;
@@ -497,7 +497,7 @@ main {
   justify-content: space-between;
   gap: 18px;
   padding: 28px;
-  color: var(--surface-solid);
+  color: #ffffff;
   background:
     linear-gradient(90deg, rgba(16, 28, 23, 0.96), rgba(24, 63, 49, 0.88)),
     url("/images/pmerj-hero.png") center / cover;
@@ -650,7 +650,7 @@ a.panel:hover {
   place-items: center;
   width: 42px;
   height: 42px;
-  color: var(--surface-solid);
+  color: #ffffff;
   background: var(--green);
 }
 
@@ -884,7 +884,7 @@ a.panel:hover {
   place-items: center;
   width: 34px;
   height: 34px;
-  color: var(--surface-solid);
+  color: #ffffff;
   background: var(--green);
   font-weight: 900;
 }
@@ -920,7 +920,7 @@ a.panel:hover {
 }
 
 .active-tag {
-  color: var(--surface-solid);
+  color: #ffffff;
   background: var(--green);
   border-color: var(--green);
 }
@@ -1053,19 +1053,19 @@ a.panel:hover {
 }
 
 .answer-result.correct {
-  background: #eef8f1;
-  border-color: #c6dfd0;
+  background: var(--surface-solid);
+  border-color: rgba(52, 211, 153, 0.4);
 }
 
 .answer-result.wrong {
-  background: #fff2f0;
+  background: var(--surface-solid);
   border-color: #f1cbc7;
 }
 
 .created-simulation {
   grid-column: 1 / -1;
-  border-color: #c6dfd0;
-  background: #f2faf5;
+  border-color: rgba(52, 211, 153, 0.4);
+  background: var(--surface-solid);
 }
 
 .diagnosis-box {
@@ -1198,7 +1198,7 @@ a.panel:hover {
 }
 
 .review-buttons button:hover {
-  color: var(--surface-solid);
+  color: #ffffff;
   background: var(--green);
   border-color: var(--green);
 }
@@ -1228,7 +1228,7 @@ a.panel:hover {
 
 .teacher-tab.active,
 .teacher-tab:hover {
-  color: var(--surface-solid);
+  color: #ffffff;
   background: var(--green);
   border-color: var(--green);
 }
@@ -1430,7 +1430,7 @@ a.panel:hover {
   place-items: center;
   min-width: 42px;
   height: 42px;
-  color: var(--surface-solid);
+  color: #ffffff;
   background: var(--green);
 }
 
@@ -1445,7 +1445,7 @@ a.panel:hover {
   justify-items: center;
   min-height: 190px;
   padding: 22px;
-  color: var(--surface-solid);
+  color: #ffffff;
   text-align: center;
   background: #14201b;
 }
@@ -1828,7 +1828,7 @@ select {
 }
 
 .admin-band {
-  color: var(--surface-solid);
+  color: #ffffff;
   background: #14201b;
 }
 
@@ -2587,3 +2587,5 @@ select {
   z-index: 1;
   box-shadow: 0 0 10px var(--green-glow);
 }
+
+.essay-editor textarea::placeholder { color: var(--muted); }
