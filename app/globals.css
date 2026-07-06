@@ -2163,6 +2163,13 @@ select {
   resize: vertical;
 }
 
+.taf-file-field span {
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
 .form-grid-2,
 .form-grid-3,
 .form-grid-4 {

@@ -225,7 +225,8 @@ export async function updateTafChecklistItem(
       fileName = upload.fileName;
       filePath = upload.publicUrl;
     } catch (error) {
-      return fail(error instanceof Error ? error.message : "Falha ao enviar arquivo para o Cloudflare R2.");
+      console.error("Falha no upload do checklist TAF:", error);
+      return fail("Falha ao enviar o arquivo. Verifique a configuração de anexos ou tente novamente.");
     }
   }
 

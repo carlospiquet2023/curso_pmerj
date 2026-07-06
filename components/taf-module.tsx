@@ -561,9 +561,10 @@ function ChecklistTab({ dashboard }: TafModuleProps) {
                     <input name="expiresAt" type="date" defaultValue={dateInput(item.expiresAt)} />
                   </label>
                 </div>
-                <label>
-                  Arquivo no Cloudflare R2
-                  <input name="file" type="file" />
+                <label className="taf-file-field">
+                  Anexar comprovante
+                  <span>PDF, JPG, PNG ou WebP até 8 MB. O arquivo fica salvo com segurança.</span>
+                  <input accept=".pdf,image/jpeg,image/png,image/webp" name="file" type="file" />
                 </label>
                 {item.filePath ? (
                   <a className="tag" href={item.filePath} target="_blank" rel="noreferrer">
