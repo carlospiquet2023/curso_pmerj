@@ -1,23 +1,23 @@
 :root {
-  color-scheme: light;
-  --bg: #f2f5f4;
-  --surface: rgba(255, 255, 255, 0.75);
-  --surface-solid: #ffffff;
-  --surface-soft: rgba(255, 255, 255, 0.4);
-  --ink: #0c120f;
-  --muted: #596b63;
-  --line: rgba(26, 77, 58, 0.08);
-  --green: #164a35;
-  --green-2: #287a55;
-  --green-glow: rgba(40, 122, 85, 0.25);
-  --blue: #1e5691;
-  --gold: #cc9729;
-  --red: #c23832;
-  --shadow-sm: 0 4px 12px rgba(12, 18, 15, 0.04);
-  --shadow: 0 12px 32px rgba(12, 18, 15, 0.06);
-  --shadow-hover: 0 20px 48px rgba(12, 18, 15, 0.1);
+  color-scheme: dark;
+  --bg: #050b08;
+  --surface: rgba(15, 25, 20, 0.6);
+  --surface-solid: #0d1511;
+  --surface-soft: rgba(25, 40, 30, 0.4);
+  --ink: #e0f0e8;
+  --muted: #8ba99a;
+  --line: rgba(50, 100, 75, 0.3);
+  --green: #21b873;
+  --green-2: #34d399;
+  --green-glow: rgba(52, 211, 153, 0.4);
+  --blue: #3b82f6;
+  --gold: #fbbf24;
+  --red: #ef4444;
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.5);
+  --shadow: 0 12px 32px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  --shadow-hover: 0 20px 48px rgba(52, 211, 153, 0.2), inset 0 1px 1px rgba(255, 255, 255, 0.15);
   --radius: 24px;
-  --glass-blur: blur(20px);
+  --glass-blur: blur(24px);
 }
 
 * {
@@ -26,6 +26,9 @@
 
 html {
   background: var(--bg);
+  background-image: radial-gradient(circle at 15% 50%, rgba(33, 184, 115, 0.08), transparent 25%),
+    radial-gradient(circle at 85% 30%, rgba(59, 130, 246, 0.06), transparent 25%);
+  background-attachment: fixed;
 }
 
 body {
@@ -67,8 +70,10 @@ select {
   min-height: 72px;
   padding: 0 32px;
   background: var(--surface);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
   border-bottom: 1px solid var(--line);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.4);
 }
 
 .top-nav-left {
@@ -563,16 +568,29 @@ main {
   border: 1px solid var(--line);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease, border-color 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.panel::before,
+.module-card::before,
+.subject-card::before,
+.metric-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, transparent 100%);
+  pointer-events: none;
 }
 
 .module-card:hover,
 .subject-card:hover,
 .question-row:hover,
 a.panel:hover {
-  transform: translateY(-4px);
+  transform: translateY(-8px) scale(1.02) perspective(1000px) rotateX(2deg) rotateY(1deg);
   box-shadow: var(--shadow-hover);
-  border-color: rgba(26, 77, 58, 0.15);
+  border-color: rgba(52, 211, 153, 0.4);
 }
 
 .panel {
@@ -595,6 +613,7 @@ a.panel:hover {
 .module-card svg,
 .panel-icon {
   color: var(--green-2);
+  filter: drop-shadow(0 0 8px var(--green-glow));
 }
 
 .module-card p,
@@ -2538,3 +2557,35 @@ select {
   background: var(--surface-hover);
   color: var(--ink);
 }
+
+ . m i n d - m a p - c o n t a i n e r   { 
+     d i s p l a y :   f l e x ; 
+     f l e x - w r a p :   w r a p ; 
+     j u s t i f y - c o n t e n t :   c e n t e r ; 
+     g a p :   4 0 p x ; 
+     p a d d i n g :   4 0 p x   0 ; 
+     p o s i t i o n :   r e l a t i v e ; 
+ } 
+ 
+ . m i n d - m a p - n o d e   { 
+     p o s i t i o n :   r e l a t i v e ; 
+     z - i n d e x :   2 ; 
+     t r a n s i t i o n :   a l l   0 . 3 s   e a s e ; 
+ } 
+ 
+ . m i n d - m a p - n o d e : h o v e r   { 
+     t r a n s f o r m :   s c a l e ( 1 . 0 5 )   t r a n s l a t e Y ( - 5 p x ) ; 
+ } 
+ 
+ . m i n d - m a p - l i n e   { 
+     p o s i t i o n :   a b s o l u t e ; 
+     t o p :   5 0 % ; 
+     l e f t :   0 ; 
+     r i g h t :   0 ; 
+     h e i g h t :   2 p x ; 
+     b a c k g r o u n d :   l i n e a r - g r a d i e n t ( 9 0 d e g ,   t r a n s p a r e n t ,   v a r ( - - g r e e n - g l o w ) ,   t r a n s p a r e n t ) ; 
+     z - i n d e x :   1 ; 
+     b o x - s h a d o w :   0   0   1 0 p x   v a r ( - - g r e e n - g l o w ) ; 
+ } 
+  
+ 

@@ -124,18 +124,19 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="grid-4">
+      <section className="mind-map-container">
+        <div className="mind-map-line"></div>
         {foundationModules.map((module) => {
           const Icon = module.icon;
 
           return (
-            <Link className="module-card" href={module.href} key={module.title}>
-              <Icon size={28} />
+            <Link className="module-card mind-map-node" href={module.href} key={module.title} style={{ width: '280px', flexShrink: 0, borderTop: '2px solid var(--green-2)' }}>
+              <Icon size={32} />
               <div>
-                <h3>{module.title}</h3>
+                <h3 style={{ fontSize: '1.2rem' }}>{module.title}</h3>
                 <p>{module.description}</p>
               </div>
-              <span className="tag">Acessar</span>
+              <span className="tag" style={{ background: 'var(--green-glow)', color: 'var(--green-2)', border: '1px solid var(--green-2)' }}>Acessar</span>
             </Link>
           );
         })}
@@ -237,7 +238,8 @@ export default function HomePage() {
             <h2>Entenda o que cai na prova da PMERJ</h2>
           </div>
         </div>
-        <div className="grid-3" style={{ marginTop: 18 }}>
+        <div className="mind-map-container" style={{ marginTop: 18 }}>
+          <div className="mind-map-line"></div>
           {[
             {
               name: "Língua Portuguesa",
@@ -270,8 +272,8 @@ export default function HomePage() {
               focus: "Texto dissertativo-argumentativo",
             },
           ].map((subject) => (
-            <div className="module-card" key={subject.name}>
-              <Shield size={22} />
+            <div className="module-card mind-map-node" key={subject.name} style={{ width: '300px', flexShrink: 0 }}>
+              <Shield size={28} />
               <div>
                 <h3>{subject.name}</h3>
                 <p>
