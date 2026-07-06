@@ -1810,7 +1810,6 @@ select {
   flex-wrap: wrap;
   gap: 8px;
   align-content: flex-start;
-  min-height: 140px;
   padding: 14px;
   background: var(--surface-soft);
   border: 1px solid var(--line);
