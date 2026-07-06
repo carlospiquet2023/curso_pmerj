@@ -16,7 +16,7 @@ export default function RegisterPage() {
       <div className="auth-container">
         <div className="auth-header">
           <span className="brand-mark brand-mark-auth" aria-hidden="true">
-            <img src="/images/logopmerj.png" alt="" />
+            <img src="/images/logo.png" alt="" />
           </span>
           <h1>Criar Conta</h1>
           <p>Cadastre-se para iniciar a sua jornada rumo à aprovação.</p>

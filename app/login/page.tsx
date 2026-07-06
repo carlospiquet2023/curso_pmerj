@@ -16,7 +16,7 @@ export default function LoginPage() {
       <div className="auth-container">
         <div className="auth-header">
           <span className="brand-mark brand-mark-auth" aria-hidden="true">
-            <img src="/images/logopmerj.png" alt="" />
+            <img src="/images/logo.png" alt="" />
           </span>
           <h1>Acessar Plataforma</h1>
           <p>Entre com seu e-mail e senha para continuar estudando.</p>

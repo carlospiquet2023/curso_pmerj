@@ -56,7 +56,7 @@ export function AppShell({ children }: { children: ReactNode }) {
 
           <Link href="/" className="brand">
             <span className="brand-mark brand-mark-nav" aria-hidden="true">
-              <img src="/images/logopmerj.png" alt="" />
+              <img src="/images/logo.png" alt="" />
             </span>
             <span className="brand-text">
               <strong>PMERJ</strong>
@@ -99,7 +99,7 @@ export function AppShell({ children }: { children: ReactNode }) {
           <div className="drawer-content" onClick={(e) => e.stopPropagation()}>
             <div className="drawer-header">
               <span className="brand-mark" aria-hidden="true">
-                <img src="/images/logopmerj.png" alt="" />
+                <img src="/images/logo.png" alt="" />
               </span>
               <strong>Menu</strong>
               <button className="close-button" onClick={() => setIsMenuOpen(false)} aria-label="Fechar menu">
