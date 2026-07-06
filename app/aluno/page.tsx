@@ -75,7 +75,7 @@ export default async function StudentDashboardPage() {
                 <span style={{ display: 'block', width: '100%' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
                     <strong style={{ fontSize: '1.05rem' }}>{mission.title}</strong>
-                    <span className="tag" style={{ background: '#ffffff' }}>{mission.duration} min</span>
+                    <span className="tag" style={{ background: 'var(--surface-solid)' }}>{mission.duration} min</span>
                   </div>
                   <small style={{ color: 'var(--muted)', fontSize: '0.9rem' }}>{mission.subject}</small>
                 </span>
@@ -96,7 +96,7 @@ export default async function StudentDashboardPage() {
           </div>
           
           <div style={{ marginTop: 24, display: 'flex', flexDirection: 'column', gap: '16px' }}>
-            <div style={{ padding: '16px', background: '#fff9f0', border: '1px solid #f2e2c4', borderRadius: '8px' }}>
+            <div style={{ padding: '16px', background: 'var(--surface-soft)', border: '1px solid var(--line)', borderRadius: '8px' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#9e7314', fontWeight: 700, marginBottom: '8px' }}>
                 <AlertTriangle size={18} />
                 Ponto de Atenção
@@ -106,7 +106,7 @@ export default async function StudentDashboardPage() {
               </p>
             </div>
 
-            <div style={{ padding: '16px', background: '#f0f9f4', border: '1px solid #c9ebd8', borderRadius: '8px' }}>
+            <div style={{ padding: '16px', background: 'var(--surface-soft)', border: '1px solid var(--line)', borderRadius: '8px' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#1a6b41', fontWeight: 700, marginBottom: '8px' }}>
                 <TrendingUp size={18} />
                 Ponto Forte

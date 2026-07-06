@@ -114,7 +114,7 @@ export default function VideosPage() {
                         padding: '12px',
                         borderRadius: '8px',
                         border: 'none',
-                        background: isActive ? 'var(--primary-light)' : 'var(--surface)',
+                        background: isActive ? 'var(--surface-soft)' : 'var(--surface-solid)',
                         color: isActive ? 'var(--primary-dark)' : 'var(--ink)',
                         textAlign: 'left',
                         cursor: 'pointer',
