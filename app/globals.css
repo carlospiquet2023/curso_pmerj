@@ -94,7 +94,7 @@ select {
   place-items: center;
   width: 48px;
   height: 48px;
-  color: #ffffff;
+  color: var(--surface-solid);
 }
 
 .brand strong {
@@ -367,7 +367,7 @@ select {
 
 .topbar-action,
 .primary-action {
-  color: #ffffff;
+  color: var(--surface-solid);
   background: var(--green);
   box-shadow: 0 4px 12px rgba(22, 74, 53, 0.2);
 }
@@ -387,7 +387,7 @@ select {
 }
 
 .secondary-action:hover {
-  background: #ffffff;
+  background: var(--surface-solid);
   transform: translateY(-2px);
   box-shadow: var(--shadow);
   border-color: rgba(26, 77, 58, 0.15);
@@ -406,7 +406,7 @@ main {
   position: relative;
   min-height: 560px;
   overflow: hidden;
-  color: #ffffff;
+  color: var(--surface-solid);
   background:
     linear-gradient(90deg, rgba(12, 23, 18, 0.9), rgba(12, 23, 18, 0.58) 45%, rgba(12, 23, 18, 0.2)),
     url("/images/pmerj-hero.png") center / cover;
@@ -497,7 +497,7 @@ main {
   justify-content: space-between;
   gap: 18px;
   padding: 28px;
-  color: #ffffff;
+  color: var(--surface-solid);
   background:
     linear-gradient(90deg, rgba(16, 28, 23, 0.96), rgba(24, 63, 49, 0.88)),
     url("/images/pmerj-hero.png") center / cover;
@@ -588,7 +588,7 @@ main {
 .subject-card:hover,
 .question-row:hover,
 a.panel:hover {
-  transform: translateY(-8px) scale(1.02) perspective(1000px) rotateX(2deg) rotateY(1deg);
+  transform: translateY(-4px);
   box-shadow: var(--shadow-hover);
   border-color: rgba(52, 211, 153, 0.4);
 }
@@ -650,7 +650,7 @@ a.panel:hover {
   place-items: center;
   width: 42px;
   height: 42px;
-  color: #ffffff;
+  color: var(--surface-solid);
   background: var(--green);
 }
 
@@ -746,7 +746,7 @@ a.panel:hover {
   gap: 10px;
   min-height: 178px;
   padding: 14px;
-  background: #ffffff;
+  background: var(--surface-solid);
   border: 1px solid var(--line);
 }
 
@@ -884,7 +884,7 @@ a.panel:hover {
   place-items: center;
   width: 34px;
   height: 34px;
-  color: #ffffff;
+  color: var(--surface-solid);
   background: var(--green);
   font-weight: 900;
 }
@@ -920,7 +920,7 @@ a.panel:hover {
 }
 
 .active-tag {
-  color: #ffffff;
+  color: var(--surface-solid);
   background: var(--green);
   border-color: var(--green);
 }
@@ -936,7 +936,7 @@ a.panel:hover {
   gap: 10px 14px;
   align-items: center;
   padding: 16px;
-  background: #ffffff;
+  background: var(--surface-solid);
   border: 1px solid var(--line);
 }
 
@@ -952,7 +952,7 @@ a.panel:hover {
   display: grid;
   gap: 24px;
   padding: 40px;
-  background: #ffffff;
+  background: var(--surface-solid);
   border: 1px solid var(--line);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
@@ -1102,7 +1102,7 @@ a.panel:hover {
   min-height: 42px;
   padding: 0 10px;
   color: var(--ink);
-  background: #ffffff;
+  background: var(--surface-solid);
   border: 1px solid var(--line);
 }
 
@@ -1115,7 +1115,7 @@ a.panel:hover {
   display: grid;
   gap: 14px;
   padding: 22px;
-  background: #ffffff;
+  background: var(--surface-solid);
   border: 1px solid var(--line);
   box-shadow: 0 10px 30px rgba(20, 32, 27, 0.06);
 }
@@ -1148,7 +1148,7 @@ a.panel:hover {
   display: grid;
   gap: 14px;
   padding: 22px;
-  background: #ffffff;
+  background: var(--surface-solid);
   border: 1px solid var(--line);
   box-shadow: 0 10px 30px rgba(20, 32, 27, 0.06);
 }
@@ -1191,14 +1191,14 @@ a.panel:hover {
 .review-buttons button {
   min-height: 40px;
   color: var(--ink);
-  background: #ffffff;
+  background: var(--surface-solid);
   border: 1px solid var(--line);
   cursor: pointer;
   font-weight: 800;
 }
 
 .review-buttons button:hover {
-  color: #ffffff;
+  color: var(--surface-solid);
   background: var(--green);
   border-color: var(--green);
 }
@@ -1220,7 +1220,7 @@ a.panel:hover {
   padding: 0 12px;
   color: var(--ink);
   text-align: left;
-  background: #ffffff;
+  background: var(--surface-solid);
   border: 1px solid var(--line);
   cursor: pointer;
   font-weight: 800;
@@ -1228,7 +1228,7 @@ a.panel:hover {
 
 .teacher-tab.active,
 .teacher-tab:hover {
-  color: #ffffff;
+  color: var(--surface-solid);
   background: var(--green);
   border-color: var(--green);
 }
@@ -1247,7 +1247,7 @@ a.panel:hover {
   display: grid;
   gap: 10px;
   padding: 22px;
-  background: #ffffff;
+  background: var(--surface-solid);
   border: 1px solid var(--line);
   box-shadow: 0 10px 30px rgba(20, 32, 27, 0.06);
 }
@@ -1309,7 +1309,7 @@ a.panel:hover {
   align-items: center;
   min-height: 74px;
   padding: 14px;
-  background: #ffffff;
+  background: var(--surface-solid);
   border: 1px solid var(--line);
 }
 
@@ -1354,7 +1354,7 @@ a.panel:hover {
   display: grid;
   gap: 16px;
   padding: 22px;
-  background: #ffffff;
+  background: var(--surface-solid);
   border: 1px solid var(--line);
   box-shadow: 0 10px 30px rgba(20, 32, 27, 0.06);
 }
@@ -1401,8 +1401,8 @@ a.panel:hover {
   line-height: 1.75rem;
   resize: vertical;
   background:
-    repeating-linear-gradient(#ffffff 0, #ffffff calc(1.75rem - 1px), #e7eee8 1.75rem),
-    #ffffff;
+    repeating-linear-gradient(var(--surface-solid) 0, var(--surface-solid) calc(1.75rem - 1px), #e7eee8 1.75rem),
+    var(--surface-solid);
   border: 1px solid var(--line);
 }
 
@@ -1430,7 +1430,7 @@ a.panel:hover {
   place-items: center;
   min-width: 42px;
   height: 42px;
-  color: #ffffff;
+  color: var(--surface-solid);
   background: var(--green);
 }
 
@@ -1445,7 +1445,7 @@ a.panel:hover {
   justify-items: center;
   min-height: 190px;
   padding: 22px;
-  color: #ffffff;
+  color: var(--surface-solid);
   text-align: center;
   background: #14201b;
 }
@@ -1743,7 +1743,7 @@ select {
   align-items: center;
   min-height: 96px;
   padding: 18px;
-  background: #ffffff;
+  background: var(--surface-solid);
   border: 1px solid var(--line);
 }
 
@@ -1828,7 +1828,7 @@ select {
 }
 
 .admin-band {
-  color: #ffffff;
+  color: var(--surface-solid);
   background: #14201b;
 }
 
@@ -2574,7 +2574,7 @@ select {
 }
 
 .mind-map-node:hover {
-  transform: scale(1.05) translateY(-5px);
+  transform: translateY(-4px);
 }
 
 .mind-map-line {
