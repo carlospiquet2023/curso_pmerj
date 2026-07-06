@@ -2595,4 +2595,5 @@ select {
 }
 
 .essay-editor textarea::placeholder { color: var(--muted); }
-\n.modal-content p { color: var(--ink) !important; }\n
+
+.modal-content p { color: var(--ink) !important; }
