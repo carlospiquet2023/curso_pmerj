@@ -104,7 +104,11 @@ export function QuestionPractice({ questions }: { questions: Question[] }) {
               <span className="tag">{question.difficulty}</span>
             </header>
 
-            <p className="question-statement">{question.statement}</p>
+            <div className="question-statement">
+              {question.statement.split(/(?:\\n|\n)+/).map((paragraph, index) => (
+                <p key={index} style={{ marginBottom: '12px' }}>{paragraph}</p>
+              ))}
+            </div>
 
             <div className="choice-list">
               {question.options.map((option) => {
