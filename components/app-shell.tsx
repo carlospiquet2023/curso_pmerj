@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { usePathname } from "next/navigation";
-import { ShieldCheck, Menu, X, LogOut, User } from "lucide-react";
+import { Menu, X, LogOut, User } from "lucide-react";
 import { navItems } from "@/lib/edital-data";
 import { logoutAction } from "@/app/actions/auth";
 
@@ -56,7 +56,7 @@ export function AppShell({ children }: { children: ReactNode }) {
 
           <Link href="/" className="brand">
             <span className="brand-mark brand-mark-nav" aria-hidden="true">
-              <ShieldCheck size={34} />
+              <img src="/images/logopmerj.png" alt="" />
             </span>
             <span className="brand-text">
               <strong>PMERJ</strong>
@@ -99,7 +99,7 @@ export function AppShell({ children }: { children: ReactNode }) {
           <div className="drawer-content" onClick={(e) => e.stopPropagation()}>
             <div className="drawer-header">
               <span className="brand-mark" aria-hidden="true">
-                <ShieldCheck size={28} />
+                <img src="/images/logopmerj.png" alt="" />
               </span>
               <strong>Menu</strong>
               <button className="close-button" onClick={() => setIsMenuOpen(false)} aria-label="Fechar menu">

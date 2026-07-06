@@ -73,27 +73,68 @@ enum StudyPlanStatus {
   PAUSADO
 }
 
+enum TafExerciseType {
+  CORRIDA
+  FLEXAO
+  ABDOMINAL
+  FORCA_COMPLEMENTAR
+}
+
+enum TafChecklistKind {
+  DOCUMENTO
+  EXAME
+  ETAPA
+}
+
+enum TafChecklistStatus {
+  PENDENTE
+  EM_ANALISE
+  CONCLUIDO
+  VENCIDO
+  NAO_SE_APLICA
+}
+
+enum TafSimulationStatus {
+  APROVADO
+  ATENCAO
+  INSUFICIENTE
+}
+
+enum TafPlanTaskStatus {
+  PENDENTE
+  CONCLUIDO
+  NAO_FEITO
+  PARCIAL
+  DOR
+  AJUSTAR
+}
+
 model User {
-  id               String                   @id @default(cuid())
-  name             String
-  email            String                   @unique
-  passwordHash     String?
-  role             UserRole                 @default(STUDENT)
-  createdAt        DateTime                 @default(now())
-  updatedAt        DateTime                 @updatedAt
-  profile          StudentProfile?
-  attempts         StudentAttempt[]
-  errors           ErrorNotebookEntry[]
-  flashcards       Flashcard[]
-  reviews          ReviewSchedule[]
-  studyPlans       StudyPlan[]
-  studySessions    StudySession[]
-  subjectProgress  StudentSubjectProgress[]
-  topicProgress    StudentTopicProgress[]
-  generalProgress  GeneralProgress?
-  simulationResults SimulationResult[]
-  aiGenerations    AiGeneration[]
-  essaySubmissions EssaySubmission[]
+  id                 String                   @id @default(cuid())
+  name               String
+  email              String                   @unique
+  passwordHash       String?
+  role               UserRole                 @default(STUDENT)
+  createdAt          DateTime                 @default(now())
+  updatedAt          DateTime                 @updatedAt
+  profile            StudentProfile?
+  attempts           StudentAttempt[]
+  errors             ErrorNotebookEntry[]
+  flashcards         Flashcard[]
+  reviews            ReviewSchedule[]
+  studyPlans         StudyPlan[]
+  studySessions      StudySession[]
+  subjectProgress    StudentSubjectProgress[]
+  topicProgress      StudentTopicProgress[]
+  generalProgress    GeneralProgress?
+  simulationResults  SimulationResult[]
+  aiGenerations      AiGeneration[]
+  essaySubmissions   EssaySubmission[]
+  tafTrainingLogs    TafTrainingLog[]
+  tafHealthSnapshots TafHealthSnapshot[]
+  tafSimulations     TafSimulation[]
+  tafChecklistItems  TafChecklistItem[]
+  tafPlanTasks       TafPlanTask[]
 }
 
 model StudentProfile {
@@ -162,17 +203,17 @@ model EdictalTopic {
 }
 
 model Lesson {
-  id              String        @id @default(cuid())
+  id              String         @id @default(cuid())
   subjectId       String
-  subject         Subject       @relation(fields: [subjectId], references: [id], onDelete: Cascade)
+  subject         Subject        @relation(fields: [subjectId], references: [id], onDelete: Cascade)
   topicId         String
-  topic           EdictalTopic  @relation(fields: [topicId], references: [id], onDelete: Cascade)
+  topic           EdictalTopic   @relation(fields: [topicId], references: [id], onDelete: Cascade)
   title           String
-  level           Int           @default(1)
-  durationMinutes Int           @default(30)
+  level           Int            @default(1)
+  durationMinutes Int            @default(30)
   content         String
   order           Int
-  createdAt       DateTime      @default(now())
+  createdAt       DateTime       @default(now())
   summaries       Summary[]
   studySessions   StudySession[]
 }
@@ -282,28 +323,28 @@ model ErrorNotebookEntry {
 }
 
 model Flashcard {
-  id             String              @id @default(cuid())
-  userId         String?
-  user           User?               @relation(fields: [userId], references: [id], onDelete: Cascade)
-  subjectId      String
-  subject        Subject             @relation(fields: [subjectId], references: [id], onDelete: Cascade)
-  topicId        String
-  topic          EdictalTopic        @relation(fields: [topicId], references: [id], onDelete: Cascade)
-  questionId     String?
-  question       Question?           @relation(fields: [questionId], references: [id], onDelete: SetNull)
-  errorEntryId   String?             @unique
-  errorEntry     ErrorNotebookEntry? @relation(fields: [errorEntryId], references: [id], onDelete: SetNull)
-  front          String
-  back           String
-  difficulty     Difficulty          @default(MEDIA)
-  nextReviewAt   DateTime
-  intervalDays   Int                 @default(1)
-  easeFactor     Float               @default(2.5)
-  correctCount   Int                 @default(0)
-  wrongCount     Int                 @default(0)
-  source         String              @default("manual")
-  createdAt      DateTime            @default(now())
-  reviews        ReviewSchedule[]
+  id           String              @id @default(cuid())
+  userId       String?
+  user         User?               @relation(fields: [userId], references: [id], onDelete: Cascade)
+  subjectId    String
+  subject      Subject             @relation(fields: [subjectId], references: [id], onDelete: Cascade)
+  topicId      String
+  topic        EdictalTopic        @relation(fields: [topicId], references: [id], onDelete: Cascade)
+  questionId   String?
+  question     Question?           @relation(fields: [questionId], references: [id], onDelete: SetNull)
+  errorEntryId String?             @unique
+  errorEntry   ErrorNotebookEntry? @relation(fields: [errorEntryId], references: [id], onDelete: SetNull)
+  front        String
+  back         String
+  difficulty   Difficulty          @default(MEDIA)
+  nextReviewAt DateTime
+  intervalDays Int                 @default(1)
+  easeFactor   Float               @default(2.5)
+  correctCount Int                 @default(0)
+  wrongCount   Int                 @default(0)
+  source       String              @default("manual")
+  createdAt    DateTime            @default(now())
+  reviews      ReviewSchedule[]
 }
 
 model ReviewSchedule {
@@ -492,22 +533,161 @@ model EssayPrompt {
 }
 
 model EssaySubmission {
-  id              String      @id @default(cuid())
-  userId          String
-  user            User        @relation(fields: [userId], references: [id], onDelete: Cascade)
-  promptId        String
-  prompt          EssayPrompt @relation(fields: [promptId], references: [id], onDelete: Cascade)
-  content         String
-  lineCount       Int
-  score           Int
-  formalScore     Int
-  textualScore    Int
-  technicalScore  Int
-  strengths       String
-  weaknesses      String
-  actionPlan      String
-  correctionJson  String
-  aiProvider      String
-  aiModel         String
-  createdAt       DateTime    @default(now())
+  id             String      @id @default(cuid())
+  userId         String
+  user           User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  promptId       String
+  prompt         EssayPrompt @relation(fields: [promptId], references: [id], onDelete: Cascade)
+  content        String
+  lineCount      Int
+  score          Int
+  formalScore    Int
+  textualScore   Int
+  technicalScore Int
+  strengths      String
+  weaknesses     String
+  actionPlan     String
+  correctionJson String
+  aiProvider     String
+  aiModel        String
+  createdAt      DateTime    @default(now())
+}
+
+model TafTrainingLog {
+  id                    String          @id @default(cuid())
+  userId                String
+  user                  User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+  exerciseType          TafExerciseType
+  trainedAt             DateTime
+  distanceMeters        Int?
+  durationSeconds       Int?
+  paceSecondsPerKm      Int?
+  perceivedEffort       Int?
+  pain                  Boolean         @default(false)
+  painLocation          String?
+  repetitions           Int?
+  sets                  Int?
+  restSeconds           Int?
+  controlledExecution   Boolean?
+  cadence               String?
+  complementaryExercise String?
+  loadKg                Float?
+  notes                 String?
+  createdAt             DateTime        @default(now())
+
+  @@index([userId, exerciseType, trainedAt])
+}
+
+model TafHealthSnapshot {
+  id                   String    @id @default(cuid())
+  userId               String
+  user                 User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  doctorEvaluationDone Boolean   @default(false)
+  doctorEvaluationAt   DateTime?
+  hasLimitation        Boolean   @default(false)
+  hasPain              Boolean   @default(false)
+  painLocation         String?
+  sleepHours           Float?
+  weightKg             Float?
+  heightCm             Float?
+  bmi                  Float?
+  notes                String?
+  createdAt            DateTime  @default(now())
+
+  @@index([userId, createdAt])
+}
+
+model TafSimulation {
+  id                  String              @id @default(cuid())
+  userId              String
+  user                User                @relation(fields: [userId], references: [id], onDelete: Cascade)
+  simulatedAt         DateTime
+  exerciseOrder       String
+  runDistanceMeters   Int?
+  runDurationSeconds  Int?
+  pushups             Int?
+  situps              Int?
+  pullups             Int?
+  complementaryResult String?
+  restSeconds         Int?
+  finalStatus         TafSimulationStatus
+  notes               String?
+  createdAt           DateTime            @default(now())
+
+  @@index([userId, simulatedAt])
+}
+
+model TafChecklistItem {
+  id         String                @id @default(cuid())
+  userId     String
+  user       User                  @relation(fields: [userId], references: [id], onDelete: Cascade)
+  templateId String?
+  template   TafChecklistTemplate? @relation(fields: [templateId], references: [id], onDelete: SetNull)
+  kind       TafChecklistKind
+  title      String
+  status     TafChecklistStatus    @default(PENDENTE)
+  issuedAt   DateTime?
+  expiresAt  DateTime?
+  fileName   String?
+  filePath   String?
+  notes      String?
+  guidance   String?
+  createdAt  DateTime              @default(now())
+  updatedAt  DateTime              @updatedAt
+
+  @@unique([userId, title, kind])
+  @@index([userId, status])
+}
+
+model TafPlanTask {
+  id           String            @id @default(cuid())
+  userId       String
+  user         User              @relation(fields: [userId], references: [id], onDelete: Cascade)
+  scheduledFor DateTime
+  title        String
+  activity     String
+  status       TafPlanTaskStatus @default(PENDENTE)
+  notes        String?
+  createdAt    DateTime          @default(now())
+  updatedAt    DateTime          @updatedAt
+
+  @@unique([userId, scheduledFor, title])
+  @@index([userId, scheduledFor])
+}
+
+model TafExerciseRequirement {
+  id           String          @id @default(cuid())
+  title        String
+  exerciseType TafExerciseType
+  minMale      Float?
+  minFemale    Float?
+  unit         String          @default("repeticoes")
+  active       Boolean         @default(true)
+  notes        String?
+  createdAt    DateTime        @default(now())
+  updatedAt    DateTime        @updatedAt
+}
+
+model TafChecklistTemplate {
+  id               String             @id @default(cuid())
+  kind             TafChecklistKind
+  title            String
+  guidance         String?
+  required         Boolean            @default(true)
+  active           Boolean            @default(true)
+  dueDaysAfterExam Int?
+  createdAt        DateTime           @default(now())
+  updatedAt        DateTime           @updatedAt
+  items            TafChecklistItem[]
+
+  @@unique([kind, title])
+}
+
+model TafOfficialNotice {
+  id        String   @id @default(cuid())
+  title     String
+  content   String
+  active    Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }

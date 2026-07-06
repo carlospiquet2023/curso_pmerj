@@ -97,21 +97,21 @@ export default async function StudentDashboardPage() {
           
           <div style={{ marginTop: 24, display: 'flex', flexDirection: 'column', gap: '16px' }}>
             <div style={{ padding: '16px', background: 'var(--surface-soft)', border: '1px solid var(--line)', borderRadius: '8px' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#9e7314', fontWeight: 700, marginBottom: '8px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--gold)', fontWeight: 700, marginBottom: '8px' }}>
                 <AlertTriangle size={18} />
                 Ponto de Atenção
               </div>
-              <p style={{ margin: 0, color: '#5c4615', lineHeight: 1.5 }}>
+              <p style={{ margin: 0, color: 'var(--ink)', lineHeight: 1.5 }}>
                 {dashboard.persistentWeakness}
               </p>
             </div>
 
             <div style={{ padding: '16px', background: 'var(--surface-soft)', border: '1px solid var(--line)', borderRadius: '8px' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#1a6b41', fontWeight: 700, marginBottom: '8px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--success)', fontWeight: 700, marginBottom: '8px' }}>
                 <TrendingUp size={18} />
                 Ponto Forte
               </div>
-              <p style={{ margin: 0, color: '#134027', lineHeight: 1.5 }}>
+              <p style={{ margin: 0, color: 'var(--ink)', lineHeight: 1.5 }}>
                 {dashboard.strongPoints}
               </p>
             </div>

@@ -1,5 +1,6 @@
 import { BookOpen, Database, FileQuestion, Settings, Users } from "lucide-react";
 import { AdminConsole } from "@/components/admin-console";
+import { AdminTafPanel } from "@/components/admin-taf-panel";
 import { MetricCard } from "@/components/metric-card";
 import { getAdminDashboard } from "@/lib/admin";
 import { getCurrentUser } from "@/lib/auth";
@@ -71,6 +72,8 @@ export default async function AdminPage() {
           </div>
         </article>
       </section>
+
+      <AdminTafPanel config={dashboard.taf} />
     </div>
   );
 }

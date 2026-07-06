@@ -3,7 +3,6 @@
 import { useActionState } from "react";
 import Link from "next/link";
 import { registerAction } from "@/app/actions/auth";
-import { ShieldCheck } from "lucide-react";
 
 type AuthState = {
   error?: string;
@@ -17,7 +16,7 @@ export default function RegisterPage() {
       <div className="auth-container">
         <div className="auth-header">
           <span className="brand-mark brand-mark-auth" aria-hidden="true">
-            <ShieldCheck size={48} />
+            <img src="/images/logopmerj.png" alt="" />
           </span>
           <h1>Criar Conta</h1>
           <p>Cadastre-se para iniciar a sua jornada rumo à aprovação.</p>

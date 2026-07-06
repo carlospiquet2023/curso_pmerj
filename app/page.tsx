@@ -142,7 +142,7 @@ export default function HomePage() {
                 <h3 style={{ fontSize: '1.2rem' }}>{module.title}</h3>
                 <p>{module.description}</p>
               </div>
-              <span className="tag" style={{ background: 'var(--green-glow)', color: 'var(--green-2)', border: '1px solid var(--green-2)' }}>Acessar</span>
+              <span className="tag" style={{ background: 'var(--accent-soft)', color: 'var(--green)', border: '1px solid var(--green-2)' }}>Acessar</span>
             </Link>
           );
         })}

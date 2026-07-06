@@ -1,7 +1,8 @@
 import { prisma } from "@/lib/prisma";
+import { getTafAdminConfig } from "@/lib/taf";
 
 export async function getAdminDashboard() {
-  const [users, subjects, topics, questions, simulations, errors, flashcards, plans] = await Promise.all([
+  const [users, subjects, topics, questions, simulations, errors, flashcards, plans, taf] = await Promise.all([
     prisma.user.count(),
     prisma.subject.count(),
     prisma.edictalTopic.count(),
@@ -9,7 +10,8 @@ export async function getAdminDashboard() {
     prisma.simulation.count(),
     prisma.errorNotebookEntry.count(),
     prisma.flashcard.count(),
-    prisma.studyPlan.count()
+    prisma.studyPlan.count(),
+    getTafAdminConfig()
   ]);
 
   const subjectList = await prisma.subject.findMany({
@@ -27,6 +29,7 @@ export async function getAdminDashboard() {
 
   return {
     stats: { users, subjects, topics, questions, simulations, errors, flashcards, plans },
+    taf,
     subjects: subjectList.map((subject) => ({
       id: subject.id,
       name: subject.name,
