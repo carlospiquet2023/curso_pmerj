@@ -317,7 +317,7 @@ select {
 
 .auth-error {
   padding: 12px;
-  background: #fef2f2;
+  background: var(--surface-solid);
   border: 1px solid #fecaca;
   color: #dc2626;
   border-radius: 6px;
@@ -814,7 +814,7 @@ a.panel:hover {
   width: 100%;
   height: 10px;
   overflow: hidden;
-  background: #e4ebe5;
+  background: var(--surface-solid);
 }
 
 .progress-fill {
@@ -834,25 +834,25 @@ a.panel:hover {
 
 .status-nao-iniciado {
   color: #626d68;
-  background: #edf1ee;
+  background: var(--surface-solid);
   border-color: #dce4de;
 }
 
 .status-estudando {
   color: #183f31;
-  background: #e1efe7;
+  background: var(--surface-solid);
   border-color: #c6dfd0;
 }
 
 .status-revisando {
   color: #7b5a13;
-  background: #fff4d9;
+  background: var(--surface-solid);
   border-color: #efdba7;
 }
 
 .status-dominado {
   color: #244f7a;
-  background: #e3eff8;
+  background: var(--surface-solid);
   border-color: #c4d9ea;
 }
 
@@ -913,7 +913,7 @@ a.panel:hover {
   min-height: 28px;
   padding: 0 10px;
   color: var(--green);
-  background: #edf4ef;
+  background: var(--surface-solid);
   border: 1px solid #d9e8de;
   font-size: 0.8rem;
   font-weight: 800;
@@ -1003,12 +1003,12 @@ a.panel:hover {
 }
 
 .choice:hover {
-  background: #f0f4f2;
+  background: var(--surface-solid);
 }
 
 .choice.selected {
   border-color: var(--green-2);
-  background: #eef5f1;
+  background: var(--surface-solid);
 }
 
 .choice:disabled {
@@ -1281,7 +1281,7 @@ a.panel:hover {
 .bar-row div {
   height: 12px;
   overflow: hidden;
-  background: #e3ebe5;
+  background: var(--surface-solid);
 }
 
 .bar-row strong {
@@ -1330,7 +1330,7 @@ a.panel:hover {
 
 .essay-stat.line-warning {
   border-color: #efdba7;
-  background: #fff8e9;
+  background: var(--surface-solid);
 }
 
 .essay-stat.line-warning svg {
@@ -1338,8 +1338,8 @@ a.panel:hover {
 }
 
 .essay-stat.line-ready {
-  border-color: #c6dfd0;
-  background: #eef8f1;
+  border-color: rgba(52, 211, 153, 0.4);
+  background: var(--surface-solid);
 }
 
 .essay-layout {
@@ -1362,6 +1362,7 @@ a.panel:hover {
 .essay-prompt {
   display: flex;
   justify-content: space-between;
+  align-items: flex-start;
   gap: 16px;
   padding: 18px;
   background: var(--surface-soft);
@@ -1730,7 +1731,7 @@ select {
 
 .tag-danger {
   color: #8d2f2b;
-  background: #fff0ee;
+  background: var(--surface-solid);
   border-color: #f1cbc7;
 }
 
