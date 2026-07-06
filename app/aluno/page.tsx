@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { CheckCircle2, PlayCircle, TrendingUp, AlertTriangle } from "lucide-react";
+import { CheckCircle2, Dumbbell, PlayCircle, TrendingUp, AlertTriangle } from "lucide-react";
 import { getStudentDashboard } from "@/lib/student-dashboard";
 import { ProgressBar } from "@/components/progress-bar";
 
@@ -44,7 +44,7 @@ export default async function StudentDashboardPage() {
               <span style={{ fontSize: '2rem', fontWeight: 800, color: 'var(--gold)', lineHeight: 1 }}>
                 {dashboard.student.streakDays}
               </span>
-              <span style={{ fontWeight: 600, color: 'var(--ink)' }}>Dias 🔥</span>
+              <span style={{ fontWeight: 600, color: 'var(--ink)' }}>dias</span>
             </div>
           </div>
         </div>
@@ -117,6 +117,31 @@ export default async function StudentDashboardPage() {
             </div>
           </div>
         </article>
+      </section>
+
+      <section className="panel">
+        <div className="split-panel">
+          <div>
+            <Dumbbell className="panel-icon" size={30} />
+            <span className="eyebrow">Além da prova objetiva</span>
+            <h2>TAF, documentos e exames entram no preparo</h2>
+            <p>
+              A plataforma agora separa uma área para corrida, força, saúde, checklist documental,
+              exame psicológico, avaliação social e demais etapas pós-prova.
+            </p>
+          </div>
+          <div className="review-list">
+            {["Preparação física progressiva", "Checklist documental", "Alertas para etapas pós-prova"].map((item) => (
+              <div className="review-item" key={item}>
+                <CheckCircle2 size={18} />
+                <span><strong>{item}</strong></span>
+              </div>
+            ))}
+            <Link href="/taf" className="primary-action">
+              Abrir TAF e etapas
+            </Link>
+          </div>
+        </div>
       </section>
 
       {/* 3. Métricas Básicas (Opcional) */}

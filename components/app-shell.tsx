@@ -8,13 +8,6 @@ import { ShieldCheck, Menu, X, LogOut, User } from "lucide-react";
 import { navItems } from "@/lib/edital-data";
 import { logoutAction } from "@/app/actions/auth";
 
-// Temporary function to simulate a hook or context for auth. 
-// In a real app we'd pass it via props from layout or use a React Context
-// We'll just read from cookies or let the server pass it down, but since AppShell is Client Component,
-// we can either fetch it, or pass user as a prop. Let's assume AppShell is wrapped by layout 
-// which could pass the user. Actually, this is a Client Component, we can fetch the session via an API route
-// OR we just use a small server action.
-
 export function AppShell({ children }: { children: ReactNode }) {
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -52,18 +45,18 @@ export function AppShell({ children }: { children: ReactNode }) {
       <header className="top-nav">
         <div className="top-nav-left">
           {!isAuthPage && (
-            <button 
-              className="menu-button" 
+            <button
+              className="menu-button"
               onClick={() => setIsMenuOpen(true)}
               aria-label="Abrir menu"
             >
               <Menu size={24} />
             </button>
           )}
-          
+
           <Link href="/" className="brand">
-            <span className="brand-mark" style={{ width: 80, height: 80, display: 'flex' }}>
-              <img src="https://i.imgur.com/bUmZwYh.png" alt="Logo" style={{ width: 80, height: 80, objectFit: 'contain' }} />
+            <span className="brand-mark brand-mark-nav" aria-hidden="true">
+              <ShieldCheck size={34} />
             </span>
             <span className="brand-text">
               <strong>PMERJ</strong>
@@ -71,27 +64,27 @@ export function AppShell({ children }: { children: ReactNode }) {
             </span>
           </Link>
         </div>
-        
+
         {!isAuthPage && (
-          <div className="top-nav-right" style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
+          <div className="top-nav-right">
             {isAuthenticated ? (
               <>
-                <Link className="secondary-action" href="/aluno" style={{ minHeight: '38px', borderRadius: '6px' }}>
-                  <User size={16} style={{ marginRight: '8px' }} />
+                <Link className="secondary-action compact-action" href="/aluno">
+                  <User size={16} />
                   {userName ? userName.split(' ')[0] : 'Meu Painel'}
                 </Link>
                 <form action={logoutAction}>
-                  <button type="submit" className="menu-button" title="Sair">
+                  <button type="submit" className="menu-button" title="Sair" aria-label="Sair">
                     <LogOut size={20} />
                   </button>
                 </form>
               </>
             ) : (
               <>
-                <Link className="secondary-action" href="/login" style={{ minHeight: '38px', borderRadius: '6px' }}>
+                <Link className="secondary-action compact-action" href="/login">
                   Entrar
                 </Link>
-                <Link className="primary-action" href="/cadastro" style={{ minHeight: '38px', borderRadius: '6px' }}>
+                <Link className="primary-action compact-action" href="/cadastro">
                   Cadastrar
                 </Link>
               </>
@@ -105,11 +98,11 @@ export function AppShell({ children }: { children: ReactNode }) {
         <div className="drawer-overlay" onClick={() => setIsMenuOpen(false)}>
           <div className="drawer-content" onClick={(e) => e.stopPropagation()}>
             <div className="drawer-header">
-              <span className="brand-mark" style={{ width: 64, height: 64, display: 'flex' }}>
-                <img src="https://i.imgur.com/bUmZwYh.png" alt="Logo" style={{ width: 64, height: 64, objectFit: 'contain' }} />
+              <span className="brand-mark" aria-hidden="true">
+                <ShieldCheck size={28} />
               </span>
               <strong>Menu</strong>
-              <button className="close-button" onClick={() => setIsMenuOpen(false)}>
+              <button className="close-button" onClick={() => setIsMenuOpen(false)} aria-label="Fechar menu">
                 <X size={24} />
               </button>
             </div>

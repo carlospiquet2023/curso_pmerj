@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { PlayCircle } from "lucide-react";
 
 type VideoItem = {
@@ -63,68 +63,68 @@ const VIDEO_CATEGORIES: VideoCategory[] = [
 
 export default function VideosPage() {
   const [activeVideo, setActiveVideo] = useState<VideoItem>(VIDEO_CATEGORIES[0].videos[0]);
+  const playerRef = useRef<HTMLElement>(null);
 
   const getEmbedUrl = (video: VideoItem) => {
-    let url = `https://www.youtube.com/embed/${video.videoId}`;
-    if (video.listId) {
-      url += `?list=${video.listId}`;
-    }
-    return url;
+    const params = new URLSearchParams({
+      rel: "0",
+      modestbranding: "1",
+      playsinline: "1"
+    });
+
+    return `https://www.youtube.com/embed/${video.videoId}?${params.toString()}`;
+  };
+
+  const selectVideo = (video: VideoItem) => {
+    setActiveVideo(video);
+
+    requestAnimationFrame(() => {
+      playerRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
   };
 
   return (
-    <div className="page-container fade-in">
-      <header className="page-header">
-        <h1>Videoaulas</h1>
-        <p>Assista às aulas preparatórias focadas no edital da PMERJ 2026.</p>
-      </header>
+    <div className="page-stack">
+      <section className="section-header">
+        <div>
+          <span className="eyebrow">Videoaulas</span>
+          <h1>Aulas preparatórias PMERJ 2026</h1>
+          <p>Assista às aulas preparatórias focadas no edital da PMERJ 2026.</p>
+        </div>
+      </section>
 
-      <div className="videos-layout" style={{ display: 'flex', gap: '32px', alignItems: 'flex-start' }}>
-        <section className="video-player-container" style={{ flex: 1, position: 'sticky', top: '100px' }}>
-          <div className="video-responsive" style={{ position: 'relative', paddingBottom: '56.25%', height: 0, borderRadius: '12px', overflow: 'hidden', boxShadow: '0 12px 32px rgba(0,0,0,0.1)', background: '#000' }}>
+      <div className="videos-layout">
+        <section className="video-player-container" ref={playerRef}>
+          <div className="video-responsive">
             <iframe
-              style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
+              key={activeVideo.videoId}
+              className="video-frame"
               src={getEmbedUrl(activeVideo)}
               title={activeVideo.title}
-              frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
             />
           </div>
-          <h2 style={{ marginTop: '24px', fontSize: '1.4rem' }}>{activeVideo.title}</h2>
+          <h2 className="video-title">{activeVideo.title}</h2>
         </section>
 
-        <aside className="video-sidebar" style={{ width: '380px', flexShrink: 0, display: 'flex', flexDirection: 'column', gap: '24px', paddingBottom: '40px' }}>
+        <aside className="video-sidebar">
           {VIDEO_CATEGORIES.map((category) => (
             <div key={category.title} className="video-category">
-              <h3 style={{ fontSize: '1.1rem', marginBottom: '12px', borderBottom: '1px solid var(--line)', paddingBottom: '8px' }}>
-                {category.title}
-              </h3>
-              <div className="video-list" style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+              <h3>{category.title}</h3>
+              <div className="video-list">
                 {category.videos.map((video) => {
                   const isActive = activeVideo.videoId === video.videoId;
                   return (
                     <button
                       key={video.videoId}
-                      onClick={() => setActiveVideo(video)}
-                      style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '12px',
-                        padding: '12px',
-                        borderRadius: '8px',
-                        border: 'none',
-                        background: isActive ? 'var(--surface-soft)' : 'var(--surface-solid)',
-                        color: isActive ? 'var(--primary-dark)' : 'var(--ink)',
-                        textAlign: 'left',
-                        cursor: 'pointer',
-                        transition: 'all 0.2s',
-                        fontWeight: isActive ? '600' : '400',
-                        boxShadow: isActive ? 'inset 2px 0 0 var(--primary)' : 'none'
-                      }}
+                      className={isActive ? "video-button active" : "video-button"}
+                      onClick={() => selectVideo(video)}
+                      type="button"
+                      aria-pressed={isActive}
                     >
-                      <PlayCircle size={20} style={{ flexShrink: 0, color: isActive ? 'var(--primary)' : 'var(--ink-light)' }} />
-                      <span style={{ fontSize: '0.9rem', lineHeight: '1.3' }}>{video.title}</span>
+                      <PlayCircle size={20} />
+                      <span>{video.title}</span>
                     </button>
                   );
                 })}
@@ -133,21 +133,6 @@ export default function VideosPage() {
           ))}
         </aside>
       </div>
-      
-      <style dangerouslySetInnerHTML={{__html: `
-        @media (max-width: 1024px) {
-          .videos-layout {
-            flex-direction: column !important;
-          }
-          .video-sidebar {
-            width: 100% !important;
-          }
-          .video-player-container {
-            position: relative !important;
-            top: 0 !important;
-          }
-        }
-      `}} />
     </div>
   );
 }

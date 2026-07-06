@@ -1,4 +1,5 @@
 import { SignJWT, jwtVerify } from "jose";
+import type { JWTPayload } from "jose";
 import { cookies } from "next/headers";
 import { prisma } from "@/lib/prisma";
 
@@ -9,11 +10,11 @@ function validateSecret() {
   // Ignora validação durante o build do Next.js
   if (process.env.npm_lifecycle_event === "build") return;
   if (process.env.NODE_ENV === "production" && (!process.env.JWT_SECRET || process.env.JWT_SECRET.length < 10)) {
-    throw new Error("❌ CRITICAL: JWT_SECRET environment variable is missing or too weak in production!");
+    throw new Error("JWT_SECRET environment variable is missing or too weak in production.");
   }
 }
 
-export interface SessionPayload {
+export interface SessionPayload extends JWTPayload {
   userId: string;
   email: string;
   role: string;
@@ -21,7 +22,7 @@ export interface SessionPayload {
 
 export async function encrypt(payload: SessionPayload) {
   validateSecret();
-  return new SignJWT(payload as any)
+  return new SignJWT(payload)
     .setProtectedHeader({ alg: "HS256" })
     .setIssuedAt()
     .setExpirationTime("7d")
@@ -35,7 +36,7 @@ export async function decrypt(session: string | undefined = "") {
       algorithms: ["HS256"],
     });
     return payload as unknown as SessionPayload;
-  } catch (error) {
+  } catch {
     return null;
   }
 }

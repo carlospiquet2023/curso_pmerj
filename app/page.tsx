@@ -5,6 +5,7 @@ import {
   BookOpen,
   Brain,
   ClipboardList,
+  Dumbbell,
   FileQuestion,
   FileText,
   NotebookPen,
@@ -23,13 +24,13 @@ export default function HomePage() {
       {/* ── HERO ── */}
       <section className="hero">
         <div className="hero-content">
-          <span className="eyebrow">Plataforma oficial de estudos PMERJ</span>
-          <h1>Sua aprovação na PMERJ começa aqui.</h1>
+          <span className="eyebrow">Plataforma de estudos PMERJ 2026</span>
+          <h1>Treino guiado até o nível de aprovação.</h1>
           <p>
-            Estude com questões no padrão FGV, simulados cronometrados, plano de
-            estudos com inteligência artificial e revisões espaçadas. Tudo
-            organizado pelo edital para você dominar cada disciplina e
-            conquistar sua vaga.
+            Diagnóstico, plano automático, questões no padrão FGV, simulados
+            cronometrados, redação corrigida, revisão espaçada e preparação
+            para as etapas físicas e documentais. A matriz usa a base anterior e
+            está pronta para ser atualizada quando sair o edital 2026.
           </p>
           <div className="hero-actions">
             <Link className="primary-action" href="/cadastro">
@@ -47,11 +48,11 @@ export default function HomePage() {
           </div>
           <div className="hero-stat">
             <strong>5</strong>
-            <span>disciplinas cobradas</span>
+            <span>disciplinas objetivas</span>
           </div>
           <div className="hero-stat">
             <strong>60%</strong>
-            <span>nota mínima para aprovação</span>
+            <span>régua operacional de aprovação</span>
           </div>
         </div>
       </section>
@@ -100,6 +101,11 @@ export default function HomePage() {
             icon: FileText,
             title: "Redação Comentada",
             desc: "Pratique redações com temas reais e receba correção detalhada com nota por competência.",
+          },
+          {
+            icon: Dumbbell,
+            title: "TAF e Pós-Prova",
+            desc: "Acompanhe corrida, força, IMC, exames, documentos e etapas posteriores para não estudar só a prova objetiva.",
           },
         ].map((feature) => (
           <div className="module-card" key={feature.title}>
@@ -164,8 +170,8 @@ export default function HomePage() {
             },
             {
               icon: Target,
-              value: "100%",
-              label: "Cobertura do edital",
+              value: "Vivo",
+              label: "Mapa pronto para atualização",
             },
             {
               icon: TrendingUp,
@@ -213,8 +219,8 @@ export default function HomePage() {
               desc: "Use flashcards e revisões espaçadas para garantir retenção a longo prazo.",
             },
             {
-              step: "Simular",
-              desc: "Faça simulados completos com tempo real e análise detalhada do seu desempenho.",
+              step: "Avançar",
+              desc: "Faça simulados, redação, TAF e checklist documental para treinar a jornada completa.",
             },
           ].map((item, index) => (
             <article className="timeline-item" key={item.step}>

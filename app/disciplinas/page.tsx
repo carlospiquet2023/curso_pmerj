@@ -1,5 +1,7 @@
+import { ClipboardCheck, RefreshCcw } from "lucide-react";
 import { ProgressBar } from "@/components/progress-bar";
 import { StatusPill } from "@/components/status-pill";
+import { editalStatus } from "@/lib/edital-data";
 import { getEditalMap } from "@/lib/edital-map";
 
 export const dynamic = "force-dynamic";
@@ -11,13 +13,41 @@ export default async function SubjectsPage() {
     <div className="page-stack">
       <section className="section-header">
         <div>
-          <span className="eyebrow">Mapa completo do edital</span>
-          <h1>Disciplinas, tópicos e prioridade</h1>
+          <span className="eyebrow">Edital inteligente</span>
+          <h1>Disciplinas, tópicos, prioridade e atualização</h1>
           <p>
-            O edital foi organizado em blocos de estudo. Os dados já ficam conectados ao desempenho,
-            domínio e revisões de cada aluno.
+            A matriz foi organizada em blocos de estudo e fica conectada ao desempenho, domínio,
+            revisões e plano de cada aluno.
           </p>
         </div>
+      </section>
+
+      <section className="grid-2">
+        <article className="panel edital-status-panel">
+          <ClipboardCheck className="panel-icon" size={30} />
+          <span className="eyebrow">Matriz atual</span>
+          <h2>{editalStatus.version}</h2>
+          <p>{editalStatus.source}. {editalStatus.readiness}.</p>
+          <div className="tag-row">
+            {editalStatus.rules.map((rule) => (
+              <span className="tag" key={rule}>{rule}</span>
+            ))}
+          </div>
+        </article>
+
+        <article className="panel edital-status-panel">
+          <RefreshCcw className="panel-icon" size={30} />
+          <span className="eyebrow">Quando sair o edital 2026</span>
+          <h2>Atualização sem refazer a plataforma</h2>
+          <div className="review-list">
+            {editalStatus.adminActions.map((action) => (
+              <div className="review-item" key={action}>
+                <ClipboardCheck size={18} />
+                <span><strong>{action}</strong></span>
+              </div>
+            ))}
+          </div>
+        </article>
       </section>
 
       <section className="edital-map">

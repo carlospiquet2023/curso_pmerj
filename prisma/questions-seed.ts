@@ -1,4 +1,23 @@
-export const questionsData = [
+import type { Difficulty, PrismaClient } from "@prisma/client";
+
+type QuestionSeed = {
+  subjectSlug: string;
+  topicTitle: string;
+  statement: string;
+  difficulty: Difficulty;
+  explanation: string;
+  correctExplanation: string;
+  wrongExplanation: string;
+  trap: string;
+  reviewConcept: string;
+  options: {
+    text: string;
+    isCorrect: boolean;
+    explanation: string;
+  }[];
+};
+
+export const questionsData: QuestionSeed[] = [
   // LÍNGUA PORTUGUESA (10 questões)
   {
     subjectSlug: "lingua-portuguesa",
@@ -911,8 +930,8 @@ export const questionsData = [
 ];
 
 export async function seedQuestions(
-  prisma: any,
-  studentId: string,
+  prisma: PrismaClient,
+  _studentId: string,
   subjectMap: Record<string, string>,
   topicMap: Record<string, string>,
   sourceDocId: string
@@ -948,7 +967,7 @@ export async function seedQuestions(
         topicId,
         sourceDocumentId: sourceDocId,
         statement: q.statement,
-        difficulty: q.difficulty as any,
+        difficulty: q.difficulty,
         explanation: q.explanation,
         correctExplanation: q.correctExplanation,
         wrongExplanation: q.wrongExplanation,
@@ -969,5 +988,5 @@ export async function seedQuestions(
     createdCount++;
   }
   
-  console.log(`[Questions Seed] ✅ Inseridas ${createdCount} questões reais.`);
+  console.log(`[Questions Seed] Inseridas ${createdCount} questões reais.`);
 }

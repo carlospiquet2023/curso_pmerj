@@ -5,15 +5,19 @@ import Link from "next/link";
 import { loginAction } from "@/app/actions/auth";
 import { ShieldCheck } from "lucide-react";
 
+type AuthState = {
+  error?: string;
+} | undefined;
+
 export default function LoginPage() {
-  const [state, formAction, isPending] = useActionState(loginAction, undefined as any);
+  const [state, formAction, isPending] = useActionState(loginAction, undefined as AuthState);
 
   return (
     <div className="auth-page">
       <div className="auth-container">
         <div className="auth-header">
-          <span className="brand-mark" style={{ width: 96, height: 96, margin: '0 auto 16px', display: 'flex' }}>
-            <img src="https://i.imgur.com/bUmZwYh.png" alt="Logo" style={{ width: 96, height: 96, objectFit: 'contain' }} />
+          <span className="brand-mark brand-mark-auth" aria-hidden="true">
+            <ShieldCheck size={48} />
           </span>
           <h1>Acessar Plataforma</h1>
           <p>Entre com seu e-mail e senha para continuar estudando.</p>

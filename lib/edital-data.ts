@@ -1,5 +1,5 @@
-import React from "react";
 import {
+  Activity,
   BookOpen,
   Brain,
   BarChart3,
@@ -7,12 +7,12 @@ import {
   FileText,
   FileQuestion,
   GraduationCap,
+  Home,
   LayoutDashboard,
   NotebookPen,
   Presentation,
   RefreshCcw,
   Route,
-  ShieldCheck,
   Trophy,
   Video
 } from "lucide-react";
@@ -33,7 +33,7 @@ export type Subject = {
 };
 
 export const navItems = [
-  { href: "/", label: "Início", icon: ({ size = 20 }: { size?: number | string }) => React.createElement("img", { src: "https://i.imgur.com/bUmZwYh.png", alt: "Início", style: { width: size, height: size, objectFit: 'contain' } }) },
+  { href: "/", label: "Início", icon: Home },
   { href: "/videos", label: "Vídeos", icon: Video },
   { href: "/aluno", label: "Aluno", icon: LayoutDashboard },
   { href: "/desempenho", label: "Desempenho", icon: BarChart3 },
@@ -44,7 +44,8 @@ export const navItems = [
   { href: "/revisoes", label: "Revisões", icon: RefreshCcw },
   { href: "/professores", label: "Professores", icon: Presentation },
   { href: "/plano", label: "Plano", icon: Route },
-  { href: "/simulados", label: "Simulados", icon: ClipboardList }
+  { href: "/simulados", label: "Simulados", icon: ClipboardList },
+  { href: "/taf", label: "TAF e Etapas", icon: Activity }
 ];
 
 export const subjects: Subject[] = [
@@ -157,7 +158,7 @@ export const studyMission = [
 export const foundationModules = [
   {
     title: "Mapa do edital",
-    description: "Disciplinas, tópicos, status, prioridade e domínio.",
+    description: "Matriz viva com disciplinas, tópicos, prioridade e domínio.",
     href: "/disciplinas",
     icon: GraduationCap
   },
@@ -178,6 +179,12 @@ export const foundationModules = [
     description: "Treinos completos com diagnóstico de pontos fracos.",
     href: "/simulados",
     icon: Trophy
+  },
+  {
+    title: "TAF e etapas",
+    description: "Preparação física, exames, documentos e alertas pós-prova.",
+    href: "/taf",
+    icon: Activity
   }
 ];
 
@@ -188,3 +195,21 @@ export const questionBlueprint = [
   { subject: "Administrativo e PMERJ", count: 10, sample: "Princípios, poderes, atos, agentes e Estatuto PMERJ." },
   { subject: "Penal e Processo Penal", count: 10, sample: "Penas, excludentes, crimes, inquérito, flagrante e prova." }
 ];
+
+export const editalStatus = {
+  version: "Base inicial atualizável",
+  source: "Matriz baseada no último edital conhecido para Soldado PMERJ",
+  readiness: "Preparada para recalcular trilhas quando o edital 2026 for publicado",
+  rules: [
+    "50 questões objetivas como referência de treino",
+    "10 questões por disciplina objetiva",
+    "60% geral como régua operacional de aprovação",
+    "Nenhuma disciplina pode ficar zerada no treino"
+  ],
+  adminActions: [
+    "Atualizar disciplinas, tópicos e subassuntos",
+    "Alterar pesos e prioridades por cobrança",
+    "Vincular questões e revisões a cada tópico",
+    "Recalcular plano semanal dos alunos"
+  ]
+};
