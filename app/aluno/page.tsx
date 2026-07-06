@@ -13,7 +13,7 @@ export default async function StudentDashboardPage() {
     <div className="container page-stack">
       {/* 1. Área de Foco: Continuar de Onde Parei */}
       <section className="resume-banner" style={{
-        background: '#ffffff',
+        background: 'var(--surface-solid)',
         border: '1px solid var(--line)',
         borderRadius: 'var(--radius)',
         padding: '32px',
