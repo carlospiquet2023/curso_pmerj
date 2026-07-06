@@ -1,6 +1,7 @@
 import {
   Activity,
   BookOpen,
+  BookOpenCheck,
   Brain,
   BarChart3,
   ClipboardList,
@@ -35,6 +36,7 @@ export type Subject = {
 export const navItems = [
   { href: "/", label: "Início", icon: Home },
   { href: "/videos", label: "Vídeos", icon: Video },
+  { href: "/apostila", label: "Apostila", icon: BookOpenCheck },
   { href: "/aluno", label: "Aluno", icon: LayoutDashboard },
   { href: "/desempenho", label: "Desempenho", icon: BarChart3 },
   { href: "/disciplinas", label: "Edital", icon: BookOpen },

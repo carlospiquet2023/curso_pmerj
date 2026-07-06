@@ -17,7 +17,7 @@
     "db:push": "prisma db push",
     "db:seed": "prisma db seed",
     "db:studio": "prisma studio",
-    "seed:apostila": "tsx prisma/import-apostila.ts",
+    "apostila:publish-r2": "tsx scripts/publish-apostila-r2.ts",
     "docker:build": "docker compose build",
     "docker:up": "docker compose up --build",
     "docker:down": "docker compose down"

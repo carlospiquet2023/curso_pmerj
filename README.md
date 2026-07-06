@@ -21,7 +21,24 @@ DATABASE_URL="postgresql://usuario:senha@host:5432/banco"
 GROQ_API_KEY="sua_chave_gsk_..."
 ADMIN_TOKEN="token_super_seguro_gerado_aleatoriamente"
 NODE_ENV="production"
+R2_PUBLIC_URL="https://seu-dominio-publico-r2"
+APOSTILA_R2_PREFIX="apostila-pmerj"
 ```
+
+## Apostila no Cloudflare R2
+
+A apostila não é importada para o PostgreSQL. Ela deve ser publicada no R2 como JSON dividido em trechos pequenos:
+
+```bash
+npm run apostila:publish-r2
+```
+
+O comando gera e envia:
+
+- `{R2_PUBLIC_URL}/{APOSTILA_R2_PREFIX}/manifest.json`
+- `{R2_PUBLIC_URL}/{APOSTILA_R2_PREFIX}/chunks/*.json`
+
+A página `/apostila` carrega só o manifesto e a API busca apenas o trecho escolhido pelo aluno. Isso evita colocar o texto completo no banco ou na memória do Railway.
 
 ## Deploy no Railway 🚂
 

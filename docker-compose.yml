@@ -36,6 +36,8 @@ services:
       R2_SECRET_ACCESS_KEY: "${R2_SECRET_ACCESS_KEY:-}"
       R2_BUCKET: "${R2_BUCKET:-}"
       R2_PUBLIC_URL: "${R2_PUBLIC_URL:-}"
+      APOSTILA_R2_PREFIX: "${APOSTILA_R2_PREFIX:-apostila-pmerj}"
+      APOSTILA_R2_BASE_URL: "${APOSTILA_R2_BASE_URL:-}"
       NEXT_TELEMETRY_DISABLED: "1"
       NODE_ENV: "production"
     ports:

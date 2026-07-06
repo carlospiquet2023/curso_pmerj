@@ -2347,6 +2347,155 @@ select {
   font-size: 0.92rem;
 }
 
+.apostila-trainer {
+  display: grid;
+  gap: 18px;
+}
+
+.apostila-kpis {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.apostila-kpis article {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 4px 10px;
+  align-items: center;
+  min-height: 82px;
+  padding: 16px;
+  background: var(--surface-solid);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+}
+
+.apostila-kpis svg {
+  grid-row: span 2;
+  color: var(--shield-blue);
+}
+
+.apostila-kpis span,
+.apostila-sidebar small {
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.apostila-kpis strong {
+  font-size: 1.1rem;
+}
+
+.apostila-layout {
+  display: grid;
+  grid-template-columns: 300px minmax(0, 1fr);
+  gap: 18px;
+  align-items: start;
+}
+
+.apostila-sidebar,
+.apostila-workbench {
+  display: grid;
+  gap: 16px;
+}
+
+.apostila-subject-list {
+  display: grid;
+  gap: 8px;
+}
+
+.apostila-subject-list button,
+.apostila-mode-row button {
+  display: grid;
+  gap: 4px;
+  padding: 12px;
+  color: var(--ink);
+  text-align: left;
+  background: var(--surface-soft);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 900;
+}
+
+.apostila-subject-list button.active,
+.apostila-subject-list button:hover,
+.apostila-mode-row button.active,
+.apostila-mode-row button:hover {
+  color: #ffffff;
+  background: var(--green);
+  border-color: var(--green);
+}
+
+.apostila-subject-list button.active small,
+.apostila-subject-list button:hover small {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.apostila-controls {
+  display: grid;
+  gap: 12px;
+}
+
+.apostila-controls label {
+  display: grid;
+  gap: 6px;
+  color: var(--muted);
+  font-size: 0.86rem;
+  font-weight: 900;
+}
+
+.apostila-controls select {
+  min-height: 44px;
+  padding: 8px 12px;
+  color: var(--ink);
+  background: var(--surface-solid);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+
+.apostila-mode-row {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.apostila-mode-row button {
+  grid-template-columns: auto 1fr;
+  align-items: center;
+}
+
+.apostila-output {
+  display: grid;
+  gap: 12px;
+  padding: 16px;
+  background: var(--surface-soft);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+}
+
+.apostila-output header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.apostila-output pre {
+  max-height: 560px;
+  margin: 0;
+  overflow: auto;
+  color: var(--ink);
+  font-family: inherit;
+  line-height: 1.65;
+  white-space: pre-wrap;
+}
+
+.apostila-empty {
+  display: grid;
+  gap: 10px;
+  justify-items: start;
+}
+
 /* ==========================================
    BREAKPOINTS RESPONSIVOS & CONTAINERS
    ========================================== */
@@ -3242,6 +3391,7 @@ main {
 
   .videos-layout,
   .essay-layout,
+  .apostila-layout,
   .teacher-layout,
   .split-panel {
     grid-template-columns: 1fr;
@@ -3269,6 +3419,8 @@ main {
   .grid-4,
   .grid-3,
   .grid-2,
+  .apostila-kpis,
+  .apostila-mode-row,
   .subtopic-grid,
   .filter-grid,
   .timeline,
