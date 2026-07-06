@@ -34,7 +34,7 @@ export async function loginAction(_prevState: AuthActionState | undefined, formD
     }
   } else if (password !== "123456") {
     // Fallback para contas antigas sem hash (demo).
-    return { error: "Senha incorreta para conta legada. Tente 123456." };
+    return { error: "Senha incorreta." };
   }
 
   await createSession(user.id, user.email, user.role);

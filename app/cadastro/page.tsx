@@ -12,8 +12,8 @@ export default function RegisterPage() {
     <div className="auth-page">
       <div className="auth-container">
         <div className="auth-header">
-          <span className="brand-mark">
-            <img src="https://i.imgur.com/bUmZwYh.png" alt="Logo" style={{ width: 48, height: 48, objectFit: 'contain' }} />
+          <span className="brand-mark" style={{ width: 96, height: 96, margin: '0 auto 16px', display: 'flex' }}>
+            <img src="https://i.imgur.com/bUmZwYh.png" alt="Logo" style={{ width: 96, height: 96, objectFit: 'contain' }} />
           </span>
           <h1>Criar Conta</h1>
           <p>Cadastre-se para iniciar a sua jornada rumo à aprovação.</p>
