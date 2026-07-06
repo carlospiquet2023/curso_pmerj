@@ -1846,7 +1846,7 @@ select {
    BREAKPOINTS RESPONSIVOS & CONTAINERS
    ========================================== */
 
-/* Container genérico para limitar o layout */
+/* Container genÃ©rico para limitar o layout */
 .container {
   width: 100%;
   max-width: 1200px;
@@ -1988,7 +1988,7 @@ select {
   }
 }
 
-/* Desktop padrão e Monitor grande */
+/* Desktop padrÃ£o e Monitor grande */
 @media (min-width: 1440px) {
   .container {
     max-width: 1320px;
@@ -2007,10 +2007,10 @@ select {
 }
 
 /* ==========================================
-   MOBILE RESPONSIVENESS — ENHANCED
+   MOBILE RESPONSIVENESS â€” ENHANCED
    ========================================== */
 
-/* ── Tablet (max 1024px) ── */
+/* â”€â”€ Tablet (max 1024px) â”€â”€ */
 @media (max-width: 1024px) {
   .top-nav {
     gap: 16px;
@@ -2064,7 +2064,7 @@ select {
   }
 }
 
-/* ── Mobile (max 768px) ── */
+/* â”€â”€ Mobile (max 768px) â”€â”€ */
 @media (max-width: 768px) {
   .top-nav {
     gap: 12px;
@@ -2241,7 +2241,7 @@ select {
   }
 }
 
-/* ── Small mobile (max 480px) ── */
+/* â”€â”€ Small mobile (max 480px) â”€â”€ */
 @media (max-width: 480px) {
   .top-nav {
     padding: 0 12px;
@@ -2558,34 +2558,32 @@ select {
   color: var(--ink);
 }
 
- . m i n d - m a p - c o n t a i n e r   { 
-     d i s p l a y :   f l e x ; 
-     f l e x - w r a p :   w r a p ; 
-     j u s t i f y - c o n t e n t :   c e n t e r ; 
-     g a p :   4 0 p x ; 
-     p a d d i n g :   4 0 p x   0 ; 
-     p o s i t i o n :   r e l a t i v e ; 
- } 
- 
- . m i n d - m a p - n o d e   { 
-     p o s i t i o n :   r e l a t i v e ; 
-     z - i n d e x :   2 ; 
-     t r a n s i t i o n :   a l l   0 . 3 s   e a s e ; 
- } 
- 
- . m i n d - m a p - n o d e : h o v e r   { 
-     t r a n s f o r m :   s c a l e ( 1 . 0 5 )   t r a n s l a t e Y ( - 5 p x ) ; 
- } 
- 
- . m i n d - m a p - l i n e   { 
-     p o s i t i o n :   a b s o l u t e ; 
-     t o p :   5 0 % ; 
-     l e f t :   0 ; 
-     r i g h t :   0 ; 
-     h e i g h t :   2 p x ; 
-     b a c k g r o u n d :   l i n e a r - g r a d i e n t ( 9 0 d e g ,   t r a n s p a r e n t ,   v a r ( - - g r e e n - g l o w ) ,   t r a n s p a r e n t ) ; 
-     z - i n d e x :   1 ; 
-     b o x - s h a d o w :   0   0   1 0 p x   v a r ( - - g r e e n - g l o w ) ; 
- } 
-  
- 
+.mind-map-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  padding: 40px 0;
+  position: relative;
+}
+
+.mind-map-node {
+  position: relative;
+  z-index: 2;
+  transition: all 0.3s ease;
+}
+
+.mind-map-node:hover {
+  transform: scale(1.05) translateY(-5px);
+}
+
+.mind-map-line {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--green-glow), transparent);
+  z-index: 1;
+  box-shadow: 0 0 10px var(--green-glow);
+}
