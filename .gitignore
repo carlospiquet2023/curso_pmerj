@@ -12,6 +12,10 @@ yarn-error.log*
 pnpm-debug.log*
 *.tsbuildinfo
 
+# Local extraction scratch files
+extract-apostila.js
+lib/apostila-raw.txt
+
 # Security and local data
 prisma/dev.db
 prisma/*.db-journal

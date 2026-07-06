@@ -33,14 +33,48 @@ function fallbackCorrection(content: string, lineCount: number): Correction {
   const words = content.trim().split(/\s+/).filter(Boolean);
   const hasThesis = /defendo|entendo|portanto|assim|desse modo|nesse sentido/i.test(content);
   const hasConnectors = /al[eé]m disso|por outro lado|contudo|portanto|assim|dessa forma|em primeiro lugar/i.test(content);
-  const linePenalty = lineCount < essayRules.minLines || lineCount > essayRules.maxLines ? 12 : 0;
+
   const sizePenalty = words.length < 180 ? 10 : 0;
-  const formalScore = clamp(24 - sizePenalty / 2 - linePenalty / 3, 0, essayRules.formalPoints);
-  const textualScore = clamp((hasConnectors ? 24 : 17) - linePenalty / 3, 0, essayRules.textualPoints);
-  const technicalScore = clamp((hasThesis ? 31 : 22) - sizePenalty / 2 - linePenalty / 3, 0, essayRules.technicalPoints);
+
+  let formalScore = clamp(18 - (sizePenalty ? 4 : 0), 0, essayRules.formalPoints);
+  let textualScore = clamp(hasConnectors ? 16 : 10, 0, essayRules.textualPoints);
+  let technicalScore = clamp(hasThesis ? 16 : 10, 0, essayRules.technicalPoints);
+
+  let score = clamp(formalScore + textualScore + technicalScore, 0, 100);
+
+  if (lineCount < 10) {
+    if (score > 35) {
+      const factor = 35 / score;
+      formalScore = Math.floor(formalScore * factor);
+      textualScore = Math.floor(textualScore * factor);
+      technicalScore = Math.floor(technicalScore * factor);
+      score = 35;
+    }
+  } else if (lineCount >= 10 && lineCount < 20) {
+    if (score > 50) {
+      const factor = 50 / score;
+      formalScore = Math.floor(formalScore * factor);
+      textualScore = Math.floor(textualScore * factor);
+      technicalScore = Math.floor(technicalScore * factor);
+      score = 50;
+    }
+  } else if (lineCount >= 20 && lineCount < essayRules.minLines) {
+    if (score > 70) {
+      const factor = 70 / score;
+      formalScore = Math.floor(formalScore * factor);
+      textualScore = Math.floor(textualScore * factor);
+      technicalScore = Math.floor(technicalScore * factor);
+      score = 70;
+    }
+  }
+
+  const isInvalidLineCount = lineCount < essayRules.minLines || lineCount > essayRules.maxLines;
+  const lineFeedback = lineCount < essayRules.minLines
+    ? `Sua redação está fora do número mínimo de linhas exigido. Textos abaixo de ${essayRules.minLines} linhas sofrem forte penalização e podem receber nota muito baixa, mesmo que apresentem alguma ideia inicial.`
+    : `Texto com ${lineCount} linha(s). O oficial PMERJ exige de ${essayRules.minLines} a ${essayRules.maxLines}.`;
 
   return {
-    score: clamp(formalScore + textualScore + technicalScore, 0, 100),
+    score,
     formalScore,
     textualScore,
     technicalScore,
@@ -49,7 +83,7 @@ function fallbackCorrection(content: string, lineCount: number): Correction {
       "A estrutura pode ser evoluida com treino orientado."
     ],
     weaknesses: [
-      linePenalty ? "A quantidade de linhas está fora do intervalo oficial de 25 a 30." : "A linha oficial foi respeitada.",
+      isInvalidLineCount ? `A quantidade de linhas está fora do intervalo oficial de ${essayRules.minLines} a ${essayRules.maxLines}.` : "A linha oficial foi respeitada.",
       hasConnectors ? "Conectivos aparecem, mas podem ser usados com mais estratégia." : "Faltam conectivos claros para guiar a argumentação.",
       words.length < 180 ? "O desenvolvimento ainda está curto para sustentar nota alta." : "O desenvolvimento precisa de argumentos mais densos."
     ],
@@ -64,7 +98,7 @@ function fallbackCorrection(content: string, lineCount: number): Correction {
       "Feche com conclusão coerente e retomada da tese.",
       "Revise concordância, pontuação e repetições antes de enviar."
     ],
-    lineFeedback: `Texto com ${lineCount} linha(s). O oficial PMERJ exige de ${essayRules.minLines} a ${essayRules.maxLines}.`,
+    lineFeedback,
     finalMessage: "Nota rigorosa gerada por corretor local porque a IA externa não estava configurada. Ajuste os pontos fracos e reescreva buscando nota máxima."
   };
 }
