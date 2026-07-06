@@ -1,7 +1,5 @@
 "use server";
 
-import { mkdir, writeFile } from "node:fs/promises";
-import path from "node:path";
 import type {
   TafChecklistStatus,
   TafExerciseType,
@@ -12,6 +10,7 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { getCurrentUser } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
+import { uploadTafDocumentToR2 } from "@/lib/r2-storage";
 import { LIMITS, sanitizeText, validateCuid } from "@/lib/security";
 
 export type TafActionState = {
@@ -221,15 +220,13 @@ export async function updateTafChecklistItem(
       return fail("Arquivo acima do limite de 8 MB.");
     }
 
-    const safeName = file.name.replace(/[^a-zA-Z0-9._-]/g, "_").slice(0, 120);
-    const relativeDir = `/uploads/taf/${userId}`;
-    const uploadDir = path.join(process.cwd(), "public", "uploads", "taf", userId);
-    await mkdir(uploadDir, { recursive: true });
-
-    fileName = safeName;
-    filePath = `${relativeDir}/${Date.now()}-${safeName}`;
-    const bytes = Buffer.from(await file.arrayBuffer());
-    await writeFile(path.join(process.cwd(), "public", filePath), bytes);
+    try {
+      const upload = await uploadTafDocumentToR2({ userId, file });
+      fileName = upload.fileName;
+      filePath = upload.publicUrl;
+    } catch (error) {
+      return fail(error instanceof Error ? error.message : "Falha ao enviar arquivo para o Cloudflare R2.");
+    }
   }
 
   await prisma.tafChecklistItem.update({

@@ -562,7 +562,7 @@ function ChecklistTab({ dashboard }: TafModuleProps) {
                   </label>
                 </div>
                 <label>
-                  Arquivo
+                  Arquivo no Cloudflare R2
                   <input name="file" type="file" />
                 </label>
                 {item.filePath ? (
