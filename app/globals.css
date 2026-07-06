@@ -2526,7 +2526,8 @@ select {
 }
 
 .modal-content {
-  background: var(--surface);
+  background: var(--surface-solid);
+  border: 1px solid var(--line);
   border-radius: 12px;
   width: 100%;
   max-width: 600px;
@@ -2595,3 +2596,4 @@ select {
 }
 
 .essay-editor textarea::placeholder { color: var(--muted); }
+\n.modal-content p { color: var(--ink) !important; }\n
