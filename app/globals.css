@@ -1401,8 +1401,10 @@ a.panel:hover {
   line-height: 1.75rem;
   resize: vertical;
   background:
-    repeating-linear-gradient(var(--surface-solid) 0, var(--surface-solid) calc(1.75rem - 1px), #e7eee8 1.75rem),
+    repeating-linear-gradient(var(--surface-solid) 0, var(--surface-solid) calc(1.75rem - 1px), var(--line) 1.75rem),
     var(--surface-solid);
+  background-attachment: local;
+  background-position: 0 16px;
   border: 1px solid var(--line);
 }
 
