@@ -442,7 +442,7 @@ main {
 }
 
 .hero .secondary-action {
-  background: rgba(255, 255, 255, 0.92);
+  background: var(--surface-soft);
 }
 
 .hero-stats {
