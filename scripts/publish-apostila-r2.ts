@@ -48,7 +48,7 @@ const sections: SectionSeed[] = [
   },
   {
     title: "Direito Processual Penal",
-    keyword: "CAPÍTULO 7 – NOÇÕES DE DIREITO PROCESSUAL PENAL",
+    keyword: "CAPÍTULO 7 – NOÇÕES DE DIREITO\nPROCESSUAL PENAL",
     subjectSlug: "direito-penal-processual-penal",
     subject: "Penal e Processo"
   }
@@ -103,16 +103,17 @@ function splitIntoChunks(sectionText: string) {
 }
 
 function buildChunks(text: string) {
-  const summaryEndIndex = text.indexOf("Seja bem-vindo(a) à sua preparação");
+  const normalizedText = text.replace(/\r/g, "");
+  const summaryEndIndex = normalizedText.indexOf("Seja bem-vindo(a) à sua preparação");
   const startIndex = summaryEndIndex > 0 ? summaryEndIndex : 1000;
   const chunks: ApostilaChunk[] = [];
 
   sections.forEach((current, index) => {
     const next = sections[index + 1];
-    let contentStart = text.indexOf(current.keyword, startIndex);
+    let contentStart = normalizedText.indexOf(current.keyword, startIndex);
 
     if (contentStart === -1) {
-      contentStart = text.indexOf(current.keyword);
+      contentStart = normalizedText.indexOf(current.keyword);
     }
 
     if (contentStart === -1) {
@@ -120,15 +121,15 @@ function buildChunks(text: string) {
       return;
     }
 
-    let contentEnd = text.length;
+    let contentEnd = normalizedText.length;
     if (next) {
-      const nextIndex = text.indexOf(next.keyword, contentStart + current.keyword.length);
+      const nextIndex = normalizedText.indexOf(next.keyword, contentStart + current.keyword.length);
       if (nextIndex !== -1) {
         contentEnd = nextIndex;
       }
     }
 
-    splitIntoChunks(text.substring(contentStart, contentEnd)).forEach((content, chunkIndex) => {
+    splitIntoChunks(normalizedText.substring(contentStart, contentEnd)).forEach((content, chunkIndex) => {
       const title = `${current.title} - Trecho ${chunkIndex + 1}`;
       chunks.push({
         id: `${slugify(current.title)}-${chunkIndex + 1}`,
